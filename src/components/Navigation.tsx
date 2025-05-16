@@ -3,13 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Globe } from 'lucide-react';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -19,8 +13,8 @@ const Navigation = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const switchLanguage = (lang: 'en' | 'fa') => {
-    setLanguage(lang);
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'fa' : 'en');
   };
 
   const navItems = [
@@ -32,64 +26,48 @@ const Navigation = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border ${language === 'fa' ? 'rtl' : 'ltr'}`}>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md shadow-sm">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
-          <Link to="/" className="font-display text-xl font-bold text-charcoal">
+          <Link to="/" className="font-display text-xl font-medium text-gray-800">
             Rafiei Holding
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <div className="flex items-center space-x-6">
+        <div className="hidden md:flex items-center">
+          <div className="flex items-center space-x-8 mr-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="text-sm font-medium text-charcoal hover:text-blue transition-colors"
+                className="text-sm font-medium text-gray-700 hover:text-primary transition-colors"
               >
                 {item.label}
               </Link>
             ))}
           </div>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                <Globe className="h-4 w-4" />
-                <span className="sr-only">Toggle language</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => switchLanguage('en')}>
-                English
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => switchLanguage('fa')} className="font-sans">
-                فارسی
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={toggleLanguage}
+            className="font-medium px-3 py-1 rounded hover:bg-gray-100"
+          >
+            {language === 'en' ? 'فا' : 'EN'}
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
         <div className="md:hidden flex items-center">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="h-8 w-8 p-0 mr-2">
-                <Globe className="h-4 w-4" />
-                <span className="sr-only">Toggle language</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => switchLanguage('en')}>
-                English
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => switchLanguage('fa')} className="font-sans">
-                فارسی
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={toggleLanguage}
+            className="font-medium mr-3 hover:bg-gray-100"
+          >
+            {language === 'en' ? 'فا' : 'EN'}
+          </Button>
 
           <Button variant="ghost" size="sm" onClick={toggleMenu}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -99,13 +77,13 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className={`md:hidden absolute w-full bg-background/95 backdrop-blur-md shadow-lg border-b border-border ${language === 'fa' ? 'rtl' : 'ltr'}`}>
+        <div className="md:hidden absolute w-full bg-background/98 shadow-lg">
           <div className="container mx-auto px-4 py-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="block py-2 text-sm font-medium text-charcoal hover:text-blue transition-colors"
+                className="block py-3 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

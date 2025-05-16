@@ -22,6 +22,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         display: ['Poppins', 'sans-serif'],
+        vazir: ['Vazirmatn', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',

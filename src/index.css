@@ -14,6 +14,13 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -61,12 +68,12 @@
   }
   
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight;
+    @apply tracking-tight;
   }
 }
 
@@ -78,21 +85,31 @@
   .rtl {
     direction: rtl;
     text-align: right;
-    font-family: 'Vazirmatn', sans-serif;
   }
   
   .ltr {
     direction: ltr;
     text-align: left;
-    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-vazir {
+    font-family: 'Vazirmatn', sans-serif;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-card-hover;
+    @apply transition-all duration-300 hover:shadow-md hover:translate-y-[-2px];
   }
 
   .glass {
-    @apply bg-white/90 backdrop-blur-md border-border;
+    @apply bg-white/90 backdrop-blur-md shadow-sm border border-gray-100;
+  }
+  
+  .hero-section {
+    @apply py-28 md:py-36 bg-gradient-to-br from-gray-50 to-gray-100;
+  }
+  
+  .page-header {
+    @apply py-20 bg-gradient-to-r from-gray-50 to-blue-50/30;
   }
 }
 

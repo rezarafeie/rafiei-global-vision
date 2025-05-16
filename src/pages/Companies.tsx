@@ -6,7 +6,7 @@ import SectionTitle from '@/components/SectionTitle';
 import CompanyCard from '@/components/CompanyCard';
 
 const Companies = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const companies = [
     {
@@ -44,18 +44,32 @@ const Companies = () => {
       services: t('companies.ailab.services'),
       impact: t('companies.ailab.impact'),
     },
+    {
+      id: 'bnets',
+      title: t('companies.bnets.title'),
+      description: t('companies.bnets.description'),
+      services: t('companies.bnets.services'),
+      impact: t('companies.bnets.impact'),
+    },
+    {
+      id: 'bluecast',
+      title: t('companies.bluecast.title'),
+      description: t('companies.bluecast.description'),
+      services: t('companies.bluecast.services'),
+      impact: t('companies.bluecast.impact'),
+    },
   ];
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-charcoal text-white py-24">
+      <section className="page-header">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <div className="max-w-3xl mx-auto">
+            <h1 className={`text-4xl md:text-5xl font-medium mb-6 ${language === 'fa' ? 'font-vazir' : 'font-display'}`}>
               {t('companies.title')}
             </h1>
-            <p className="text-xl text-gray-300">
+            <p className="text-lg text-gray-600">
               {t('companies.subtitle')}
             </p>
           </div>
@@ -63,7 +77,7 @@ const Companies = () => {
       </section>
 
       {/* Companies Grid */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {companies.map((company) => (
