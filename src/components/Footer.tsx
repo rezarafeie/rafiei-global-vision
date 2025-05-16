@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Mail, MapPin, Building } from 'lucide-react';
 
 const Footer = () => {
   const { t, language } = useLanguage();
@@ -11,13 +12,36 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-display font-medium mb-4 text-gray-800">Rafiei Holding</h3>
-            <p className="text-gray-600 mb-2">{t('footer.company')}</p>
-            <p className="text-gray-600">{t('footer.location')}</p>
+            <h3 className="text-xl font-display font-bold mb-4 text-gray-800">
+              {language === 'en' ? 'Rafiei Holding' : 'هلدینگ رفیعی'}
+            </h3>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <Building className="flex-shrink-0 h-5 w-5 text-primary mt-0.5 mr-2" />
+                <div>
+                  <p className="text-gray-700 font-medium">Rafiei Ltd</p>
+                  <p className="text-gray-600 text-sm">Register Number: 14994763</p>
+                  <p className="text-gray-600 text-sm">UK Companies House</p>
+                </div>
+              </li>
+              <li className="flex items-start">
+                <MapPin className="flex-shrink-0 h-5 w-5 text-primary mt-0.5 mr-2" />
+                <div>
+                  <p className="text-gray-600">2 Frederick Street, Kings Cross</p>
+                  <p className="text-gray-600">London, United Kingdom</p>
+                </div>
+              </li>
+              <li className="flex items-start">
+                <Mail className="flex-shrink-0 h-5 w-5 text-primary mt-0.5 mr-2" />
+                <a href="mailto:contact@rafiei.co" className="text-primary hover:underline">
+                  contact@rafiei.co
+                </a>
+              </li>
+            </ul>
           </div>
           
           <div>
-            <h3 className="text-xl font-display font-medium mb-4 text-gray-800">{language === 'en' ? 'Quick Links' : 'لینک‌های سریع'}</h3>
+            <h3 className="text-xl font-display font-bold mb-4 text-gray-800">{language === 'en' ? 'Quick Links' : 'لینک‌های سریع'}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-600 hover:text-primary transition-colors">
@@ -48,7 +72,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-display font-medium mb-4 text-gray-800">{language === 'en' ? 'Connect' : 'ارتباط'}</h3>
+            <h3 className="text-xl font-display font-bold mb-4 text-gray-800">{language === 'en' ? 'Connect' : 'ارتباط'}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/privacy" className="text-gray-600 hover:text-primary transition-colors">

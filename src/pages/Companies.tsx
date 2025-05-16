@@ -4,6 +4,7 @@ import Layout from '@/components/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SectionTitle from '@/components/SectionTitle';
 import CompanyCard from '@/components/CompanyCard';
+import { ArrowRight } from 'lucide-react';
 
 const Companies = () => {
   const { t, language } = useLanguage();
@@ -62,22 +63,25 @@ const Companies = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="page-header">
+      {/* Page Header */}
+      <section className="relative overflow-hidden bg-white pt-32 pb-16">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <h1 className={`text-4xl md:text-5xl font-medium mb-6 ${language === 'fa' ? 'font-vazir' : 'font-display'}`}>
+          <div className="max-w-3xl">
+            <h1 className={`text-4xl md:text-5xl font-bold mb-6 ${language === 'fa' ? 'font-vazir' : 'font-display'}`}>
               {t('companies.title')}
             </h1>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 max-w-2xl">
               {t('companies.subtitle')}
             </p>
           </div>
         </div>
+        
+        {/* Decorative elements */}
+        <div className="absolute -z-10 top-0 right-0 w-full h-full bg-gradient-to-b from-blue-50/80 to-transparent"></div>
       </section>
 
       {/* Companies Grid */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white pb-32">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {companies.map((company) => (
@@ -90,6 +94,13 @@ const Companies = () => {
                 impact={company.impact}
               />
             ))}
+          </div>
+          
+          <div className="mt-16 text-center">
+            <p className="inline-flex items-center text-primary font-medium hover:underline">
+              <span>{language === 'en' ? 'Discover how our companies work together' : 'کشف کنید چگونه شرکت‌های ما با هم کار می‌کنند'}</span>
+              <ArrowRight className="h-4 w-4 ml-1" />
+            </p>
           </div>
         </div>
       </section>

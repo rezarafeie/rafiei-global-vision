@@ -29,8 +29,8 @@ const Navigation = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md shadow-sm">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
-          <Link to="/" className="font-display text-xl font-medium text-gray-800">
-            Rafiei Holding
+          <Link to="/" className="font-display text-xl font-bold text-gray-800">
+            {language === 'en' ? 'Rafiei Holding' : 'هلدینگ رفیعی'}
           </Link>
         </div>
 

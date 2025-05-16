@@ -41,7 +41,7 @@ export const translations = {
     // Founder page
     'founder.title': 'Reza Rafiei',
     'founder.subtitle': 'Founder & CEO',
-    'founder.bio': 'Reza Rafiei is an entrepreneur, educator, and visionary founder behind several international ventures in education, artificial intelligence, financial services, and digital business development. With over 180,000 followers on social media and thousands of students worldwide, his mission is to empower individuals to launch borderless businesses.',
+    'founder.bio': 'Reza Rafiei is an entrepreneur, educator, and visionary founder behind several international ventures in education, artificial intelligence, financial services, and digital business development. With over 300,000 followers on social media and thousands of students worldwide, his mission is to empower individuals to launch borderless businesses.',
     'founder.resume.title': 'Professional Background',
     'founder.resume.item1': 'Founder of Rafiei Academy (international business education)',
     'founder.resume.item2': 'Developer of AI Assistants & AgentLab',
@@ -149,7 +149,7 @@ export const translations = {
     // Founder page
     'founder.title': 'رضا رفیعی',
     'founder.subtitle': 'بنیانگذار و مدیرعامل',
-    'founder.bio': 'رضا رفیعی کارآفرین، مربی و بنیانگذار چندین شرکت بین‌المللی در زمینه‌های آموزش، هوش مصنوعی، خدمات مالی و توسعه کسب‌وکار دیجیتال است. با بیش از ۱۸۰,۰۰۰ دنبال‌کننده در رسانه‌های اجتماعی و هزاران دانشجو در سراسر جهان، ماموریت او توانمندسازی افراد برای راه‌اندازی کسب‌وکارهای بدون مرز است.',
+    'founder.bio': 'رضا رفیعی کارآفرین، مربی و بنیانگذار چندین شرکت بین‌المللی در زمینه‌های آموزش، هوش مصنوعی، خدمات مالی و توسعه کسب‌وکار دیجیتال است. با بیش از ۳۰۰,۰۰۰ دنبال‌کننده در رسانه‌های اجتماعی و هزاران دانشجو در سراسر جهان، ماموریت او توانمندسازی افراد برای راه‌اندازی کسب‌وکارهای بدون مرز است.',
     'founder.resume.title': 'سوابق حرفه‌ای',
     'founder.resume.item1': 'بنیانگذار آکادمی رفیعی (آموزش کسب‌وکار بین‌المللی)',
     'founder.resume.item2': 'توسعه‌دهنده دستیارهای هوش مصنوعی و AgentLab',
