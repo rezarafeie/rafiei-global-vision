@@ -14,20 +14,20 @@ interface CompanyCardProps {
 }
 
 const CompanyCard = ({ id, title, description, services, impact }: CompanyCardProps) => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   
   return (
-    <Card className="overflow-hidden h-full flex flex-col transition-all hover:shadow-lg">
-      <CardHeader className="bg-charcoal-light text-white">
-        <CardTitle className="text-xl">{title}</CardTitle>
+    <Card className="overflow-hidden h-full flex flex-col transition-all hover:shadow-card-hover border border-gray-100">
+      <CardHeader className="bg-primary/5 border-b border-gray-100">
+        <CardTitle className="text-xl font-medium text-gray-800">{title}</CardTitle>
       </CardHeader>
       <CardContent className="pt-6 pb-2 flex-grow">
-        <CardDescription className="text-foreground mb-4">{description}</CardDescription>
-        {services && <p className="mb-2 text-sm">{services}</p>}
-        {impact && <p className="text-sm text-blue font-medium">{impact}</p>}
+        <CardDescription className="text-gray-600 mb-4 !text-sm">{description}</CardDescription>
+        {services && <p className="mb-2 text-sm text-gray-600">{services}</p>}
+        {impact && <p className="text-sm text-primary font-medium">{impact}</p>}
       </CardContent>
       <CardFooter className="pt-2 pb-6">
-        <Button asChild variant="outline">
+        <Button asChild variant="outline" className="shadow-sm hover:shadow-md transition-shadow">
           <Link to={`/companies/${id}`}>{language === 'en' ? 'Learn More' : 'بیشتر بدانید'}</Link>
         </Button>
       </CardFooter>

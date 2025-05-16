@@ -87,6 +87,20 @@ export const translations = {
     'companies.ailab.services': 'Projects include podcast agents, coaching bots, business automation AI',
     'companies.ailab.impact': 'Focus on integrating AI into education, content, and SaaS',
     
+    // BNets
+    'companies.bnets.title': 'BNets – Borderless Network',
+    'companies.bnets.description': 'Private infrastructure for secure, fast, and censorship-resistant internet connectivity',
+    'companies.bnets.services': 'High-speed private network with global nodes, always-on redundancy and multi-layered security',
+    'companies.bnets.impact': 'Serving international entrepreneurs, freelancers, and digital nomads',
+    'companies.bnets.details': 'Smart routing for platforms like Stripe, Upwork, Wise, and dedicated support via Telegram bot',
+    
+    // BlueCast
+    'companies.bluecast.title': 'BlueCast – Psychology of Wealth',
+    'companies.bluecast.description': 'Persian podcast created by Reza Rafiei on wealth psychology and entrepreneurship',
+    'companies.bluecast.services': 'Topics: Financial mindset, AI and future of work, smart income generation, life design',
+    'companies.bluecast.impact': 'Available on Spotify, Castbox, and YouTube with subscription options',
+    'companies.bluecast.details': 'Blends science, stories, and strategy for mindset and income improvement',
+    
     // Contact page
     'contact.title': 'Contact Us',
     'contact.subtitle': 'Get in touch with our team',
@@ -180,6 +194,20 @@ export const translations = {
     'companies.ailab.description': 'فضای آزمایشی برای توسعه عامل‌های هوش مصنوعی',
     'companies.ailab.services': 'پروژه‌ها شامل عامل‌های پادکست، ربات‌های کوچینگ، هوش مصنوعی اتوماسیون کسب‌وکار',
     'companies.ailab.impact': 'تمرکز بر ادغام هوش مصنوعی در آموزش، محتوا و SaaS',
+    
+    // BNets
+    'companies.bnets.title': 'بی‌نتس - شبکه بدون مرز',
+    'companies.bnets.description': 'زیرساخت خصوصی برای اتصال اینترنت امن، سریع و بدون سانسور',
+    'companies.bnets.services': 'شبکه خصوصی پرسرعت با سرورهای جهانی، افزونگی همیشه روشن و امنیت چندلایه',
+    'companies.bnets.impact': 'خدمت به کارآفرینان بین‌المللی، فریلنسرها و دیجیتال نومدها',
+    'companies.bnets.details': 'مسیریابی هوشمند برای پلتفرم‌هایی مانند Stripe، Upwork، Wise و پشتیبانی اختصاصی از طریق ربات تلگرام',
+    
+    // BlueCast
+    'companies.bluecast.title': 'بلوکست - روانشناسی ثروت',
+    'companies.bluecast.description': 'پادکست فارسی ایجاد شده توسط رضا رفیعی درباره روانشناسی ثروت و کارآفرینی',
+    'companies.bluecast.services': 'موضوعات: ذهنیت مالی، هوش مصنوعی و آینده کار، تولید درآمد هوشمند، طراحی زندگی',
+    'companies.bluecast.impact': 'در دسترس در اسپاتیفای، کستباکس و یوتیوب با گزینه‌های اشتراک',
+    'companies.bluecast.details': 'ترکیبی از علم، داستان و استراتژی برای بهبود ذهنیت و درآمد',
     
     // Contact page
     'contact.title': 'تماس با ما',

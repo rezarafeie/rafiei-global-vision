@@ -12,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
   const { language } = useLanguage();
   
   return (
-    <div className={`min-h-screen flex flex-col ${language === 'fa' ? 'rtl' : 'ltr'}`}>
+    <div className={`min-h-screen flex flex-col ${language === 'fa' ? 'rtl' : 'ltr'} bg-white`}>
       <Navigation />
       <main className="flex-grow pt-16">
         {children}

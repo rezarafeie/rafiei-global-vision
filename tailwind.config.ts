@@ -29,22 +29,10 @@ export default {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        charcoal: {
-          DEFAULT: '#1A1F2C',
-          light: '#2B3142',
-        },
-        blue: {
-          DEFAULT: '#33C3F0',
-          light: '#66d1f4',
-          dark: '#1EAEDB',
-        },
-        gold: {
-          DEFAULT: '#F5A623',
-          light: '#FFBE4D',
-          dark: '#D98C1D',
-        },
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
+          DEFAULT: '#4285F4', // Google blue
+          light: '#6EA0F5',
+          dark: '#3367D6',
           foreground: 'hsl(var(--primary-foreground))'
         },
         secondary: {
@@ -95,6 +83,10 @@ export default {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.5s ease-out forwards'
+      },
+      boxShadow: {
+        'card': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       }
     }
   },
