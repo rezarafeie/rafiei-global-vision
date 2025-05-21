@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -130,10 +129,7 @@ const Index = () => {
             {products.map((product) => (
               <ProductCard
                 key={product.id}
-                id={product.id}
-                title={product.title}
-                description={product.description}
-                url={product.url}
+                productId={product.id}
               />
             ))}
           </div>
