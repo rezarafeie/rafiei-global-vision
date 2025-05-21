@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { BRAND } from '@/constants/brand';
 
 interface LayoutProps {
   children: ReactNode;
@@ -10,9 +11,10 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const { language } = useLanguage();
+  const isRtl = language === 'fa' || language === 'ar';
   
   return (
-    <div className={`min-h-screen flex flex-col ${language === 'fa' || language === 'ar' ? 'rtl font-vazir' : 'ltr'} bg-background dark:bg-gray-900`}>
+    <div className={`min-h-screen flex flex-col ${isRtl ? 'rtl font-vazir' : 'ltr'} bg-background dark:bg-gray-900`}>
       <Navigation />
       <main className="flex-grow pt-16">
         <div className="absolute top-0 left-0 w-full h-screen overflow-hidden -z-10 opacity-10 dark:opacity-5">

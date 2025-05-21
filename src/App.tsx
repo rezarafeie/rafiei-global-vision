@@ -10,9 +10,13 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import AuthLayout from "./layouts/AuthLayout";
+import MainLayout from "./layouts/MainLayout";
 
+// Create a QueryClient for data fetching
 const queryClient = new QueryClient();
 
+// This will be the central App component that handles routing and providers
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
@@ -22,10 +26,19 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              {/* Public routes */}
+              <Route element={<MainLayout />}>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+              </Route>
+              
+              {/* Auth routes - will be protected once we implement auth */}
+              <Route element={<AuthLayout />}>
+                {/* These routes will be added once we implement auth */}
+              </Route>
+              
+              {/* Catch-all route */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
