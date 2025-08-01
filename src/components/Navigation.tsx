@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -106,14 +105,6 @@ const Navigation = () => {
                 <Moon className="h-5 w-5 text-gray-700" />
               }
             </Button>
-
-            {/* Login/Register Buttons */}
-            <Button asChild size="sm" variant="outline" className="mr-2">
-              <Link to="/login">{t('nav.login')}</Link>
-            </Button>
-            <Button asChild size="sm">
-              <Link to="/register">{t('nav.register')}</Link>
-            </Button>
           </div>
         </div>
 
@@ -174,14 +165,6 @@ const Navigation = () => {
                 {item.label}
               </Link>
             ))}
-            <div className="flex space-x-2 mt-4">
-              <Button asChild size="sm" variant="outline" className="flex-1">
-                <Link to="/login" onClick={() => setIsMenuOpen(false)}>{t('nav.login')}</Link>
-              </Button>
-              <Button asChild size="sm" className="flex-1">
-                <Link to="/register" onClick={() => setIsMenuOpen(false)}>{t('nav.register')}</Link>
-              </Button>
-            </div>
           </div>
         </div>
       )}
