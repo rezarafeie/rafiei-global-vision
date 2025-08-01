@@ -65,52 +65,55 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white dark:bg-gray-900 py-24 md:py-32">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className={`text-4xl md:text-6xl font-bold mb-6 leading-tight heading-gradient dark:text-white ${language === 'fa' || language === 'ar' ? 'font-vazir' : 'font-display'}`}>
+      <section className="relative overflow-hidden hero-gradient py-32 md:py-40">
+        <div className="stripe-container">
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <h1 className={`text-5xl md:text-7xl font-bold mb-8 leading-tight text-white text-glow ${language === 'fa' || language === 'ar' ? 'font-vazir' : 'font-display'}`}>
               {t('home.hero.title')}
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
               {t('home.hero.subtitle')}
             </p>
-            <Button asChild size="lg" className="rounded-full px-8 py-6 text-base font-medium">
-              <Link to="/about">
-                {t('home.hero.cta')}
-              </Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild className="glow-button text-lg">
+                <Link to="/about">
+                  {t('home.hero.cta')}
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
         
-        {/* Background elements */}
-        <div className="absolute -z-10 -top-24 -right-24 w-96 h-96 bg-blue-50 dark:bg-blue-900/10 rounded-full"></div>
-        <div className="absolute -z-10 -bottom-20 -left-20 w-72 h-72 bg-blue-50 dark:bg-blue-900/10 rounded-full"></div>
+        {/* Enhanced background elements */}
+        <div className="absolute -z-10 -top-32 -right-32 w-96 h-96 bg-primary-glow/30 rounded-full blur-3xl"></div>
+        <div className="absolute -z-10 -bottom-24 -left-24 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
+        <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl"></div>
       </section>
       
       {/* Intro Section with Stats */}
-      <section className="section-padding bg-white dark:bg-gray-900">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto">
+      <section className="section-padding subtle-gradient">
+        <div className="stripe-container">
+          <div className="max-w-5xl mx-auto">
             <SectionTitle 
               title={t('home.intro.title')} 
               center={true} 
             />
-            <p className="text-lg text-center mb-12 text-gray-600 dark:text-gray-300">
+            <p className="text-xl text-center mb-16 text-muted-foreground max-w-3xl mx-auto">
               {t('home.intro.text')}
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 text-center transition-all hover:shadow-md">
-                <div className="text-4xl font-bold mb-2 text-primary">10+</div>
-                <p className="text-gray-700 dark:text-gray-300">{language === 'en' || language === 'tr' ? 'Years of Experience' : language === 'fa' ? 'سال‌های تجربه' : 'سنوات الخبرة'}</p>
+              <div className="glow-card p-10 text-center group">
+                <div className="text-5xl font-bold mb-4 heading-gradient">10+</div>
+                <p className="text-foreground/80 text-lg font-medium">{language === 'en' || language === 'tr' ? 'Years of Experience' : language === 'fa' ? 'سال‌های تجربه' : 'سنوات الخبرة'}</p>
               </div>
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 text-center transition-all hover:shadow-md">
-                <div className="text-4xl font-bold mb-2 text-primary">300K+</div>
-                <p className="text-gray-700 dark:text-gray-300">{language === 'en' || language === 'tr' ? 'Monthly Followers' : language === 'fa' ? 'دنبال‌کنندگان ماهانه' : 'متابعون شهريًا'}</p>
+              <div className="glow-card p-10 text-center group">
+                <div className="text-5xl font-bold mb-4 heading-gradient">300K+</div>
+                <p className="text-foreground/80 text-lg font-medium">{language === 'en' || language === 'tr' ? 'Monthly Followers' : language === 'fa' ? 'دنبال‌کنندگان ماهانه' : 'متابعون شهريًا'}</p>
               </div>
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 text-center transition-all hover:shadow-md">
-                <div className="text-4xl font-bold mb-2 text-primary">30K+</div>
-                <p className="text-gray-700 dark:text-gray-300">{language === 'en' || language === 'tr' ? 'Monthly Users' : language === 'fa' ? 'کاربران ماهانه' : 'مستخدمون شهريًا'}</p>
+              <div className="glow-card p-10 text-center group">
+                <div className="text-5xl font-bold mb-4 heading-gradient">30K+</div>
+                <p className="text-foreground/80 text-lg font-medium">{language === 'en' || language === 'tr' ? 'Monthly Users' : language === 'fa' ? 'کاربران ماهانه' : 'مستخدمون شهريًا'}</p>
               </div>
             </div>
           </div>
@@ -118,14 +121,14 @@ const Index = () => {
       </section>
       
       {/* Quick Access to Products */}
-      <section className="section-padding bg-gray-50 dark:bg-gray-800/30">
-        <div className="container mx-auto">
+      <section className="section-padding bg-background">
+        <div className="stripe-container">
           <SectionTitle 
             title={t('home.products.quick_access')} 
             center={true} 
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-16">
             {products.map((product) => (
               <ProductCard
                 key={product.id}
@@ -137,16 +140,16 @@ const Index = () => {
       </section>
 
       {/* Vision Section */}
-      <section className="section-padding bg-white dark:bg-gray-900">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className={`text-3xl md:text-5xl font-bold mb-6 text-gray-800 dark:text-white ${language === 'fa' || language === 'ar' ? 'font-vazir' : 'font-display'} heading-gradient`}>
+      <section className="section-padding subtle-gradient">
+        <div className="stripe-container">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className={`text-4xl md:text-6xl font-bold mb-8 heading-gradient ${language === 'fa' || language === 'ar' ? 'font-vazir' : 'font-display'}`}>
               {language === 'en' || language === 'tr' ? 'Our Vision' : language === 'fa' ? 'چشم‌انداز ما' : 'رؤيتنا'}
             </h2>
-            <p className="text-xl mb-8 text-gray-600 dark:text-gray-300">
+            <p className="text-xl mb-12 text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               {t('about.vision.text')}
             </p>
-            <Button asChild variant="outline" size="lg" className="rounded-full px-8 py-6">
+            <Button asChild variant="outline" className="glow-button border-primary/30 bg-transparent text-primary hover:bg-primary hover:text-primary-foreground">
               <Link to="/about">
                 {language === 'en' || language === 'tr' ? 'Learn About Our Mission' : language === 'fa' ? 'درباره ماموریت ما بیشتر بدانید' : 'تعرف على مهمتنا'}
               </Link>

@@ -32,22 +32,21 @@ const ProductCard = ({ productId, className }: ProductCardProps) => {
       target="_blank"
       rel="noopener noreferrer" 
       className={cn(
-        'block w-full transition-all duration-300 p-4 rounded-lg border border-transparent',
-        'hover:border-primary/20 hover:shadow-lg hover:-translate-y-1 hover:bg-card',
-        'dark:hover:bg-gray-800 dark:hover:border-primary/30',
+        'group block w-full glow-card p-6 hover-lift',
         isRtl ? 'text-right' : 'text-left',
         className
       )}
     >
       <div className="flex items-center gap-4">
-        <div className="p-3 bg-primary/10 dark:bg-primary/20 rounded-full">
-          <IconComponent className="w-6 h-6 text-primary" />
+        <div className="relative p-4 bg-gradient-to-br from-primary/20 to-primary-glow/10 rounded-xl group-hover:shadow-glow transition-all duration-500">
+          <IconComponent className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-300" />
+          <div className="absolute inset-0 bg-primary/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
-        <div>
-          <h3 className={`font-bold text-lg mb-1 ${isRtl ? 'font-vazir' : 'font-display'}`}>
+        <div className="flex-1">
+          <h3 className={`font-bold text-xl mb-2 text-foreground group-hover:text-primary transition-colors duration-300 ${isRtl ? 'font-vazir' : 'font-display'}`}>
             {product.name}
           </h3>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
             {description}
           </p>
         </div>

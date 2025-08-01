@@ -45,7 +45,19 @@ export const BRAND = {
         ar: 'مساعد ذكي قائم على تطبيق تلغرام',
         tr: 'Telegram tabanlı akıllı AI koç',
       },
-      icon: 'ai-assistant',
+      icon: 'Brain',
+    },
+    {
+      id: 'rafiei-exchange',
+      name: 'Rafiei Exchange',
+      url: 'https://exchange.rafiei.co',
+      description: {
+        en: 'Advanced cryptocurrency trading platform with professional tools',
+        fa: 'پلتفرم پیشرفته معاملات ارزهای دیجیتال با ابزارهای حرفه‌ای',
+        ar: 'منصة تداول العملات المشفرة المتقدمة مع الأدوات المهنية',
+        tr: 'Profesyonel araçlarla gelişmiş kripto para ticaret platformu',
+      },
+      icon: 'TrendingUp',
     },
     {
       id: 'synapse',
@@ -57,7 +69,7 @@ export const BRAND = {
         ar: 'إنشاء المساعد الذكي الخاص بك في دقائق',
         tr: 'Dakikalar içinde kendi yapay zeka asistanınızı oluşturun',
       },
-      icon: 'synapse',
+      icon: 'Zap',
     },
     {
       id: 'academy',
@@ -69,7 +81,7 @@ export const BRAND = {
         ar: 'دورات عبر الإنترنت للدخل بلا حدود',
         tr: 'Sınırsız gelir için çevrimiçi kurslar',
       },
-      icon: 'rafiei-academy',
+      icon: 'Book',
     },
     {
       id: 'bnets',
@@ -81,7 +93,7 @@ export const BRAND = {
         ar: 'شبكة ذكية بلا حدود للاتصال العالمي',
         tr: 'Küresel bağlantı için sınırsız akıllı ağ',
       },
-      icon: 'bnets',
+      icon: 'Network',
     },
     {
       id: 'agency',
@@ -93,7 +105,7 @@ export const BRAND = {
         ar: 'وكالة تطوير الأعمال الرقمية',
         tr: 'Dijital iş geliştirme ajansı',
       },
-      icon: 'rafiei-agency',
+      icon: 'Briefcase',
     },
     {
       id: 'financial',
@@ -105,7 +117,7 @@ export const BRAND = {
         ar: 'أدوات مالية دولية وتأهيل سترايب',
         tr: 'Uluslararası finansal araçlar ve Stripe entegrasyonu',
       },
-      icon: 'financial-center',
+      icon: 'CreditCard',
     },
     {
       id: 'blucast',
@@ -117,7 +129,7 @@ export const BRAND = {
         ar: 'بودكاست عن علم نفس المال وريادة الأعمال',
         tr: 'Para psikolojisi ve girişimcilik üzerine podcast',
       },
-      icon: 'blucast',
+      icon: 'Podcast',
     }
   ],
   // Company information
