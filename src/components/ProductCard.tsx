@@ -32,7 +32,7 @@ const ProductCard = ({ productId, className }: ProductCardProps) => {
       target="_blank"
       rel="noopener noreferrer" 
       className={cn(
-        'group block w-full glow-card p-6 hover-lift',
+        'group block w-full glow-card p-6 hover-lift hover:shadow-glow',
         isRtl ? 'text-right' : 'text-left',
         className
       )}

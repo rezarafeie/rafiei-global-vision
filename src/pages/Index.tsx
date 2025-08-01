@@ -75,7 +75,7 @@ const Index = () => {
               {t('home.hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="glow-button text-lg">
+              <Button asChild className="glow-button shadow-elegant hover:shadow-glow text-lg">
                 <Link to="/about">
                   {t('home.hero.cta')}
                 </Link>
@@ -149,7 +149,7 @@ const Index = () => {
             <p className="text-xl mb-12 text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               {t('about.vision.text')}
             </p>
-            <Button asChild variant="outline" className="glow-button border-primary/30 bg-transparent text-primary hover:bg-primary hover:text-primary-foreground">
+            <Button asChild variant="outline" className="glow-button shadow-elegant hover:shadow-glow border-primary/30 bg-transparent text-primary hover:bg-primary hover:text-primary-foreground">
               <Link to="/about">
                 {language === 'en' || language === 'tr' ? 'Learn About Our Mission' : language === 'fa' ? 'درباره ماموریت ما بیشتر بدانید' : 'تعرف على مهمتنا'}
               </Link>
