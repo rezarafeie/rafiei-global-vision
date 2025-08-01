@@ -1,12 +1,12 @@
 
 import React from 'react';
-import Layout from '@/components/Layout';
 import SectionTitle from '@/components/SectionTitle';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
   const { t, language } = useLanguage();
+  const isRtl = language === 'fa' || language === 'ar';
 
   const timelineEvents = [
     {
@@ -72,15 +72,15 @@ const About = () => {
   ];
 
   return (
-    <Layout>
+    <div className={isRtl ? 'rtl text-right' : 'ltr text-left'}>
       {/* Hero Section */}
-      <section className="bg-gray-50 dark:bg-gray-800 py-24">
-        <div className="container mx-auto px-6">
+      <section className="page-header">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className={`text-4xl md:text-5xl font-bold mb-6 heading-gradient dark:text-white ${language === 'fa' || language === 'ar' ? 'font-vazir' : 'font-display'}`}>
+            <h1 className={`text-4xl md:text-5xl font-bold mb-6 heading-gradient ${isRtl ? 'font-vazir' : 'font-display'}`}>
               {t('about.title')}
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
+            <p className="text-xl text-muted-foreground">
               {t('about.subtitle')}
             </p>
           </div>
@@ -91,17 +91,21 @@ const About = () => {
       <section className="section-padding">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <Card className="bg-gradient-to-br from-gray-900 to-gray-800 text-white dark:from-gray-800 dark:to-gray-900">
+            <Card className="glow-card hover:shadow-glow transition-all duration-500">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold mb-4">{t('about.vision.title')}</h2>
-                <p className="text-gray-200">{t('about.vision.text')}</p>
+                <h2 className={`text-2xl font-bold mb-4 text-foreground ${isRtl ? 'font-vazir' : ''}`}>
+                  {t('about.vision.title')}
+                </h2>
+                <p className="text-muted-foreground">{t('about.vision.text')}</p>
               </CardContent>
             </Card>
             
-            <Card className="bg-gradient-to-br from-blue-700 to-blue-600 text-white dark:from-blue-800 dark:to-blue-700">
+            <Card className="glow-card hover:shadow-glow transition-all duration-500">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold mb-4">{t('about.mission.title')}</h2>
-                <p className="text-gray-200">{t('about.mission.text')}</p>
+                <h2 className={`text-2xl font-bold mb-4 text-foreground ${isRtl ? 'font-vazir' : ''}`}>
+                  {t('about.mission.title')}
+                </h2>
+                <p className="text-muted-foreground">{t('about.mission.text')}</p>
               </CardContent>
             </Card>
           </div>
@@ -109,26 +113,26 @@ const About = () => {
       </section>
 
       {/* Founder Section */}
-      <section className="section-padding bg-white dark:bg-gray-900">
+      <section className="section-padding subtle-gradient">
         <div className="container mx-auto">
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
+              <div className={isRtl ? 'md:order-2' : ''}>
                 <img 
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3"
                   alt="Reza Rafiei" 
-                  className="w-full h-96 object-cover rounded-2xl shadow-lg"
+                  className="w-full h-96 object-cover rounded-2xl shadow-elegant hover-lift"
                 />
               </div>
-              <div>
-                <h2 className={`text-3xl font-bold mb-4 heading-gradient dark:text-white ${language === 'fa' || language === 'ar' ? 'font-vazir' : 'font-display'}`}>
-                  Reza Rafiei
+              <div className={isRtl ? 'md:order-1' : ''}>
+                <h2 className={`text-3xl font-bold mb-4 heading-gradient ${isRtl ? 'font-vazir' : 'font-display'}`}>
+                  {isRtl ? 'رضا رفیعی' : 'Reza Rafiei'}
                 </h2>
                 <p className="text-sm text-primary font-medium mb-4">
                   {language === 'en' || language === 'tr' ? 'Founder & CEO' : 
                    language === 'fa' ? 'بنیانگذار و مدیرعامل' : 'المؤسس والرئيس التنفيذي'}
                 </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   {language === 'en' || language === 'tr' 
                     ? 'Reza Rafiei is an entrepreneur, educator, and visionary founder behind several international ventures in education, artificial intelligence, financial services, and digital business development. With over 300,000 followers on social media and thousands of students worldwide, his mission is to empower individuals to launch borderless businesses.'
                     : language === 'fa'
@@ -143,7 +147,7 @@ const About = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="section-padding bg-gray-50 dark:bg-gray-800/30">
+      <section className="section-padding">
         <div className="container mx-auto">
           <SectionTitle 
             title={t('about.timeline.title')} 
@@ -153,7 +157,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-700 transform md:translate-x-[-0.5px]"></div>
+              <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border transform md:translate-x-[-0.5px]"></div>
               
               {/* Timeline Events */}
               {timelineEvents.map((event, index) => (
@@ -161,34 +165,34 @@ const About = () => {
                   key={index} 
                   className={`relative mb-12 animate-fade-in ${
                     index % 2 === 0 
-                      ? 'md:pr-12 md:text-right md:ml-auto md:mr-[50%]' 
-                      : 'md:pl-12 md:text-left md:ml-[50%] md:mr-0'
+                      ? `md:pr-12 ${isRtl ? 'md:text-left md:ml-[50%] md:mr-0' : 'md:text-right md:ml-auto md:mr-[50%]'}` 
+                      : `md:pl-12 ${isRtl ? 'md:text-right md:ml-auto md:mr-[50%]' : 'md:text-left md:ml-[50%] md:mr-0'}`
                   }`}
                 >
                   {/* Dot */}
-                  <div className={`absolute top-0 w-4 h-4 rounded-full bg-primary ${
+                  <div className={`absolute top-0 w-4 h-4 rounded-full bg-primary shadow-glow ${
                     index % 2 === 0
-                      ? 'left-[-8px] md:left-auto md:right-[-8px]'
+                      ? `left-[-8px] ${isRtl ? '' : 'md:left-auto md:right-[-8px]'}`
                       : 'left-[-8px]'
                   }`}></div>
                   
                   {/* Year */}
-                  <span className="inline-block bg-primary text-white text-sm font-bold rounded-full px-3 py-1 mb-2">
+                  <span className="inline-block glow-button text-sm px-4 py-2 mb-3">
                     {event.year}
                   </span>
                   
                   {/* Content */}
-                  <h3 className={`text-xl font-bold mb-2 dark:text-white ${language === 'fa' || language === 'ar' ? 'font-vazir' : 'font-display'}`}>
+                  <h3 className={`text-xl font-bold mb-2 text-foreground ${isRtl ? 'font-vazir' : 'font-display'}`}>
                     {event.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">{event.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">{event.description}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
       </section>
-    </Layout>
+    </div>
   );
 };
 
