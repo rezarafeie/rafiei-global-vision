@@ -28,46 +28,44 @@ const Footer = () => {
   ];
 
   return (
-    <footer className={`relative bg-gradient-to-br from-background via-muted/30 to-background border-t border-border/50 ${language === 'fa' || language === 'ar' ? 'rtl' : 'ltr'}`}>
-      <div className="absolute inset-0 bg-gradient-to-t from-muted/20 to-transparent pointer-events-none"></div>
-      <div className="relative container mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
+    <footer className={`relative bg-background border-t ${language === 'fa' || language === 'ar' ? 'rtl' : 'ltr'}`}>
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* About */}
-          <div className="col-span-1 md:col-span-2">
+          <div>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-glow">
-                <span className="text-white font-bold text-xl">R</span>
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-lg">R</span>
               </div>
-              <h3 className={`text-2xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent ${language === 'fa' || language === 'ar' ? 'font-vazir' : ''}`}>
+              <h3 className={`text-xl font-bold text-foreground ${language === 'fa' || language === 'ar' ? 'font-vazir' : ''}`}>
                 {language === 'en' || language === 'tr' ? 'Rafiei Group' : 
                  language === 'fa' ? 'گروه رفیعی' : 'مجموعة رفيعي'}
               </h3>
             </div>
-            <div className="space-y-6">
-              <div className="p-6 rounded-xl bg-muted/30 backdrop-blur-sm border border-border/50">
-                <div className="flex items-start space-x-3">
-                  <Building className="flex-shrink-0 h-6 w-6 text-primary mt-1" />
+            <div className="space-y-4">
+              <div>
+                <div className="flex items-start space-x-2 mb-3">
+                  <Building className="flex-shrink-0 h-4 w-4 text-primary mt-1" />
                   <div>
-                    <p className="text-foreground font-semibold text-lg">RAFIEI LTD</p>
-                    <p className="text-muted-foreground">Register Number: 14994763</p>
-                    <p className="text-muted-foreground">UK Companies House</p>
+                    <p className="text-foreground font-medium">RAFIEI LTD</p>
+                    <p className="text-muted-foreground text-sm">Register Number: 14994763</p>
                   </div>
                 </div>
               </div>
               
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <MapPin className="flex-shrink-0 h-5 w-5 text-primary mt-1" />
+              <div className="space-y-3">
+                <div className="flex items-start space-x-2">
+                  <MapPin className="flex-shrink-0 h-4 w-4 text-primary mt-1" />
                   <div>
-                    <p className="text-muted-foreground">2 Frederick Street, Kings Cross</p>
-                    <p className="text-muted-foreground">London, United Kingdom</p>
+                    <p className="text-muted-foreground text-sm">2 Frederick Street, Kings Cross</p>
+                    <p className="text-muted-foreground text-sm">London, United Kingdom</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="flex-shrink-0 h-5 w-5 text-primary" />
+                <div className="flex items-center space-x-2">
+                  <Mail className="flex-shrink-0 h-4 w-4 text-primary" />
                   <a 
                     href="mailto:contact@rafiei.co" 
-                    className="text-primary hover:text-primary/80 transition-colors font-medium"
+                    className="text-primary hover:text-primary/80 transition-colors text-sm"
                   >
                     contact@rafiei.co
                   </a>
@@ -143,72 +141,55 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Products */}
+          {/* Legal */}
           <div>
             <h3 className={`text-xl font-bold mb-6 text-foreground ${language === 'fa' || language === 'ar' ? 'font-vazir' : ''}`}>
-              {t('home.products.title')}
+              Legal
             </h3>
-            <div className="grid grid-cols-2 gap-3">
-              {products.map((product) => (
-                <a 
-                  key={product.id} 
-                  href={product.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="group flex flex-col items-center justify-center p-4 rounded-xl bg-muted/30 backdrop-blur-sm border border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 hover:shadow-glow hover:scale-105"
-                >
-                  <div className="text-primary group-hover:scale-110 transition-transform duration-300">
-                    {product.icon}
-                  </div>
-                  <span className="text-xs mt-2 font-medium text-muted-foreground group-hover:text-primary transition-colors">
-                    {product.name}
-                  </span>
-                </a>
-              ))}
+            <div className="space-y-4">
+              <Link 
+                to="/privacy" 
+                className="text-muted-foreground hover:text-primary transition-colors text-sm block flex items-center group"
+              >
+                <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                {t('footer.privacy')}
+              </Link>
+              <Link 
+                to="/terms" 
+                className="text-muted-foreground hover:text-primary transition-colors text-sm block flex items-center group"
+              >
+                <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                {t('footer.terms')}
+              </Link>
             </div>
             
+            {/* Social Links */}
             <div className="mt-8">
-              <h4 className="text-sm font-semibold text-foreground mb-4">Legal</h4>
-              <div className="space-y-3">
-                <Link 
-                  to="/privacy" 
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm block flex items-center group"
-                >
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  {t('footer.privacy')}
-                </Link>
-                <Link 
-                  to="/terms" 
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm block flex items-center group"
-                >
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  {t('footer.terms')}
-                </Link>
+              <h4 className="text-sm font-semibold text-foreground mb-4">Follow Us</h4>
+              <div className="flex space-x-3">
+                {socialLinks.map((social) => (
+                  <a 
+                    key={social.name}
+                    href="#" 
+                    aria-label={social.name} 
+                    className="w-9 h-9 rounded-lg bg-muted/40 border border-border/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 hover:border-primary/30 transition-all duration-200"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d={social.icon} />
+                    </svg>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
         </div>
         
-        <Separator className="my-12 bg-border/50" />
+        <Separator className="my-8" />
         
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
             {t('footer.copyright')}
           </p>
-          <div className="flex space-x-6">
-            {socialLinks.map((social) => (
-              <a 
-                key={social.name}
-                href="#" 
-                aria-label={social.name} 
-                className="w-10 h-10 rounded-full bg-muted/30 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 hover:scale-110"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d={social.icon} />
-                </svg>
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>
