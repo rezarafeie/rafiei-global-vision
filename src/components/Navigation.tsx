@@ -41,56 +41,56 @@ const Navigation = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md shadow-sm dark:bg-gray-900/90 dark:border-b dark:border-gray-800">
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-elegant">
+      <nav className="container mx-auto px-6 py-5 flex items-center justify-between">
         <div className="flex items-center">
-          <Link to="/" className="font-display text-xl font-bold text-gray-800 dark:text-white">
-            {language === 'en' || language === 'tr' ? 'Rafiei Group' : 
-             language === 'fa' ? 'گروه رفیعی' : 'مجموعة رفيعي'}
+          <Link to="/" className="group flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-glow group-hover:shadow-primary/50 transition-all duration-300">
+              <span className="text-white font-bold text-lg">R</span>
+            </div>
+            <span className="font-display text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+              {language === 'en' || language === 'tr' ? 'Rafiei Group' : 
+               language === 'fa' ? 'گروه رفیعی' : 'مجموعة رفيعي'}
+            </span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          <div className={`flex items-center ${language === 'fa' || language === 'ar' ? 'space-x-reverse' : 'space-x-6'}`}>
+        <div className="hidden md:flex items-center space-x-8">
+          <div className={`flex items-center ${language === 'fa' || language === 'ar' ? 'space-x-reverse' : 'space-x-8'}`}>
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="text-sm font-medium text-gray-700 hover:text-primary transition-colors dark:text-gray-200"
+                className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 group"
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary/50 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
           </div>
 
           <div className="flex items-center space-x-4">
             {/* Language Switcher */}
-            <div className="flex space-x-2 items-center border border-gray-200 dark:border-gray-700 rounded-full p-1">
-              <button
-                onClick={() => handleLanguageChange('en')}
-                className={`text-sm p-1 px-2 rounded-full ${language === 'en' ? 'bg-gray-100 dark:bg-gray-700' : ''}`}
-              >
-                🇬🇧
-              </button>
-              <button
-                onClick={() => handleLanguageChange('fa')}
-                className={`text-sm p-1 px-2 rounded-full ${language === 'fa' ? 'bg-gray-100 dark:bg-gray-700' : ''}`}
-              >
-                🇮🇷
-              </button>
-              <button
-                onClick={() => handleLanguageChange('ar')}
-                className={`text-sm p-1 px-2 rounded-full ${language === 'ar' ? 'bg-gray-100 dark:bg-gray-700' : ''}`}
-              >
-                🇸🇦
-              </button>
-              <button
-                onClick={() => handleLanguageChange('tr')}
-                className={`text-sm p-1 px-2 rounded-full ${language === 'tr' ? 'bg-gray-100 dark:bg-gray-700' : ''}`}
-              >
-                🇹🇷
-              </button>
+            <div className="flex items-center bg-muted/50 backdrop-blur-sm rounded-full p-1 border border-border/50">
+              {[
+                { code: 'en', flag: '🇬🇧' },
+                { code: 'fa', flag: '🇮🇷' },
+                { code: 'ar', flag: '🇸🇦' },
+                { code: 'tr', flag: '🇹🇷' }
+              ].map(({ code, flag }) => (
+                <button
+                  key={code}
+                  onClick={() => handleLanguageChange(code as 'en' | 'fa' | 'ar' | 'tr')}
+                  className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 text-sm hover:scale-105 ${
+                    language === code 
+                      ? 'bg-primary text-primary-foreground shadow-sm' 
+                      : 'hover:bg-accent'
+                  }`}
+                >
+                  {flag}
+                </button>
+              ))}
             </div>
 
             {/* Theme Toggle */}
@@ -98,68 +98,77 @@ const Navigation = () => {
               variant="ghost" 
               size="icon" 
               onClick={toggleTheme}
-              className="rounded-full"
+              className="rounded-full w-10 h-10 bg-muted/50 backdrop-blur-sm border border-border/50 hover:bg-accent hover:scale-105 transition-all duration-200"
             >
               {theme === 'dark' ? 
-                <Sun className="h-5 w-5 text-yellow-400" /> : 
-                <Moon className="h-5 w-5 text-gray-700" />
+                <Sun className="h-4 w-4 text-amber-500" /> : 
+                <Moon className="h-4 w-4 text-slate-600" />
               }
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center space-x-2">
           <Button 
             variant="ghost" 
             size="icon" 
             onClick={toggleTheme}
-            className="mr-2"
+            className="rounded-full w-10 h-10 bg-muted/50 backdrop-blur-sm border border-border/50"
           >
             {theme === 'dark' ? 
-              <Sun className="h-5 w-5 text-yellow-400" /> : 
-              <Moon className="h-5 w-5" />
+              <Sun className="h-4 w-4 text-amber-500" /> : 
+              <Moon className="h-4 w-4 text-slate-600" />
             }
           </Button>
 
           {/* Mobile Language Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="mr-2">
-                <Flag className="h-5 w-5" />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="rounded-full w-10 h-10 bg-muted/50 backdrop-blur-sm border border-border/50"
+              >
+                <Flag className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem onClick={() => handleLanguageChange('en')}>
+            <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuItem onClick={() => handleLanguageChange('en')} className="cursor-pointer">
                 🇬🇧 English
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleLanguageChange('fa')}>
+              <DropdownMenuItem onClick={() => handleLanguageChange('fa')} className="cursor-pointer">
                 🇮🇷 فارسی
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleLanguageChange('ar')}>
+              <DropdownMenuItem onClick={() => handleLanguageChange('ar')} className="cursor-pointer">
                 🇸🇦 العربية
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleLanguageChange('tr')}>
+              <DropdownMenuItem onClick={() => handleLanguageChange('tr')} className="cursor-pointer">
                 🇹🇷 Türkçe
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Button variant="ghost" size="icon" onClick={toggleMenu}>
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={toggleMenu}
+            className="rounded-full w-10 h-10 bg-muted/50 backdrop-blur-sm border border-border/50"
+          >
+            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute w-full bg-background/98 dark:bg-gray-900/98 shadow-lg border-t border-gray-200 dark:border-gray-800">
-          <div className="container mx-auto px-4 py-4">
+        <div className="md:hidden absolute w-full bg-background/95 backdrop-blur-xl border-t border-border/50 shadow-elegant">
+          <div className="container mx-auto px-6 py-6 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="block py-3 text-sm font-medium text-gray-700 hover:text-primary transition-colors dark:text-gray-200"
+                className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
