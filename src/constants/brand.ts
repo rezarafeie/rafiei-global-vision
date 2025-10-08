@@ -130,6 +130,54 @@ export const BRAND = {
         tr: 'Para psikolojisi ve girişimcilik üzerine podcast',
       },
       icon: 'Podcast',
+    },
+    {
+      id: 'rafiei-financial',
+      name: 'Rafiei Financial',
+      url: 'https://financial.rafiei.co',
+      description: {
+        en: 'Payment gateway and online payment services',
+        fa: 'درگاه پرداخت و خدمات پرداخت آنلاین',
+        ar: 'بوابة الدفع وخدمات الدفع عبر الإنترنت',
+        tr: 'Ödeme ağ geçidi ve çevrimiçi ödeme hizmetleri',
+      },
+      icon: 'Wallet',
+    },
+    {
+      id: 'boundless-network',
+      name: 'Boundless Network',
+      url: 'https://bnets.co',
+      description: {
+        en: 'Virtual private network with more than 20 worldwide locations in one service',
+        fa: 'شبکه خصوصی مجازی با بیش از 20 موقعیت جهانی در یک سرویس',
+        ar: 'شبكة خاصة افتراضية مع أكثر من 20 موقعًا عالميًا في خدمة واحدة',
+        tr: 'Tek bir hizmette 20\'den fazla dünya çapında konuma sahip sanal özel ağ',
+      },
+      icon: 'Shield',
+    },
+    {
+      id: 'rafiei-mag',
+      name: 'Rafiei Mag',
+      url: 'https://mag.rafiei.co',
+      description: {
+        en: 'First artificial intelligence tech and business magazine',
+        fa: 'اولین مجله تکنولوژی و کسب‌وکار هوش مصنوعی',
+        ar: 'أول مجلة للذكاء الاصطناعي والتكنولوجيا والأعمال',
+        tr: 'İlk yapay zeka teknolojisi ve iş dergisi',
+      },
+      icon: 'Newspaper',
+    },
+    {
+      id: 'vetamerse',
+      name: 'Vetamerse',
+      url: 'https://vetamerse.rafiei.co',
+      description: {
+        en: 'Metaverse and web3 media and courses',
+        fa: 'رسانه و دوره‌های متاورس و وب3',
+        ar: 'وسائط ودورات الميتافيرس والويب 3',
+        tr: 'Metaverse ve web3 medya ve kursları',
+      },
+      icon: 'Layers',
     }
   ],
   // Company information
