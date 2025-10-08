@@ -50,7 +50,7 @@ export const BRAND = {
     {
       id: 'global-ai-coach',
       name: 'Global AI Coach',
-      url: 'https://globalaicoach.com',
+      url: 'https://coach.rafiei.co',
       description: {
         en: 'AI interactive learning system for global education',
         fa: 'سیستم یادگیری تعاملی هوش مصنوعی برای آموزش جهانی',
@@ -62,7 +62,7 @@ export const BRAND = {
     {
       id: 'bettermx',
       name: 'BetterMX',
-      url: 'https://bettermx.com',
+      url: 'https://bettermx.rafiei.co',
       description: {
         en: 'Professional email forwarding service',
         fa: 'سرویس حرفه‌ای فورواردینگ ایمیل',
@@ -144,16 +144,16 @@ export const BRAND = {
       icon: 'CreditCard',
     },
     {
-      id: 'blucast',
-      name: 'BlookCast', 
-      url: 'https://blucast.rafiei.co',
+      id: 'rafiei-payment',
+      name: 'Rafiei Payment',
+      url: 'https://pay.rafiei.co',
       description: {
-        en: 'Podcast on the psychology of money & entrepreneurship',
-        fa: 'پادکست درباره روانشناسی پول و کارآفرینی',
-        ar: 'بودكاست عن علم نفس المال وريادة الأعمال',
-        tr: 'Para psikolojisi ve girişimcilik üzerine podcast',
+        en: 'International payments services',
+        fa: 'خدمات پرداخت بین‌المللی',
+        ar: 'خدمات الدفع الدولية',
+        tr: 'Uluslararası ödeme hizmetleri',
       },
-      icon: 'Podcast',
+      icon: 'CreditCard',
     },
     {
       id: 'rafiei-financial',
