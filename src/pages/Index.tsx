@@ -2,69 +2,35 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ArrowRight, Users, Globe, Star, Mail, BookOpen, Brain, Forward } from 'lucide-react';
+import { ArrowRight, Users, Globe, Star, Brain, TrendingUp, Zap, BookOpen, Network, Briefcase, CreditCard, Podcast, Wallet, Shield, Newspaper, Layers } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { BRAND } from '@/constants/brand';
 
 const Index = () => {
   const { t, language } = useLanguage();
   const isRtl = language === 'fa' || language === 'ar';
 
-  const services = [
-    {
-      icon: <Star className="h-6 w-6" />,
-      title: language === 'en' || language === 'tr' ? 'AI Assistant' : 
-             language === 'fa' ? 'دستیار هوشمند' : 'المساعد الذكي',
-      description: language === 'en' || language === 'tr' ? 'Smart Telegram-based AI coach for productivity' : 
-                   language === 'fa' ? 'مربی هوشمند تلگرامی برای بهره‌وری' : 
-                   'مدرب ذكي على تلغرام للإنتاجية',
-      url: 'https://ai.rafiei.co'
-    },
-    {
-      icon: <Brain className="h-6 w-6" />,
-      title: language === 'en' || language === 'tr' ? 'Global AI Coach' : 
-             language === 'fa' ? 'مربی جهانی هوش مصنوعی' : 'المدرب العالمي للذكاء الاصطناعي',
-      description: language === 'en' || language === 'tr' ? 'AI interactive learning system for global education' : 
-                   language === 'fa' ? 'سیستم یادگیری تعاملی هوش مصنوعی برای آموزش جهانی' : 
-                   'نظام التعلم التفاعلي بالذكاء الاصطناعي للتعليم العالمي',
-      url: 'https://globalaicoach.com'
-    },
-    {
-      icon: <Forward className="h-6 w-6" />,
-      title: language === 'en' || language === 'tr' ? 'BetterMX' : 
-             language === 'fa' ? 'بترمکس' : 'بيترمكس',
-      description: language === 'en' || language === 'tr' ? 'Professional email forwarding service' : 
-                   language === 'fa' ? 'سرویس حرفه‌ای فورواردینگ ایمیل' : 
-                   'خدمة إعادة توجيه البريد الإلكتروني المهنية',
-      url: 'https://bettermx.com'
-    },
-    {
-      icon: <BookOpen className="h-6 w-6" />,
-      title: language === 'en' || language === 'tr' ? 'Rafiei Academy' : 
-             language === 'fa' ? 'آکادمی رفیعی' : 'أكاديمية رفيعي',
-      description: language === 'en' || language === 'tr' ? 'Online courses for borderless income' : 
-                   language === 'fa' ? 'دوره‌های آنلاین برای کسب درآمد بدون مرز' : 
-                   'دورات عبر الإنترنت للدخل بلا حدود',
-      url: 'https://academy.rafiei.co'
-    },
-    {
-      icon: <Globe className="h-6 w-6" />,
-      title: language === 'en' || language === 'tr' ? 'Rafiei Exchange' : 
-             language === 'fa' ? 'صرافی رفیعی' : 'صرافة رفيعي',
-      description: language === 'en' || language === 'tr' ? 'Advanced cryptocurrency trading platform' : 
-                   language === 'fa' ? 'پلتفرم پیشرفته معاملات ارز دیجیتال' : 
-                   'منصة تداول العملات المشفرة المتقدمة',
-      url: 'https://exchange.rafiei.co'
-    },
-    {
-      icon: <Star className="h-6 w-6" />,
-      title: language === 'en' || language === 'tr' ? 'Synapse' : 
-             language === 'fa' ? 'سیناپس' : 'سينابس',
-      description: language === 'en' || language === 'tr' ? 'Create your own AI assistant in minutes' : 
-                   language === 'fa' ? 'دستیار هوشمند خود را در چند دقیقه بسازید' : 
-                   'إنشاء المساعد الذكي الخاص بك في دقائق',
-      url: 'https://synapse.rafiei.co'
-    }
-  ];
+  const iconMap: Record<string, React.ReactNode> = {
+    Brain: <Brain className="h-6 w-6" />,
+    TrendingUp: <TrendingUp className="h-6 w-6" />,
+    Zap: <Zap className="h-6 w-6" />,
+    Book: <BookOpen className="h-6 w-6" />,
+    Network: <Network className="h-6 w-6" />,
+    Briefcase: <Briefcase className="h-6 w-6" />,
+    CreditCard: <CreditCard className="h-6 w-6" />,
+    Podcast: <Podcast className="h-6 w-6" />,
+    Wallet: <Wallet className="h-6 w-6" />,
+    Shield: <Shield className="h-6 w-6" />,
+    Newspaper: <Newspaper className="h-6 w-6" />,
+    Layers: <Layers className="h-6 w-6" />,
+  };
+
+  const services = BRAND.products.map(product => ({
+    icon: iconMap[product.icon] || <Star className="h-6 w-6" />,
+    title: product.name,
+    description: product.description[language as keyof typeof product.description] || product.description.en,
+    url: product.url
+  }));
 
   return (
     <div className={isRtl ? 'rtl text-right' : 'ltr text-left'}>
@@ -139,7 +105,7 @@ const Index = () => {
                 <div className="w-14 h-14 mx-auto mb-6 bg-primary/10 rounded-xl flex items-center justify-center">
                   <Star className="h-7 w-7 text-primary" />
                 </div>
-                <div className="text-4xl font-bold mb-3 text-foreground">9+</div>
+                <div className="text-4xl font-bold mb-3 text-foreground">{BRAND.products.length}+</div>
                 <p className={`text-muted-foreground ${isRtl ? 'font-vazir' : ''}`}>
                   {language === 'en' || language === 'tr' ? 'Digital Products' : 
                    language === 'fa' ? 'محصولات دیجیتال' : 'منتجات رقمية'}
