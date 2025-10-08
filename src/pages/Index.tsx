@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ArrowRight, Users, Globe, Star, Brain, TrendingUp, Zap, BookOpen, Network, Briefcase, CreditCard, Podcast, Wallet, Shield, Newspaper, Layers } from 'lucide-react';
+import { ArrowRight, Users, Globe, Star, Brain, TrendingUp, Zap, BookOpen, Network, Briefcase, CreditCard, Podcast, Wallet, Shield, Newspaper, Layers, GraduationCap, Forward } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { BRAND } from '@/constants/brand';
 
@@ -12,6 +12,8 @@ const Index = () => {
 
   const iconMap: Record<string, React.ReactNode> = {
     Brain: <Brain className="h-6 w-6" />,
+    GraduationCap: <GraduationCap className="h-6 w-6" />,
+    Forward: <Forward className="h-6 w-6" />,
     TrendingUp: <TrendingUp className="h-6 w-6" />,
     Zap: <Zap className="h-6 w-6" />,
     Book: <BookOpen className="h-6 w-6" />,

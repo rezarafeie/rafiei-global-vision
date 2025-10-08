@@ -48,6 +48,30 @@ export const BRAND = {
       icon: 'Brain',
     },
     {
+      id: 'global-ai-coach',
+      name: 'Global AI Coach',
+      url: 'https://globalaicoach.com',
+      description: {
+        en: 'AI interactive learning system for global education',
+        fa: 'سیستم یادگیری تعاملی هوش مصنوعی برای آموزش جهانی',
+        ar: 'نظام التعلم التفاعلي بالذكاء الاصطناعي للتعليم العالمي',
+        tr: 'Küresel eğitim için AI etkileşimli öğrenme sistemi',
+      },
+      icon: 'GraduationCap',
+    },
+    {
+      id: 'bettermx',
+      name: 'BetterMX',
+      url: 'https://bettermx.com',
+      description: {
+        en: 'Professional email forwarding service',
+        fa: 'سرویس حرفه‌ای فورواردینگ ایمیل',
+        ar: 'خدمة إعادة توجيه البريد الإلكتروني المهنية',
+        tr: 'Profesyonel e-posta yönlendirme hizmeti',
+      },
+      icon: 'Forward',
+    },
+    {
       id: 'rafiei-exchange',
       name: 'Rafiei Exchange',
       url: 'https://exchange.rafiei.co',
