@@ -39,8 +39,12 @@ const TreasureHuntGame = () => {
     const sectionIds = ['hero', 'academy', 'vpn', 'services', 'final-cta'];
     const treasurePositions: Array<{id: number, icon: string, top: string, left: string}> = [];
     
+    console.log('Starting treasure hunt game...');
+    
     sectionIds.forEach((sectionId, index) => {
       const section = document.getElementById(sectionId);
+      console.log(`Looking for section: ${sectionId}`, section ? 'Found' : 'Not found');
+      
       if (section) {
         const rect = section.getBoundingClientRect();
         const scrollY = window.scrollY || window.pageYOffset;
@@ -52,15 +56,21 @@ const TreasureHuntGame = () => {
         const randomLeft = Math.random() * 60 + 20; // 20% to 80%
         
         const icons = ['🎁', '💎', '💥', '💰', '🚀'];
-        treasurePositions.push({
+        const treasure = {
           id: index + 1,
           icon: icons[index],
           top: `${randomTop}px`,
           left: `${randomLeft}%`
-        });
+        };
+        
+        console.log(`Treasure ${index + 1} positioned at:`, treasure);
+        treasurePositions.push(treasure);
+      } else {
+        console.warn(`Section ${sectionId} not found!`);
       }
     });
     
+    console.log('Total treasures created:', treasurePositions.length);
     setTreasures(treasurePositions);
     setGameActive(true);
     toast.success('بازی شروع شد! اسکرول کن و گنج‌ها رو پیدا کن');
@@ -238,27 +248,26 @@ const TreasureHuntGame = () => {
               <motion.button
                 key={treasure.id}
                 onClick={() => handleTreasureClick(treasure.id)}
-                className="fixed text-3xl md:text-4xl cursor-pointer z-40"
+                className="absolute text-3xl md:text-4xl cursor-pointer z-40"
                 style={{
                   top: treasure.top,
                   left: treasure.left,
                   opacity: foundTreasures.includes(treasure.id) ? 0 : 1,
                   pointerEvents: foundTreasures.includes(treasure.id) ? 'none' : 'auto',
-                  filter: `drop-shadow(0 0 15px ${GOLD.glow})`,
-                  textShadow: `0 0 20px ${GOLD.glow}`,
+                  filter: `drop-shadow(0 0 20px ${GOLD.primary})`,
+                  textShadow: `0 0 30px ${GOLD.primary}, 0 0 60px ${GOLD.glow}`,
                 }}
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ 
-                  scale: foundTreasures.includes(treasure.id) ? 0 : [1, 1.15, 1],
-                  opacity: foundTreasures.includes(treasure.id) ? 0 : [0.7, 1, 0.7],
-                  rotate: [0, 5, -5, 0]
+                  scale: foundTreasures.includes(treasure.id) ? 0 : [1, 1.2, 1],
+                  opacity: foundTreasures.includes(treasure.id) ? 0 : 1,
+                  rotate: [0, 10, -10, 0]
                 }}
                 transition={{
-                  scale: { duration: 2, repeat: Infinity },
-                  opacity: { duration: 2, repeat: Infinity },
-                  rotate: { duration: 3, repeat: Infinity }
+                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" }
                 }}
-                whileHover={{ scale: 1.4, opacity: 1 }}
+                whileHover={{ scale: 1.5, opacity: 1 }}
                 whileTap={{ scale: 0.8 }}
               >
                 {treasure.icon}
