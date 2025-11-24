@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import BlackFriday from "./pages/BlackFriday";
 import AuthLayout from "./layouts/AuthLayout";
 import MainLayout from "./layouts/MainLayout";
 
@@ -26,6 +27,9 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
+              {/* Black Friday Landing Page - Standalone */}
+              <Route path="/black-friday" element={<BlackFriday />} />
+              
               {/* Public routes */}
               <Route element={<MainLayout />}>
                 <Route path="/" element={<Index />} />
