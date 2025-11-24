@@ -27,6 +27,20 @@ const SpeedClickGame = () => {
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(5);
   const [copied, setCopied] = useState(false);
+  const [hasPlayed, setHasPlayed] = useState(false);
+
+  useEffect(() => {
+    const played = localStorage.getItem('bf_speed_click_completed');
+    if (played === 'true') {
+      setGameState('result');
+      setHasPlayed(true);
+      // Load saved score
+      const savedScore = localStorage.getItem('bf_speed_click_score');
+      if (savedScore) {
+        setScore(parseInt(savedScore));
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (gameState === 'active' && timeLeft > 0) {
@@ -34,10 +48,17 @@ const SpeedClickGame = () => {
       return () => clearTimeout(timer);
     } else if (gameState === 'active' && timeLeft === 0) {
       setGameState('result');
+      localStorage.setItem('bf_speed_click_completed', 'true');
+      localStorage.setItem('bf_speed_click_score', score.toString());
+      setHasPlayed(true);
     }
-  }, [gameState, timeLeft]);
+  }, [gameState, timeLeft, score]);
 
   const startGame = () => {
+    if (hasPlayed) {
+      toast.error('شما قبلاً این بازی را انجام داده‌اید');
+      return;
+    }
     setScore(0);
     setTimeLeft(5);
     setGameState('active');
@@ -195,15 +216,6 @@ const SpeedClickGame = () => {
                 کپی متن و ارسال به دوستان
               </Button>
             </div>
-
-            <Button
-              variant="outline"
-              className="w-full text-sm"
-              onClick={startGame}
-              style={{ borderColor: GOLD.dark, color: GOLD.primary }}
-            >
-              یه دور دیگه بازی کن
-            </Button>
           </CardContent>
         </Card>
       </motion.div>
