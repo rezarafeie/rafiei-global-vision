@@ -23,7 +23,7 @@ export default {
         sans: ['Inter', 'sans-serif'],
         display: ['Poppins', 'sans-serif'],
         vazir: ['Vazirmatn', 'sans-serif'],
-        iransans: ['IRANSans', 'sans-serif'],
+        iransans: ['iransans', 'Tahoma', 'Arial', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
