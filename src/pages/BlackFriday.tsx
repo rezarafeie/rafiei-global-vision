@@ -710,8 +710,38 @@ const BlackFriday = () => {
       </div>
 
       {/* Treasure Hunt Game Section */}
-      <section id="treasure-hunt" className="py-16 px-4 relative mb-16">
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)' }} />
+      <section id="treasure-hunt" className="py-16 px-4 relative mb-16 overflow-hidden">
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 50%)' }} />
+        
+        {/* Gold glowing orbs in background */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full blur-3xl opacity-20 pointer-events-none"
+          style={{ background: GOLD.primary }}
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.1, 0.3, 0.1],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 right-1/3 w-48 h-48 rounded-full blur-3xl opacity-20 pointer-events-none"
+          style={{ background: GOLD.light }}
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.1, 0.25, 0.1],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+        
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: GOLD.primary }}>
             <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: GOLD.primary }}>
