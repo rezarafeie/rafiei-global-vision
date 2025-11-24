@@ -28,7 +28,7 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               {/* Black Friday Landing Page - Standalone */}
-              <Route path="/black-friday" element={<BlackFriday />} />
+              <Route path="/blackfriday" element={<BlackFriday />} />
               
               {/* Public routes */}
               <Route element={<MainLayout />}>

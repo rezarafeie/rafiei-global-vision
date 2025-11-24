@@ -31,10 +31,35 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#4285F4', // Google blue
-          light: '#6EA0F5',
-          dark: '#3367D6',
+          DEFAULT: 'hsl(var(--primary))',
+          light: 'hsl(var(--gold-light))',
+          dark: 'hsl(var(--gold-dark))',
           foreground: 'hsl(var(--primary-foreground))'
+        },
+        gold: {
+          DEFAULT: 'hsl(var(--gold))',
+          light: 'hsl(var(--gold-light))',
+          dark: 'hsl(var(--gold-dark))',
+        },
+        academy: {
+          DEFAULT: 'hsl(var(--academy-primary))',
+          secondary: 'hsl(var(--academy-secondary))',
+        },
+        vpn: {
+          DEFAULT: 'hsl(var(--vpn-primary))',
+          secondary: 'hsl(var(--vpn-secondary))',
+        },
+        exchange: {
+          DEFAULT: 'hsl(var(--exchange-primary))',
+          secondary: 'hsl(var(--exchange-secondary))',
+        },
+        coach: {
+          DEFAULT: 'hsl(var(--coach-primary))',
+          secondary: 'hsl(var(--coach-secondary))',
+        },
+        services: {
+          DEFAULT: 'hsl(var(--services-primary))',
+          secondary: 'hsl(var(--services-secondary))',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
