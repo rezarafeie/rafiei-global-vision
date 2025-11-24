@@ -250,7 +250,7 @@ const BlackFriday = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden font-iransans" dir="rtl" style={{ backgroundColor: '#000000' }}>
+    <div className="min-h-screen bg-black text-white overflow-x-hidden font-vazir" dir="rtl" style={{ backgroundColor: '#000000' }}>
       {/* Hero Section */}
       <section className="relative py-12 md:py-16 px-4 overflow-hidden">
         {/* Animated background */}
