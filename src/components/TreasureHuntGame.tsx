@@ -35,17 +35,23 @@ const TreasureHuntGame = () => {
   }, []);
 
   const startGame = () => {
-    // Generate random positions across the entire viewport
+    // Get document height for better treasure distribution
+    const documentHeight = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight
+    );
+    
+    // Generate random positions across the entire page height (requiring scrolling)
     const newTreasures = [
-      { id: 1, icon: '🎁', top: `${Math.random() * 80 + 10}%`, left: `${Math.random() * 80 + 10}%` },
-      { id: 2, icon: '💎', top: `${Math.random() * 80 + 10}%`, left: `${Math.random() * 80 + 10}%` },
-      { id: 3, icon: '💥', top: `${Math.random() * 80 + 10}%`, left: `${Math.random() * 80 + 10}%` },
-      { id: 4, icon: '💰', top: `${Math.random() * 80 + 10}%`, left: `${Math.random() * 80 + 10}%` },
-      { id: 5, icon: '🚀', top: `${Math.random() * 80 + 10}%`, left: `${Math.random() * 80 + 10}%` }
+      { id: 1, icon: '🎁', top: `${Math.random() * 600 + 500}px`, left: `${Math.random() * 70 + 10}%` },
+      { id: 2, icon: '💎', top: `${Math.random() * 800 + 1200}px`, left: `${Math.random() * 70 + 10}%` },
+      { id: 3, icon: '💥', top: `${Math.random() * 600 + 2000}px`, left: `${Math.random() * 70 + 10}%` },
+      { id: 4, icon: '💰', top: `${Math.random() * 800 + 2800}px`, left: `${Math.random() * 70 + 10}%` },
+      { id: 5, icon: '🚀', top: `${Math.random() * 600 + 3600}px`, left: `${Math.random() * 70 + 10}%` }
     ];
     setTreasures(newTreasures);
     setGameActive(true);
-    toast.success('بازی شروع شد! گنج‌ها رو پیدا کن');
+    toast.success('بازی شروع شد! اسکرول کن و گنج‌ها رو پیدا کن');
   };
 
   const handleTreasureClick = (id: number) => {
@@ -184,64 +190,69 @@ const TreasureHuntGame = () => {
         )}
       </motion.div>
 
-      {/* Full screen treasure overlay */}
+      {/* Treasures scattered across the entire page */}
       <AnimatePresence>
         {gameActive && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 pointer-events-none"
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
-          >
-            {/* Close button */}
-            <button
-              onClick={closeGame}
-              className="absolute top-4 left-4 p-3 rounded-full pointer-events-auto z-50"
-              style={{ backgroundColor: GOLD.primary }}
+          <>
+            {/* Fixed UI elements */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed top-0 left-0 right-0 z-50 pointer-events-none"
             >
-              <X className="w-6 h-6 text-black" />
-            </button>
+              {/* Close button */}
+              <button
+                onClick={closeGame}
+                className="absolute top-4 left-4 p-3 rounded-full pointer-events-auto backdrop-blur-sm"
+                style={{ backgroundColor: GOLD.primary }}
+              >
+                <X className="w-6 h-6 text-black" />
+              </button>
 
-            {/* Progress indicator */}
-            <div 
-              className="absolute top-4 right-4 p-4 rounded-lg pointer-events-auto backdrop-blur-sm"
-              style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', border: `2px solid ${GOLD.primary}` }}
-            >
-              <p className="text-sm font-bold" style={{ color: GOLD.primary }}>
-                گنج‌های پیدا شده: {foundTreasures.length} از ۵
-              </p>
-            </div>
+              {/* Progress indicator */}
+              <div 
+                className="absolute top-4 right-4 p-4 rounded-lg pointer-events-auto backdrop-blur-sm"
+                style={{ backgroundColor: 'rgba(0, 0, 0, 0.9)', border: `2px solid ${GOLD.primary}` }}
+              >
+                <p className="text-sm font-bold" style={{ color: GOLD.primary }}>
+                  گنج‌های پیدا شده: {foundTreasures.length} از ۵
+                </p>
+              </div>
+            </motion.div>
 
-            {/* Treasures scattered across screen */}
+            {/* Treasures positioned absolutely on the page */}
             {treasures.map((treasure) => (
               <motion.button
                 key={treasure.id}
                 onClick={() => handleTreasureClick(treasure.id)}
-                className="absolute text-4xl md:text-5xl cursor-pointer pointer-events-auto z-40"
+                className="fixed text-3xl md:text-4xl cursor-pointer z-40"
                 style={{
                   top: treasure.top,
                   left: treasure.left,
                   opacity: foundTreasures.includes(treasure.id) ? 0 : 1,
                   pointerEvents: foundTreasures.includes(treasure.id) ? 'none' : 'auto',
-                  filter: `drop-shadow(0 0 10px ${GOLD.glow})`
+                  filter: `drop-shadow(0 0 15px ${GOLD.glow})`,
+                  textShadow: `0 0 20px ${GOLD.glow}`,
                 }}
-                initial={{ scale: 0 }}
+                initial={{ scale: 0, opacity: 0 }}
                 animate={{ 
-                  scale: foundTreasures.includes(treasure.id) ? 0 : [1, 1.2, 1],
-                  rotate: [0, 10, -10, 0]
+                  scale: foundTreasures.includes(treasure.id) ? 0 : [1, 1.15, 1],
+                  opacity: foundTreasures.includes(treasure.id) ? 0 : [0.7, 1, 0.7],
+                  rotate: [0, 5, -5, 0]
                 }}
                 transition={{
-                  scale: { duration: 0.3 },
-                  rotate: { duration: 2, repeat: Infinity }
+                  scale: { duration: 2, repeat: Infinity },
+                  opacity: { duration: 2, repeat: Infinity },
+                  rotate: { duration: 3, repeat: Infinity }
                 }}
-                whileHover={{ scale: 1.3 }}
-                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.4, opacity: 1 }}
+                whileTap={{ scale: 0.8 }}
               >
                 {treasure.icon}
               </motion.button>
             ))}
-          </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
