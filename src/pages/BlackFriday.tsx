@@ -5,7 +5,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import BlackFridayGamesSection from '@/components/BlackFridayGamesSection';
+import AiQuizGame from '@/components/AiQuizGame';
+import TreasureHuntGame from '@/components/TreasureHuntGame';
+import SpeedClickGame from '@/components/SpeedClickGame';
+import QuickAccessCards from '@/components/QuickAccessCards';
 
 const DISCOUNT_CODE = 'blackfriday';
 const END_DATE = new Date('2025-12-01T23:59:59');
@@ -437,7 +440,7 @@ const BlackFriday = () => {
                 color: '#000',
                 boxShadow: `0 0 20px ${GOLD.glow}`
               }}
-              onClick={() => document.getElementById('offers')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('ai-quiz')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Gift className="w-5 h-5 ml-2" />
               مشاهده همه تخفیف‌ها
@@ -460,11 +463,31 @@ const BlackFriday = () => {
         </div>
       </section>
 
+      {/* Quick Access Cards */}
+      <QuickAccessCards />
+
+      {/* AI Quiz Game Section */}
+      <section id="ai-quiz" className="py-10 px-4 relative">
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(167, 139, 250, 0.1) 0%, transparent 50%)' }} />
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: '#A78BFA' }}>
+            <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: '#A78BFA' }}>
+              🧠 کوییز هوش مصنوعی
+            </h2>
+            <p className="text-sm text-gray-300">
+              جواب چند سوال بده و هوش مصنوعی بهترین محصول رو بهت پیشنهاد می‌ده
+            </p>
+          </div>
+          <AiQuizGame />
+        </div>
+      </section>
+
       {/* Business Sections */}
       <div id="offers" className="space-y-10 md:space-y-12 py-8">
         {BUSINESS_SECTIONS.map((section, sectionIndex) => (
           <motion.section
             key={section.id}
+            id={section.id}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -670,8 +693,43 @@ const BlackFriday = () => {
         ))}
       </div>
 
-      {/* Games Section */}
-      <BlackFridayGamesSection />
+      {/* Treasure Hunt Game Section */}
+      <section id="treasure-hunt" className="py-10 px-4 relative">
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)' }} />
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: GOLD.primary }}>
+            <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: GOLD.primary }}>
+              💎 شکار گنج بلک فرایدی
+            </h2>
+            <p className="text-sm text-gray-300 mb-2">
+              ۵ گنج مخفی تو کل صفحه پنهان کردیم
+            </p>
+            <p className="text-xs text-gray-400">
+              همه رو پیدا کن و تخفیف ویژه بگیر با کد <code className="font-mono font-bold px-2 py-1 rounded" style={{ color: GOLD.primary, backgroundColor: '#000' }}>BLKFHDNTRSRDSCNT</code>
+            </p>
+          </div>
+          <TreasureHuntGame />
+        </div>
+      </section>
+
+      {/* Speed Click Game Section */}
+      <section id="speed-click" className="py-10 px-4 relative">
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 50%)' }} />
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: '#FF6B6B' }}>
+            <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: '#FF6B6B' }}>
+              ⚡ چالش کلیک سریع
+            </h2>
+            <p className="text-sm text-gray-300 mb-2">
+              ۵ ثانیه وقت داری تا هرچقدر می‌تونی کلیک کنی
+            </p>
+            <p className="text-xs text-gray-400">
+              بعدش تخفیف ویژه بگیر با کد <code className="font-mono font-bold px-2 py-1 rounded" style={{ color: '#FF6B6B', backgroundColor: '#000' }}>BLKFTPSPDDCNT</code>
+            </p>
+          </div>
+          <SpeedClickGame />
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-10 px-4">

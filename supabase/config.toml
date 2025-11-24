@@ -1,1 +1,4 @@
 project_id = "frmjqexnjgkhydgjnwew"
+
+[functions.ai-quiz-recommendation]
+verify_jwt = false
