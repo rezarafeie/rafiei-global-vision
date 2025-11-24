@@ -482,6 +482,22 @@ const BlackFriday = () => {
         </div>
       </section>
 
+      {/* Speed Click Game Section */}
+      <section id="speed-click" className="py-10 px-4 relative">
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 50%)' }} />
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: '#FF6B6B' }}>
+            <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: '#FF6B6B' }}>
+              ⚡ چالش کلیک سریع
+            </h2>
+            <p className="text-sm text-gray-300">
+              ۵ ثانیه وقت داری تا هرچقدر می‌تونی کلیک کنی و تخفیف ویژه بگیری
+            </p>
+          </div>
+          <SpeedClickGame />
+        </div>
+      </section>
+
       {/* Business Sections */}
       <div id="offers" className="space-y-10 md:space-y-12 py-8">
         {BUSINESS_SECTIONS.map((section, sectionIndex) => (
@@ -701,33 +717,11 @@ const BlackFriday = () => {
             <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: GOLD.primary }}>
               💎 شکار گنج بلک فرایدی
             </h2>
-            <p className="text-sm text-gray-300 mb-2">
-              ۵ گنج مخفی تو کل صفحه پنهان کردیم
-            </p>
-            <p className="text-xs text-gray-400">
-              همه رو پیدا کن و تخفیف ویژه بگیر با کد <code className="font-mono font-bold px-2 py-1 rounded" style={{ color: GOLD.primary, backgroundColor: '#000' }}>BLKFHDNTRSRDSCNT</code>
+            <p className="text-sm text-gray-300">
+              ۵ گنج مخفی تو کل صفحه پنهان کردیم، همه رو پیدا کن و تخفیف ویژه بگیر
             </p>
           </div>
           <TreasureHuntGame />
-        </div>
-      </section>
-
-      {/* Speed Click Game Section */}
-      <section id="speed-click" className="py-10 px-4 relative">
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 50%)' }} />
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: '#FF6B6B' }}>
-            <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: '#FF6B6B' }}>
-              ⚡ چالش کلیک سریع
-            </h2>
-            <p className="text-sm text-gray-300 mb-2">
-              ۵ ثانیه وقت داری تا هرچقدر می‌تونی کلیک کنی
-            </p>
-            <p className="text-xs text-gray-400">
-              بعدش تخفیف ویژه بگیر با کد <code className="font-mono font-bold px-2 py-1 rounded" style={{ color: '#FF6B6B', backgroundColor: '#000' }}>BLKFTPSPDDCNT</code>
-            </p>
-          </div>
-          <SpeedClickGame />
         </div>
       </section>
 

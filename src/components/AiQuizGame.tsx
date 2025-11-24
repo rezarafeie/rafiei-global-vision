@@ -154,7 +154,7 @@ const AiQuizGame = () => {
   ];
 
   const getQuestions = () => {
-    if (currentQuestion === 0) return initialQuestions;
+    if (questionFlow === 'initial') return initialQuestions;
     
     switch (questionFlow) {
       case 'learning': return learningFlow;
@@ -180,7 +180,7 @@ const AiQuizGame = () => {
     // If this is the first question, set the flow
     if (currentQuestion === 0 && 'next' in selectedOption) {
       setQuestionFlow(selectedOption.next as string);
-      setCurrentQuestion(0); // Reset to start of new flow
+      setCurrentQuestion(1); // Move to first question of new flow
       return;
     }
 
