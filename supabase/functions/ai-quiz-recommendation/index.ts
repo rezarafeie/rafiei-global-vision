@@ -23,6 +23,16 @@ serve(async (req) => {
       `سوال ${i + 1}: ${a.question}\nجواب: ${a.answer}`
     ).join('\n\n');
 
+    // Product link mappings
+    const PRODUCT_LINKS: Record<string, string> = {
+      'دوره شروع': 'https://academy.rafiei.co/enroll/?course=boundless',
+      'شبکه بدون مرز': 'https://t.me/getbnbot',
+      'صرافی رفیعی': 'https://exchange.rafiei.co/',
+      'ثبت شرکت': 'https://t.me/m/_D9w2J4BNjA0',
+      'افتتاح حساب': 'https://t.me/m/_D9w2J4BNjA0',
+      'کوچ هوشمند': 'https://coach.rafiei.co/',
+    };
+
     const systemPrompt = `تو یک مشاور فروش حرفه‌ای برای محصولات آموزشی و کسب‌وکار هستی. 
 بر اساس جواب‌های کاربر، باید بهترین محصولات رو پیشنهاد بدی.
 
@@ -34,11 +44,14 @@ serve(async (req) => {
 5. افتتاح حساب (۲۰٪ تخفیف) - حساب بانکی بین‌المللی
 6. کوچ هوشمند (۶۰٪ تخفیف) - مشاوره AI شخصی
 
-خروجی باید شامل:
+در خروجی JSON:
 - label: یک جمله کوتاه درباره شخصیت کاربر
-- title: عنوان محصول پیشنهادی با درصد تخفیف
+- title: عنوان محصول پیشنهادی با درصد تخفیف  
 - description: توضیح کوتاه چرا این محصول مناسبه
-- recommendations: آرایه‌ای از محصولات پیشنهادی (حداکثر 2 محصول)
+- recommendations: آرایه‌ای از محصولات پیشنهادی (حداکثر 2 محصول) که هر کدام شامل:
+  - product: نام دقیق محصول (از لیست بالا)
+  - discount: درصد تخفیف
+  - ctaText: متن دکمه خرید
 
 فقط JSON برگردون، بدون توضیح اضافی.`;
 
@@ -95,6 +108,14 @@ JSON خروجی:`;
       const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
       if (jsonMatch) {
         recommendation = JSON.parse(jsonMatch[0]);
+        
+        // Add ctaLink to each recommendation based on product name
+        if (recommendation.recommendations) {
+          recommendation.recommendations = recommendation.recommendations.map((rec: any) => ({
+            ...rec,
+            ctaLink: PRODUCT_LINKS[rec.product] || PRODUCT_LINKS['دوره شروع']
+          }));
+        }
       } else {
         throw new Error("No JSON found in response");
       }
@@ -110,7 +131,7 @@ JSON خروجی:`;
             product: "دوره شروع",
             discount: "۶۰٪",
             ctaText: "خرید دوره شروع با ۶۰٪ تخفیف",
-            ctaLink: "https://academy.rafiei.co/enroll/?course=boundless"
+            ctaLink: PRODUCT_LINKS['دوره شروع']
           }
         ]
       };
