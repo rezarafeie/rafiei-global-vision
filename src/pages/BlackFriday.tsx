@@ -256,7 +256,7 @@ const BlackFriday = () => {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden font-vazir" dir="rtl" style={{ backgroundColor: '#000000' }}>
       {/* Hero Section */}
-      <section className="relative py-12 md:py-16 px-4 overflow-hidden">
+      <section id="hero" className="relative py-20 md:py-32 px-4 overflow-hidden mb-16">
         {/* Animated background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%)' }} />
@@ -467,7 +467,7 @@ const BlackFriday = () => {
       <QuickAccessCards />
 
       {/* AI Quiz Game Section */}
-      <section id="ai-quiz" className="py-10 px-4 relative">
+      <section id="ai-quiz" className="py-16 px-4 relative mb-16">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(167, 139, 250, 0.1) 0%, transparent 50%)' }} />
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: '#A78BFA' }}>
@@ -483,7 +483,7 @@ const BlackFriday = () => {
       </section>
 
       {/* Speed Click Game Section */}
-      <section id="speed-click" className="py-10 px-4 relative">
+      <section id="speed-click" className="py-16 px-4 relative mb-16">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 50%)' }} />
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: '#FF6B6B' }}>
@@ -499,7 +499,7 @@ const BlackFriday = () => {
       </section>
 
       {/* Business Sections */}
-      <div id="offers" className="space-y-10 md:space-y-12 py-8">
+      <div id="offers" className="space-y-20 md:space-y-28 py-12 mb-16">
         {BUSINESS_SECTIONS.map((section, sectionIndex) => (
           <motion.section
             key={section.id}
@@ -710,7 +710,7 @@ const BlackFriday = () => {
       </div>
 
       {/* Treasure Hunt Game Section */}
-      <section id="treasure-hunt" className="py-10 px-4 relative">
+      <section id="treasure-hunt" className="py-16 px-4 relative mb-16">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)' }} />
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: GOLD.primary }}>
@@ -726,7 +726,7 @@ const BlackFriday = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-10 px-4">
+      <section id="final-cta" className="py-16 px-4 mb-16">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
