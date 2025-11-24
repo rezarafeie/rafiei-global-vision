@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import BlackFridayGamesSection from '@/components/BlackFridayGamesSection';
 
 const DISCOUNT_CODE = 'blackfriday';
 const END_DATE = new Date('2025-12-01T23:59:59');
@@ -668,6 +669,9 @@ const BlackFriday = () => {
           </motion.section>
         ))}
       </div>
+
+      {/* Games Section */}
+      <BlackFridayGamesSection />
 
       {/* FAQ Section */}
       <section className="py-10 px-4">
