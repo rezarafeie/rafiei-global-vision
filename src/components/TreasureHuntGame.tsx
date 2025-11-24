@@ -35,21 +35,33 @@ const TreasureHuntGame = () => {
   }, []);
 
   const startGame = () => {
-    // Get document height for better treasure distribution
-    const documentHeight = Math.max(
-      document.documentElement.scrollHeight,
-      document.body.scrollHeight
-    );
+    // Target specific sections to hide treasures
+    const sectionIds = ['hero', 'academy', 'vpn', 'services', 'final-cta'];
+    const treasurePositions: Array<{id: number, icon: string, top: string, left: string}> = [];
     
-    // Generate random positions across the entire page height (requiring scrolling)
-    const newTreasures = [
-      { id: 1, icon: '🎁', top: `${Math.random() * 600 + 500}px`, left: `${Math.random() * 70 + 10}%` },
-      { id: 2, icon: '💎', top: `${Math.random() * 800 + 1200}px`, left: `${Math.random() * 70 + 10}%` },
-      { id: 3, icon: '💥', top: `${Math.random() * 600 + 2000}px`, left: `${Math.random() * 70 + 10}%` },
-      { id: 4, icon: '💰', top: `${Math.random() * 800 + 2800}px`, left: `${Math.random() * 70 + 10}%` },
-      { id: 5, icon: '🚀', top: `${Math.random() * 600 + 3600}px`, left: `${Math.random() * 70 + 10}%` }
-    ];
-    setTreasures(newTreasures);
+    sectionIds.forEach((sectionId, index) => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const scrollY = window.scrollY || window.pageYOffset;
+        const sectionTop = rect.top + scrollY;
+        const sectionHeight = rect.height;
+        
+        // Random position within section (avoid very top and bottom)
+        const randomTop = sectionTop + (Math.random() * (sectionHeight - 200)) + 100;
+        const randomLeft = Math.random() * 60 + 20; // 20% to 80%
+        
+        const icons = ['🎁', '💎', '💥', '💰', '🚀'];
+        treasurePositions.push({
+          id: index + 1,
+          icon: icons[index],
+          top: `${randomTop}px`,
+          left: `${randomLeft}%`
+        });
+      }
+    });
+    
+    setTreasures(treasurePositions);
     setGameActive(true);
     toast.success('بازی شروع شد! اسکرول کن و گنج‌ها رو پیدا کن');
   };
