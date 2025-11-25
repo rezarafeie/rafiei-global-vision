@@ -488,7 +488,7 @@ const BlackFriday = () => {
                 color: '#000',
                 boxShadow: `0 0 20px ${GOLD.glow}`
               }}
-              onClick={() => document.getElementById('academy')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('ai-quiz')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Gift className="w-5 h-5 ml-2" />
               مشاهده همه تخفیف‌ها
@@ -759,6 +759,8 @@ const BlackFriday = () => {
 
       {/* Treasure Hunt Game Section */}
       <section id="treasure-hunt" className="py-16 px-4 relative mb-16 overflow-hidden">
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%)' }} />
+        
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: GOLD.primary }}>
             <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: GOLD.primary }}>
