@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import AiQuizGame from '@/components/AiQuizGame';
 import TreasureHuntGame from '@/components/TreasureHuntGame';
-import SpeedClickGame from '@/components/SpeedClickGame';
+
 import QuickAccessCards from '@/components/QuickAccessCards';
 
 const DISCOUNT_CODE = 'blackfriday';
@@ -320,19 +320,6 @@ const BlackFriday = () => {
             </p>
           </div>
           <AiQuizGame />
-        </section>
-
-        {/* Speed Click Game */}
-        <section id="speed-click" className="max-w-3xl mx-auto">
-          <div className="text-center mb-4">
-            <h2 className="text-xl font-bold mb-2" style={{ color: '#FF6B6B' }}>
-              ⚡ چالش کلیک سریع
-            </h2>
-            <p className="text-sm text-gray-400">
-              ۵ ثانیه کلیک کن و تخفیف بگیر
-            </p>
-          </div>
-          <SpeedClickGame />
         </section>
 
         {/* Treasure Hunt Game */}
