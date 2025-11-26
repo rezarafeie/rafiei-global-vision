@@ -44,21 +44,15 @@ const SpeedClickGame = () => {
 
   useEffect(() => {
     if (gameState === 'active' && timeLeft > 0) {
-      const timer = setInterval(() => {
-        setTimeLeft(prev => {
-          if (prev <= 1) {
-            setGameState('result');
-            localStorage.setItem('bf_speed_click_completed', 'true');
-            localStorage.setItem('bf_speed_click_score', score.toString());
-            setHasPlayed(true);
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-      return () => clearInterval(timer);
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (gameState === 'active' && timeLeft === 0) {
+      setGameState('result');
+      localStorage.setItem('bf_speed_click_completed', 'true');
+      localStorage.setItem('bf_speed_click_score', score.toString());
+      setHasPlayed(true);
     }
-  }, [gameState, score]);
+  }, [gameState, timeLeft, score]);
 
   const startGame = () => {
     if (hasPlayed) {
