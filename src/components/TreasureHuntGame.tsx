@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Copy, Check, Gift, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -109,6 +110,70 @@ const TreasureHuntGame = () => {
     setGameActive(false);
   };
 
+  // Portal treasures to body to avoid container constraints
+  const treasuresPortal = gameActive && typeof document !== 'undefined' ? createPortal(
+    <>
+      {/* Fixed UI elements */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed top-0 left-0 right-0 z-50 pointer-events-none"
+      >
+        {/* Close button */}
+        <button
+          onClick={closeGame}
+          className="absolute top-4 left-4 p-2.5 rounded-full pointer-events-auto backdrop-blur-sm shadow-lg"
+          style={{ backgroundColor: GOLD.primary }}
+        >
+          <X className="w-5 h-5 text-black" />
+        </button>
+
+        {/* Compact Progress indicator */}
+        <div 
+          className="absolute top-4 right-4 px-3 py-2 rounded-full pointer-events-auto backdrop-blur-sm shadow-lg"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.9)', border: `1px solid ${GOLD.primary}` }}
+        >
+          <p className="text-xs font-bold" style={{ color: GOLD.primary }}>
+            {foundTreasures.length}/5
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Treasures positioned absolutely on the page */}
+      {treasures.map((treasure) => (
+        <motion.button
+          key={treasure.id}
+          onClick={() => handleTreasureClick(treasure.id)}
+          className="absolute text-4xl md:text-5xl cursor-pointer z-40"
+          style={{
+            top: treasure.top,
+            left: treasure.left,
+            opacity: foundTreasures.includes(treasure.id) ? 0 : 1,
+            pointerEvents: foundTreasures.includes(treasure.id) ? 'none' : 'auto',
+            filter: `drop-shadow(0 0 20px ${GOLD.primary})`,
+            textShadow: `0 0 30px ${GOLD.primary}, 0 0 60px ${GOLD.glow}`,
+          }}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ 
+            scale: foundTreasures.includes(treasure.id) ? 0 : [1, 1.2, 1],
+            opacity: foundTreasures.includes(treasure.id) ? 0 : 1,
+            rotate: [0, 10, -10, 0]
+          }}
+          transition={{
+            scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+            rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+          }}
+          whileHover={{ scale: 1.5, opacity: 1 }}
+          whileTap={{ scale: 0.8 }}
+        >
+          {treasure.icon}
+        </motion.button>
+      ))}
+    </>,
+    document.body
+  ) : null;
+
   if (completed) {
     return (
       <motion.div
@@ -162,14 +227,6 @@ const TreasureHuntGame = () => {
               </div>
             </div>
 
-            <Button
-              variant="outline"
-              className="w-full text-sm"
-              onClick={resetGame}
-              style={{ borderColor: GOLD.dark, color: GOLD.primary }}
-            >
-              بازی دوباره
-            </Button>
           </CardContent>
         </Card>
       </motion.div>
@@ -203,79 +260,10 @@ const TreasureHuntGame = () => {
           </Button>
         )}
 
-        {gameActive && (
-          <div className="text-center p-3 rounded-lg" style={{ backgroundColor: `${GOLD.primary}11` }}>
-            <span className="text-sm font-bold" style={{ color: GOLD.primary }}>
-              گنج‌های پیدا شده: {foundTreasures.length} از ۵
-            </span>
-          </div>
-        )}
       </motion.div>
 
-      {/* Treasures scattered across the entire page */}
-      <AnimatePresence>
-        {gameActive && (
-          <>
-            {/* Fixed UI elements */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed top-0 left-0 right-0 z-50 pointer-events-none"
-            >
-              {/* Close button */}
-              <button
-                onClick={closeGame}
-                className="absolute top-4 left-4 p-3 rounded-full pointer-events-auto backdrop-blur-sm"
-                style={{ backgroundColor: GOLD.primary }}
-              >
-                <X className="w-6 h-6 text-black" />
-              </button>
-
-              {/* Progress indicator */}
-              <div 
-                className="absolute top-4 right-4 p-4 rounded-lg pointer-events-auto backdrop-blur-sm"
-                style={{ backgroundColor: 'rgba(0, 0, 0, 0.9)', border: `2px solid ${GOLD.primary}` }}
-              >
-                <p className="text-sm font-bold" style={{ color: GOLD.primary }}>
-                  گنج‌های پیدا شده: {foundTreasures.length} از ۵
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Treasures positioned absolutely on the page */}
-            {treasures.map((treasure) => (
-              <motion.button
-                key={treasure.id}
-                onClick={() => handleTreasureClick(treasure.id)}
-                className="absolute text-3xl md:text-4xl cursor-pointer z-40"
-                style={{
-                  top: treasure.top,
-                  left: treasure.left,
-                  opacity: foundTreasures.includes(treasure.id) ? 0 : 1,
-                  pointerEvents: foundTreasures.includes(treasure.id) ? 'none' : 'auto',
-                  filter: `drop-shadow(0 0 20px ${GOLD.primary})`,
-                  textShadow: `0 0 30px ${GOLD.primary}, 0 0 60px ${GOLD.glow}`,
-                }}
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ 
-                  scale: foundTreasures.includes(treasure.id) ? 0 : [1, 1.2, 1],
-                  opacity: foundTreasures.includes(treasure.id) ? 0 : 1,
-                  rotate: [0, 10, -10, 0]
-                }}
-                transition={{
-                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-                }}
-                whileHover={{ scale: 1.5, opacity: 1 }}
-                whileTap={{ scale: 0.8 }}
-              >
-                {treasure.icon}
-              </motion.button>
-            ))}
-          </>
-        )}
-      </AnimatePresence>
+      {/* Render treasures via portal */}
+      {treasuresPortal}
     </>
   );
 };
