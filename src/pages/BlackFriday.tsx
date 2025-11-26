@@ -255,56 +255,8 @@ const BlackFriday = () => {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden font-vazir" dir="rtl" style={{ backgroundColor: '#000000' }}>
-      {/* Global Gold Glowing Effects */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <motion.div
-          className="absolute top-20 left-1/4 w-96 h-96 rounded-full blur-3xl"
-          style={{ background: GOLD.primary, opacity: 0.03 }}
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.02, 0.05, 0.02],
-            x: [0, 50, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 right-1/4 w-80 h-80 rounded-full blur-3xl"
-          style={{ background: GOLD.light, opacity: 0.03 }}
-          animate={{
-            scale: [1, 1.4, 1],
-            opacity: [0.02, 0.04, 0.02],
-            x: [0, -30, 0],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 left-1/3 w-72 h-72 rounded-full blur-3xl"
-          style={{ background: GOLD.primary, opacity: 0.02 }}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.01, 0.03, 0.01],
-            y: [0, 40, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4,
-          }}
-        />
-      </div>
-
       {/* Hero Section */}
-      <section id="hero" className="relative py-20 md:py-32 px-4 overflow-hidden mb-16 z-10">
+      <section id="hero" className="relative py-20 md:py-32 px-4 overflow-hidden mb-16">
         {/* Animated background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%)' }} />
@@ -759,7 +711,36 @@ const BlackFriday = () => {
 
       {/* Treasure Hunt Game Section */}
       <section id="treasure-hunt" className="py-16 px-4 relative mb-16 overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 50%)' }} />
+        
+        {/* Gold glowing orbs in background */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full blur-3xl opacity-20 pointer-events-none"
+          style={{ background: GOLD.primary }}
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.1, 0.3, 0.1],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 right-1/3 w-48 h-48 rounded-full blur-3xl opacity-20 pointer-events-none"
+          style={{ background: GOLD.light }}
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.1, 0.25, 0.1],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
         
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: GOLD.primary }}>
