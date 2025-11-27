@@ -7,7 +7,6 @@ import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import AiQuizGame from '@/components/AiQuizGame';
 import TreasureHuntGame from '@/components/TreasureHuntGame';
-import SpeedClickGame from '@/components/SpeedClickGame';
 import QuickAccessCards from '@/components/QuickAccessCards';
 
 const DISCOUNT_CODE = 'blackfriday';
@@ -48,25 +47,26 @@ const BUSINESS_SECTIONS: BusinessSection[] = [
     title: 'آکادمی رفیعی',
     subtitle: 'آموزش‌های کاربردی برای درآمد دلاری',
     icon: <GraduationCap className="w-10 h-10" />,
-    accentColor: '#FF6B6B',
-    bgPattern: 'radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.15) 0%, transparent 50%)',
+    accentColor: GOLD.primary,
+    bgPattern: `linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 50%, transparent 100%)`,
     offers: [
       {
-        title: 'دوره شروع',
-        description: 'جامع‌ترین دوره برای شروع مسیر درآمد دلاری و بیزینس بین‌المللی',
+        title: '🔥 دوره شروع - پیشنهاد ویژه',
+        description: 'جامع‌ترین دوره برای شروع مسیر درآمد دلاری و بیزینس بین‌المللی - پرفروش‌ترین دوره آکادمی',
         features: [
-          'بیش از ۴۰ ساعت آموزش ویدیویی',
-          'تمرین‌های عملی و پروژه محور',
-          'تست شخصیت و مسیریابی شغلی',
-          'پشتیبانی اختصاصی تیم رفیعی',
-          'گواهینامه معتبر پایان دوره',
-          'دسترسی مادام‌العمر به محتوا'
+          '✨ بیش از ۴۰ ساعت آموزش ویدیویی با کیفیت عالی',
+          '🎯 تمرین‌های عملی و پروژه محور برای درک عمیق',
+          '🧭 تست شخصیت و مسیریابی شغلی اختصاصی',
+          '💬 پشتیبانی اختصاصی تیم رفیعی به مدت ۶ ماه',
+          '🏆 گواهینامه معتبر بین‌المللی پایان دوره',
+          '♾️ دسترسی مادام‌العمر به محتوا و آپدیت‌ها',
+          '🎁 هدیه ویژه: ۱ ماه VPN رایگان',
         ],
         discount: '۶۰٪',
         originalPrice: '$10',
         discountedPrice: '$4',
-        savings: '$6',
-        cta: 'خرید دوره شروع با ۶۰٪ تخفیف',
+        savings: '$6 صرفه‌جویی می‌کنی!',
+        cta: '🚀 همین الان شروع کن با ۶۰٪ تخفیف',
         link: 'https://academy.rafiei.co/enroll/?course=boundless',
         featured: true,
       },
@@ -488,7 +488,7 @@ const BlackFriday = () => {
                 color: '#000',
                 boxShadow: `0 0 20px ${GOLD.glow}`
               }}
-              onClick={() => document.getElementById('ai-quiz')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('academy')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Gift className="w-5 h-5 ml-2" />
               مشاهده همه تخفیف‌ها
@@ -530,21 +530,6 @@ const BlackFriday = () => {
         </div>
       </section>
 
-      {/* Speed Click Game Section */}
-      <section id="speed-click" className="py-16 px-4 relative mb-16">
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 50%)' }} />
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: '#FF6B6B' }}>
-            <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: '#FF6B6B' }}>
-              ⚡ چالش کلیک سریع
-            </h2>
-            <p className="text-sm text-gray-300">
-              ۵ ثانیه وقت داری تا هرچقدر می‌تونی کلیک کنی و تخفیف ویژه بگیری
-            </p>
-          </div>
-          <SpeedClickGame />
-        </div>
-      </section>
 
       {/* Business Sections */}
       <div id="offers" className="space-y-20 md:space-y-28 py-12 mb-16">
@@ -603,27 +588,35 @@ const BlackFriday = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: offerIndex * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                    className="group relative"
-                  >
-                    {/* Card Background */}
-                    <div 
-                      className="absolute inset-0 rounded-xl border-2 overflow-hidden"
-                      style={{
-                        borderColor: section.accentColor,
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        boxShadow: `0 0 30px ${section.accentColor}33`
-                      }}
-                    >
-                      {offer.featured && (
-                        <motion.div
-                          className="absolute top-0 left-0 right-0 h-1"
-                          style={{ backgroundColor: GOLD.primary }}
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
-                      )}
-                    </div>
+                     whileHover={{ scale: offer.featured ? 1.03 : 1.02 }}
+                     className="group relative"
+                   >
+                     {/* Card Background */}
+                     <div 
+                       className="absolute inset-0 rounded-xl border-2 overflow-hidden"
+                       style={{
+                         borderColor: section.accentColor,
+                         backgroundColor: offer.featured ? 'rgba(255, 215, 0, 0.08)' : 'rgba(0, 0, 0, 0.8)',
+                         boxShadow: offer.featured ? `0 0 60px ${GOLD.glow}, 0 0 30px ${GOLD.glow}` : `0 0 30px ${section.accentColor}33`
+                       }}
+                     >
+                       {offer.featured && (
+                         <>
+                           <motion.div
+                             className="absolute top-0 left-0 right-0 h-2"
+                             style={{ background: `linear-gradient(90deg, ${GOLD.primary}, ${GOLD.light}, ${GOLD.primary})` }}
+                             animate={{ opacity: [0.7, 1, 0.7] }}
+                             transition={{ duration: 2, repeat: Infinity }}
+                           />
+                           <motion.div
+                             className="absolute inset-0 opacity-20"
+                             style={{ background: `radial-gradient(circle at 50% 50%, ${GOLD.primary}, transparent 70%)` }}
+                             animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
+                             transition={{ duration: 3, repeat: Infinity }}
+                           />
+                         </>
+                       )}
+                     </div>
 
                     <Card className="relative bg-transparent border-0 overflow-visible">
                       <CardHeader className="space-y-3 p-5">
@@ -759,8 +752,6 @@ const BlackFriday = () => {
 
       {/* Treasure Hunt Game Section */}
       <section id="treasure-hunt" className="py-16 px-4 relative mb-16 overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%)' }} />
-        
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="text-center mb-6 p-6 rounded-xl border-2" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', borderColor: GOLD.primary }}>
             <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: GOLD.primary }}>
