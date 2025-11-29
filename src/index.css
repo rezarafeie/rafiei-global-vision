@@ -34,9 +34,9 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 45 100% 51%;
-    --primary-foreground: 0 0% 0%;
-    --primary-glow: 43 100% 60%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 217 91% 70%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
@@ -47,17 +47,8 @@
     --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 45 100% 51%;
+    --ring: 217 91% 60%;
     --radius: 1rem;
-    
-    /* Black & Gold theme */
-    --gold: 45 100% 51%;
-    --gold-light: 43 100% 60%;
-    --gold-dark: 38 90% 45%;
-    --black: 0 0% 0%;
-    --black-light: 0 0% 10%;
-    --glow-gold: 45 100% 51%;
-    --glow-gold-bright: 43 100% 70%;
     
     /* Business-specific colors */
     --academy-primary: 45 100% 51%;
@@ -70,47 +61,29 @@
     --coach-secondary: 270 90% 55%;
     --services-primary: 15 100% 55%;
     --services-secondary: 10 90% 50%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--black)), hsl(var(--black-light)), hsl(var(--gold) / 0.1));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--gold) / 0.05) 100%);
-    --shadow-glow: 0 0 50px hsl(var(--glow-gold) / 0.4);
-    --shadow-glow-lg: 0 0 80px hsl(var(--glow-gold) / 0.3);
-    --shadow-elegant: 0 20px 40px -12px hsl(var(--gold) / 0.25);
-    --shadow-soft: 0 4px 20px hsl(var(--gold) / 0.08);
-    --border-glow: 0 0 20px hsl(var(--glow-gold) / 0.3);
   }
 
   .dark {
-    --background: 0 0% 0%;
+    --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 8%;
+    --card: 240 10% 8%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 8%;
+    --popover: 240 10% 8%;
     --popover-foreground: 0 0% 98%;
-    --primary: 45 100% 51%;
-    --primary-foreground: 0 0% 0%;
-    --primary-glow: 43 100% 60%;
-    --secondary: 0 0% 15%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 217 91% 70%;
+    --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 64.9%;
-    --accent: 0 0% 15%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 45 100% 51%;
-    
-    /* Black & Gold theme - enhanced for dark */
-    --gold: 45 100% 51%;
-    --gold-light: 43 100% 60%;
-    --gold-dark: 38 90% 45%;
-    --black: 0 0% 0%;
-    --black-light: 0 0% 10%;
-    --glow-gold: 45 100% 51%;
-    --glow-gold-bright: 43 100% 70%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 217 91% 60%;
     
     /* Business-specific colors */
     --academy-primary: 45 100% 51%;
@@ -123,15 +96,6 @@
     --coach-secondary: 270 90% 55%;
     --services-primary: 15 100% 55%;
     --services-secondary: 10 90% 50%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--black)), hsl(var(--black-light)), hsl(var(--gold) / 0.1));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--gold) / 0.08) 100%);
-    --shadow-glow: 0 0 60px hsl(var(--glow-gold) / 0.6);
-    --shadow-glow-lg: 0 0 100px hsl(var(--glow-gold) / 0.4);
-    --shadow-elegant: 0 20px 40px -12px hsl(var(--gold) / 0.4);
-    --shadow-soft: 0 4px 20px hsl(var(--gold) / 0.15);
-    --border-glow: 0 0 30px hsl(var(--glow-gold) / 0.5);
   }
 
   * {

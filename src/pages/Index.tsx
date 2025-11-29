@@ -27,12 +27,14 @@ const Index = () => {
     Layers: <Layers className="h-6 w-6" />,
   };
 
-  const services = BRAND.products.map(product => ({
-    icon: iconMap[product.icon] || <Star className="h-6 w-6" />,
-    title: product.name,
-    description: product.description[language as keyof typeof product.description] || product.description.en,
-    url: product.url
-  }));
+  const services = BRAND.products
+    .filter(product => !['financial', 'bnets', 'boundless-network'].includes(product.id))
+    .map(product => ({
+      icon: iconMap[product.icon] || <Star className="h-6 w-6" />,
+      title: product.name,
+      description: product.description[language as keyof typeof product.description] || product.description.en,
+      url: product.url
+    }));
 
   return (
     <div className={isRtl ? 'rtl text-right' : 'ltr text-left'}>
