@@ -33,14 +33,9 @@ export default {
         foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
-          light: 'hsl(var(--gold-light))',
-          dark: 'hsl(var(--gold-dark))',
+          light: 'hsl(var(--primary-glow))',
+          dark: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'
-        },
-        gold: {
-          DEFAULT: 'hsl(var(--gold))',
-          light: 'hsl(var(--gold-light))',
-          dark: 'hsl(var(--gold-dark))',
         },
         academy: {
           DEFAULT: 'hsl(var(--academy-primary))',
