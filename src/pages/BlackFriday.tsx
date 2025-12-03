@@ -10,7 +10,52 @@ import TreasureHuntGame from '@/components/TreasureHuntGame';
 import QuickAccessCards from '@/components/QuickAccessCards';
 
 const DISCOUNT_CODE = 'blackfriday';
-const END_DATE = new Date('2025-12-01T23:59:59');
+const END_DATE = new Date('2025-12-06T23:59:59');
+
+// Confetti particle component
+const Confetti = () => {
+  const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8'];
+  const particles = Array.from({ length: 50 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    delay: Math.random() * 5,
+    duration: 3 + Math.random() * 2,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    size: 6 + Math.random() * 8,
+    rotation: Math.random() * 360,
+  }));
+
+  return (
+    <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+      {particles.map((p) => (
+        <motion.div
+          key={p.id}
+          className="absolute"
+          style={{
+            left: `${p.x}%`,
+            top: -20,
+            width: p.size,
+            height: p.size,
+            backgroundColor: p.color,
+            borderRadius: Math.random() > 0.5 ? '50%' : '2px',
+          }}
+          animate={{
+            y: ['0vh', '110vh'],
+            x: [0, (Math.random() - 0.5) * 100],
+            rotate: [p.rotation, p.rotation + 360 * (Math.random() > 0.5 ? 1 : -1)],
+            opacity: [1, 1, 0],
+          }}
+          transition={{
+            duration: p.duration,
+            delay: p.delay,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
 // Gold color palette (not touching global colors)
 const GOLD = {
@@ -255,6 +300,9 @@ const BlackFriday = () => {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden font-vazir" dir="rtl" style={{ backgroundColor: '#000000' }}>
+      {/* Celebration Confetti Effect */}
+      <Confetti />
+      
       {/* Global Gold Glowing Effects */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <motion.div
