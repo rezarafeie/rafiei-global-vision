@@ -1,14 +1,12 @@
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import Layout from '@/components/Layout';
 
 const RefundPolicy = () => {
   const { language } = useLanguage();
   const isRTL = language === 'fa' || language === 'ar';
 
   return (
-    <Layout>
-      <div className={`min-h-screen bg-background ${isRTL ? 'rtl' : 'ltr'}`}>
+    <div className={`min-h-screen bg-background ${isRTL ? 'rtl' : 'ltr'}`}>
         <div className="container mx-auto px-6 py-16 max-w-4xl">
           <h1 className="text-4xl font-bold text-foreground mb-8">Refund Policy</h1>
           <p className="text-muted-foreground mb-6">Last updated: December 2024</p>
@@ -102,10 +100,9 @@ const RefundPolicy = () => {
                 <p className="text-muted-foreground">Phone: +44 7476 681270</p>
               </div>
             </section>
-          </div>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 
