@@ -15,6 +15,44 @@ import {
 const Footer = () => {
   const { t, language, setLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+  const isRTL = language === 'fa' || language === 'ar';
+
+  const texts = {
+    en: {
+      quickLinks: 'Quick Links',
+      legal: 'Legal',
+      privacyPolicy: 'Privacy Policy',
+      termsAndConditions: 'Terms and Conditions',
+      refundPolicy: 'Refund Policy',
+      followUs: 'Follow Us',
+    },
+    fa: {
+      quickLinks: 'لینک‌های سریع',
+      legal: 'قوانین',
+      privacyPolicy: 'سیاست حفظ حریم خصوصی',
+      termsAndConditions: 'شرایط و ضوابط',
+      refundPolicy: 'سیاست بازپرداخت',
+      followUs: 'ما را دنبال کنید',
+    },
+    ar: {
+      quickLinks: 'روابط سريعة',
+      legal: 'قانوني',
+      privacyPolicy: 'سياسة الخصوصية',
+      termsAndConditions: 'الشروط والأحكام',
+      refundPolicy: 'سياسة الاسترداد',
+      followUs: 'تابعنا',
+    },
+    tr: {
+      quickLinks: 'Hızlı Bağlantılar',
+      legal: 'Yasal',
+      privacyPolicy: 'Gizlilik Politikası',
+      termsAndConditions: 'Şartlar ve Koşullar',
+      refundPolicy: 'İade Politikası',
+      followUs: 'Bizi Takip Edin',
+    },
+  };
+
+  const txt = texts[language] || texts.en;
 
   const socialLinks = [
     { name: 'Twitter', icon: 'M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z' },
@@ -24,23 +62,23 @@ const Footer = () => {
   ];
 
   return (
-    <footer className={`relative bg-background border-t ${language === 'fa' || language === 'ar' ? 'rtl' : 'ltr'}`}>
+    <footer className={`relative bg-background border-t ${isRTL ? 'rtl text-right font-vazir' : 'ltr text-left'}`}>
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* About */}
           <div>
-            <div className="flex items-center space-x-3 mb-6">
+            <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">R</span>
               </div>
-              <h3 className={`text-xl font-bold text-foreground ${language === 'fa' || language === 'ar' ? 'font-vazir' : ''}`}>
+              <h3 className={`text-xl font-bold text-foreground ${isRTL ? 'font-vazir' : ''}`}>
                 {language === 'en' || language === 'tr' ? 'Rafiei Group' : 
                  language === 'fa' ? 'گروه رفیعی' : 'مجموعة رفيعي'}
               </h3>
             </div>
             <div className="space-y-4">
               <div>
-              <div className="flex items-start space-x-2 mb-3">
+                <div className={`flex items-start gap-2 mb-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <Building className="flex-shrink-0 h-4 w-4 text-primary mt-1" />
                   <div>
                     <p className="text-foreground font-medium">Rafiei Group</p>
@@ -49,14 +87,14 @@ const Footer = () => {
               </div>
               
               <div className="space-y-3">
-                <div className="flex items-start space-x-2">
+                <div className={`flex items-start gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <MapPin className="flex-shrink-0 h-4 w-4 text-primary mt-1" />
                   <div>
                     <p className="text-muted-foreground text-sm">35 Richford Grove</p>
                     <p className="text-muted-foreground text-sm">Birmingham B33 0NJ, UK</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <Mail className="flex-shrink-0 h-4 w-4 text-primary" />
                   <a 
                     href="mailto:contact@rafiei.co" 
@@ -65,7 +103,7 @@ const Footer = () => {
                     contact@rafiei.co
                   </a>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
@@ -82,8 +120,8 @@ const Footer = () => {
           
           {/* Quick Links */}
           <div>
-            <h3 className={`text-xl font-bold mb-6 text-foreground ${language === 'fa' || language === 'ar' ? 'font-vazir' : ''}`}>
-              Quick Links
+            <h3 className={`text-xl font-bold mb-6 text-foreground ${isRTL ? 'font-vazir' : ''}`}>
+              {txt.quickLinks}
             </h3>
             <ul className="space-y-3">
               {[
@@ -94,9 +132,9 @@ const Footer = () => {
                 <li key={item.href}>
                   <Link 
                     to={item.href} 
-                    className="text-muted-foreground hover:text-primary transition-all duration-200 flex items-center group"
+                    className={`text-muted-foreground hover:text-primary transition-all duration-200 flex items-center group ${isRTL ? 'flex-row-reverse' : ''}`}
                   >
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className={`w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity ${isRTL ? 'ml-3' : 'mr-3'}`}></span>
                     {item.label}
                   </Link>
                 </li>
@@ -105,7 +143,7 @@ const Footer = () => {
             
             {/* Theme & Language */}
             <div className="mt-8">
-              <div className="flex items-center space-x-2">
+              <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 {/* Theme Toggle */}
                 <Button 
                   variant="ghost" 
@@ -130,7 +168,7 @@ const Footer = () => {
                       <Globe className="h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="w-40 bg-popover border border-border z-50">
+                  <DropdownMenuContent align={isRTL ? 'end' : 'start'} className="w-40 bg-popover border border-border z-50">
                     <DropdownMenuItem onClick={() => setLanguage('en')} className={`cursor-pointer ${language === 'en' ? 'bg-primary/10 text-primary' : ''}`}>
                       English
                     </DropdownMenuItem>
@@ -151,37 +189,37 @@ const Footer = () => {
           
           {/* Legal */}
           <div>
-            <h3 className={`text-xl font-bold mb-6 text-foreground ${language === 'fa' || language === 'ar' ? 'font-vazir' : ''}`}>
-              Legal
+            <h3 className={`text-xl font-bold mb-6 text-foreground ${isRTL ? 'font-vazir' : ''}`}>
+              {txt.legal}
             </h3>
             <div className="space-y-4">
               <Link 
                 to="/privacy" 
-                className="text-muted-foreground hover:text-primary transition-colors text-sm block flex items-center group"
+                className={`text-muted-foreground hover:text-primary transition-colors text-sm flex items-center group ${isRTL ? 'flex-row-reverse' : ''}`}
               >
-                <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                Privacy Policy
+                <span className={`w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity ${isRTL ? 'ml-3' : 'mr-3'}`}></span>
+                {txt.privacyPolicy}
               </Link>
               <Link 
                 to="/terms" 
-                className="text-muted-foreground hover:text-primary transition-colors text-sm block flex items-center group"
+                className={`text-muted-foreground hover:text-primary transition-colors text-sm flex items-center group ${isRTL ? 'flex-row-reverse' : ''}`}
               >
-                <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                Terms and Conditions
+                <span className={`w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity ${isRTL ? 'ml-3' : 'mr-3'}`}></span>
+                {txt.termsAndConditions}
               </Link>
               <Link 
                 to="/refund" 
-                className="text-muted-foreground hover:text-primary transition-colors text-sm block flex items-center group"
+                className={`text-muted-foreground hover:text-primary transition-colors text-sm flex items-center group ${isRTL ? 'flex-row-reverse' : ''}`}
               >
-                <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                Refund Policy
+                <span className={`w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity ${isRTL ? 'ml-3' : 'mr-3'}`}></span>
+                {txt.refundPolicy}
               </Link>
             </div>
             
             {/* Social Links */}
             <div className="mt-8">
-              <h4 className="text-sm font-semibold text-foreground mb-4">Follow Us</h4>
-              <div className="flex space-x-3">
+              <h4 className="text-sm font-semibold text-foreground mb-4">{txt.followUs}</h4>
+              <div className={`flex gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 {socialLinks.map((social) => (
                   <a 
                     key={social.name}
@@ -201,7 +239,7 @@ const Footer = () => {
         
         <Separator className="my-8" />
         
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className={`flex flex-col md:flex-row justify-between items-center gap-4 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
           <p className="text-muted-foreground text-sm">
             {t('footer.copyright')}
           </p>
