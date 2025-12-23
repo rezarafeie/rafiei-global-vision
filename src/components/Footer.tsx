@@ -162,14 +162,21 @@ const Footer = () => {
                 className="text-muted-foreground hover:text-primary transition-colors text-sm block flex items-center group"
               >
                 <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                {t('footer.privacy')}
+                Privacy Policy
               </Link>
               <Link 
                 to="/terms" 
                 className="text-muted-foreground hover:text-primary transition-colors text-sm block flex items-center group"
               >
                 <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                {t('footer.terms')}
+                Terms and Conditions
+              </Link>
+              <Link 
+                to="/refund" 
+                className="text-muted-foreground hover:text-primary transition-colors text-sm block flex items-center group"
+              >
+                <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                Refund Policy
               </Link>
             </div>
             
