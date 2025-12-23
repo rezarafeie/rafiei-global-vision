@@ -40,11 +40,13 @@ const Navigation = () => {
     return names[lang] || 'English';
   };
 
+  const isRTL = language === 'fa' || language === 'ar';
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-2xl border-b border-white/10 dark:border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
-      <nav className="container mx-auto px-6 py-5 flex items-center justify-between">
+      <nav className={`container mx-auto px-6 py-5 flex items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
         <div className="flex items-center">
-          <Link to="/" className="group flex items-center space-x-3">
+          <Link to="/" className={`group flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-glow group-hover:shadow-primary/50 transition-all duration-300">
               <span className="text-white font-bold text-lg">R</span>
             </div>
@@ -56,21 +58,21 @@ const Navigation = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <div className={`flex items-center ${language === 'fa' || language === 'ar' ? 'space-x-reverse' : 'space-x-8'}`}>
+        <div className={`hidden md:flex items-center gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <div className={`flex items-center gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 group"
+                className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 group whitespace-nowrap"
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary/50 transition-all duration-300 group-hover:w-full"></span>
+                <span className={`absolute -bottom-1 w-0 h-0.5 bg-gradient-to-r from-primary to-primary/50 transition-all duration-300 group-hover:w-full ${isRTL ? 'right-0' : 'left-0'}`}></span>
               </Link>
             ))}
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className={`flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
             {/* Language Switcher */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -114,7 +116,7 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden flex items-center space-x-2">
+        <div className={`md:hidden flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
           <Button 
             variant="ghost" 
             size="icon" 
