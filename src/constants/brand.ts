@@ -254,13 +254,12 @@ export const BRAND = {
   ],
   // Company information
   company: {
-    name: 'RAFIEI LTD',
-    number: '14994763',
+    name: 'Rafiei Group',
     address: {
-      street: '2 Frederick Street',
-      area: 'Kings Cross',
-      city: 'London',
-      country: 'United Kingdom'
+      street: '35 Richford Grove',
+      area: 'Birmingham B33 0NJ',
+      city: 'Birmingham',
+      country: 'UK'
     },
     contact: {
       email: 'contact@rafiei.co',

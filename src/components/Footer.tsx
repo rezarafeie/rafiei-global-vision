@@ -44,11 +44,10 @@ const Footer = () => {
             </div>
             <div className="space-y-4">
               <div>
-                <div className="flex items-start space-x-2 mb-3">
+              <div className="flex items-start space-x-2 mb-3">
                   <Building className="flex-shrink-0 h-4 w-4 text-primary mt-1" />
                   <div>
-                    <p className="text-foreground font-medium">RAFIEI LTD</p>
-                    <p className="text-muted-foreground text-sm">Register Number: 14994763</p>
+                    <p className="text-foreground font-medium">Rafiei Group</p>
                   </div>
                 </div>
               </div>
@@ -57,8 +56,8 @@ const Footer = () => {
                 <div className="flex items-start space-x-2">
                   <MapPin className="flex-shrink-0 h-4 w-4 text-primary mt-1" />
                   <div>
-                    <p className="text-muted-foreground text-sm">2 Frederick Street, Kings Cross</p>
-                    <p className="text-muted-foreground text-sm">London, United Kingdom</p>
+                    <p className="text-muted-foreground text-sm">35 Richford Grove</p>
+                    <p className="text-muted-foreground text-sm">Birmingham B33 0NJ, UK</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
