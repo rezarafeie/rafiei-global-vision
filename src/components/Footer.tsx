@@ -207,22 +207,6 @@ const Footer = () => {
           <p className="text-muted-foreground text-sm">
             {t('footer.copyright')}
           </p>
-          <div className="flex items-center">
-            <a 
-              referrerPolicy='origin' 
-              target='_blank' 
-              href='https://trustseal.enamad.ir/?id=657703&Code=ZXXN93ctCQvJHhtAnVEx8cD9aFssx7rY'
-              rel="noopener noreferrer"
-            >
-              <img 
-                referrerPolicy='origin' 
-                src='https://trustseal.enamad.ir/logo.aspx?id=657703&Code=ZXXN93ctCQvJHhtAnVEx8cD9aFssx7rY' 
-                alt='اینماد' 
-                style={{ cursor: 'pointer' }} 
-                className="h-20"
-              />
-            </a>
-          </div>
         </div>
       </div>
     </footer>
