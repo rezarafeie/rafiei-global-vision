@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Sun, Moon, Flag } from 'lucide-react';
+import { Menu, X, Sun, Moon, Globe } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,14 +30,14 @@ const Navigation = () => {
     { label: t('nav.contact'), href: '/contact' },
   ];
 
-  const getFlagEmoji = (lang: string) => {
-    const flags: Record<string, string> = {
-      en: '🇬🇧',
-      fa: '🇮🇷',
-      ar: '🇸🇦',
-      tr: '🇹🇷',
+  const getLanguageName = (lang: string) => {
+    const names: Record<string, string> = {
+      en: 'English',
+      fa: 'فارسی',
+      ar: 'العربية',
+      tr: 'Türkçe',
     };
-    return flags[lang] || '🇬🇧';
+    return names[lang] || 'English';
   };
 
   return (
@@ -72,26 +72,31 @@ const Navigation = () => {
 
           <div className="flex items-center space-x-4">
             {/* Language Switcher */}
-            <div className="flex items-center bg-muted/50 backdrop-blur-sm rounded-full p-1 border border-border/50">
-              {[
-                { code: 'en', flag: '🇬🇧' },
-                { code: 'fa', flag: '🇮🇷' },
-                { code: 'ar', flag: '🇸🇦' },
-                { code: 'tr', flag: '🇹🇷' }
-              ].map(({ code, flag }) => (
-                <button
-                  key={code}
-                  onClick={() => handleLanguageChange(code as 'en' | 'fa' | 'ar' | 'tr')}
-                  className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 text-sm hover:scale-105 ${
-                    language === code 
-                      ? 'bg-primary text-primary-foreground shadow-sm' 
-                      : 'hover:bg-accent'
-                  }`}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="rounded-full w-10 h-10 bg-muted/50 backdrop-blur-sm border border-border/50 hover:bg-accent hover:scale-105 transition-all duration-200"
                 >
-                  {flag}
-                </button>
-              ))}
-            </div>
+                  <Globe className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-40">
+                <DropdownMenuItem onClick={() => handleLanguageChange('en')} className={`cursor-pointer ${language === 'en' ? 'bg-primary/10 text-primary' : ''}`}>
+                  English
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange('fa')} className={`cursor-pointer ${language === 'fa' ? 'bg-primary/10 text-primary' : ''}`}>
+                  فارسی
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange('ar')} className={`cursor-pointer ${language === 'ar' ? 'bg-primary/10 text-primary' : ''}`}>
+                  العربية
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange('tr')} className={`cursor-pointer ${language === 'tr' ? 'bg-primary/10 text-primary' : ''}`}>
+                  Türkçe
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             {/* Theme Toggle */}
             <Button 
@@ -130,21 +135,21 @@ const Navigation = () => {
                 size="icon" 
                 className="rounded-full w-10 h-10 bg-muted/50 backdrop-blur-sm border border-border/50"
               >
-                <Flag className="h-4 w-4" />
+                <Globe className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48">
-              <DropdownMenuItem onClick={() => handleLanguageChange('en')} className="cursor-pointer">
-                🇬🇧 English
+            <DropdownMenuContent align="end" className="w-40">
+              <DropdownMenuItem onClick={() => handleLanguageChange('en')} className={`cursor-pointer ${language === 'en' ? 'bg-primary/10 text-primary' : ''}`}>
+                English
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleLanguageChange('fa')} className="cursor-pointer">
-                🇮🇷 فارسی
+              <DropdownMenuItem onClick={() => handleLanguageChange('fa')} className={`cursor-pointer ${language === 'fa' ? 'bg-primary/10 text-primary' : ''}`}>
+                فارسی
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleLanguageChange('ar')} className="cursor-pointer">
-                🇸🇦 العربية
+              <DropdownMenuItem onClick={() => handleLanguageChange('ar')} className={`cursor-pointer ${language === 'ar' ? 'bg-primary/10 text-primary' : ''}`}>
+                العربية
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleLanguageChange('tr')} className="cursor-pointer">
-                🇹🇷 Türkçe
+              <DropdownMenuItem onClick={() => handleLanguageChange('tr')} className={`cursor-pointer ${language === 'tr' ? 'bg-primary/10 text-primary' : ''}`}>
+                Türkçe
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
