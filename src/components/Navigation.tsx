@@ -50,7 +50,7 @@ const Navigation = () => {
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-glow group-hover:shadow-primary/50 transition-all duration-300">
               <span className="text-white font-bold text-lg">R</span>
             </div>
-            <span className="font-display text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            <span className={`text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent ${isRTL ? 'font-vazir' : 'font-display'}`}>
               {language === 'en' || language === 'tr' ? 'Rafiei Group' : 
                language === 'fa' ? 'گروه رفیعی' : 'مجموعة رفيعي'}
             </span>
