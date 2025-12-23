@@ -11,6 +11,7 @@ import {
   Building, Sparkles, MessageSquare, Headphones
 } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Form validation schema
 const contactSchema = z.object({
@@ -25,6 +26,8 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
+  const { language } = useLanguage();
+  const isRtl = language === 'fa' || language === 'ar';
   
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -92,81 +95,147 @@ const Contact = () => {
     setIsSubmitting(false);
   };
 
-  const inquiryTypes = [
+  const inquiryTypes = language === 'en' ? [
     { value: 'general', label: 'General Inquiry' },
     { value: 'partnership', label: 'Partnership Opportunity' },
     { value: 'support', label: 'Technical Support' },
     { value: 'sales', label: 'Sales & Pricing' },
     { value: 'media', label: 'Media & Press' },
     { value: 'careers', label: 'Careers' }
+  ] : language === 'tr' ? [
+    { value: 'general', label: 'Genel Soru' },
+    { value: 'partnership', label: 'Ortaklık Fırsatı' },
+    { value: 'support', label: 'Teknik Destek' },
+    { value: 'sales', label: 'Satış ve Fiyatlandırma' },
+    { value: 'media', label: 'Medya ve Basın' },
+    { value: 'careers', label: 'Kariyer' }
+  ] : language === 'fa' ? [
+    { value: 'general', label: 'سوال عمومی' },
+    { value: 'partnership', label: 'فرصت همکاری' },
+    { value: 'support', label: 'پشتیبانی فنی' },
+    { value: 'sales', label: 'فروش و قیمت‌گذاری' },
+    { value: 'media', label: 'رسانه و مطبوعات' },
+    { value: 'careers', label: 'استخدام' }
+  ] : [
+    { value: 'general', label: 'استفسار عام' },
+    { value: 'partnership', label: 'فرصة شراكة' },
+    { value: 'support', label: 'الدعم الفني' },
+    { value: 'sales', label: 'المبيعات والأسعار' },
+    { value: 'media', label: 'الإعلام والصحافة' },
+    { value: 'careers', label: 'الوظائف' }
   ];
 
   const contactMethods = [
     {
       icon: <Mail className="h-6 w-6" />,
-      title: 'Email Us',
-      description: 'Send us an email anytime. We typically respond within 24 hours.',
+      title: language === 'en' ? 'Email Us' : language === 'tr' ? 'E-posta Gönderin' : language === 'fa' ? 'ایمیل بزنید' : 'راسلنا',
+      description: language === 'en' ? 'Send us an email anytime. We typically respond within 24 hours.' :
+                   language === 'tr' ? 'Bize her zaman e-posta gönderin. Genellikle 24 saat içinde yanıt veririz.' :
+                   language === 'fa' ? 'هر زمان به ما ایمیل بزنید. معمولاً ظرف 24 ساعت پاسخ می‌دهیم.' :
+                   'أرسل لنا بريدًا إلكترونيًا في أي وقت. نرد عادةً خلال 24 ساعة.',
       value: 'contact@rafiei.co',
       href: 'mailto:contact@rafiei.co',
-      action: 'Send Email'
+      action: language === 'en' ? 'Send Email' : language === 'tr' ? 'E-posta Gönder' : language === 'fa' ? 'ارسال ایمیل' : 'إرسال بريد'
     },
     {
       icon: <Phone className="h-6 w-6" />,
-      title: 'Call Us',
-      description: 'Speak directly with our team during business hours.',
+      title: language === 'en' ? 'Call Us' : language === 'tr' ? 'Bizi Arayın' : language === 'fa' ? 'با ما تماس بگیرید' : 'اتصل بنا',
+      description: language === 'en' ? 'Speak directly with our team during business hours.' :
+                   language === 'tr' ? 'Çalışma saatlerinde ekibimizle doğrudan konuşun.' :
+                   language === 'fa' ? 'در ساعات کاری مستقیماً با تیم ما صحبت کنید.' :
+                   'تحدث مباشرة مع فريقنا خلال ساعات العمل.',
       value: '+44 7476 681270',
       href: 'tel:+447476681270',
-      action: 'Call Now'
+      action: language === 'en' ? 'Call Now' : language === 'tr' ? 'Şimdi Ara' : language === 'fa' ? 'اکنون تماس بگیرید' : 'اتصل الآن'
     },
     {
       icon: <MapPin className="h-6 w-6" />,
-      title: 'Visit Us',
-      description: 'Our headquarters in Birmingham, United Kingdom.',
+      title: language === 'en' ? 'Visit Us' : language === 'tr' ? 'Ziyaret Edin' : language === 'fa' ? 'به ما سر بزنید' : 'زورونا',
+      description: language === 'en' ? 'Our headquarters in Birmingham, United Kingdom.' :
+                   language === 'tr' ? 'İngiltere, Birmingham\'daki merkezimiz.' :
+                   language === 'fa' ? 'دفتر مرکزی ما در بیرمنگام، انگلستان.' :
+                   'مقرنا الرئيسي في برمنغهام، المملكة المتحدة.',
       value: '35 Richford Grove, Birmingham B33 0NJ, UK',
       href: 'https://maps.google.com/?q=35+Richford+Grove+Birmingham+B33+0NJ+UK',
-      action: 'Get Directions'
+      action: language === 'en' ? 'Get Directions' : language === 'tr' ? 'Yol Tarifi Al' : language === 'fa' ? 'مسیریابی' : 'احصل على الاتجاهات'
     }
   ];
 
   const reasons = [
     {
       icon: <Clock className="h-6 w-6" />,
-      title: 'Fast Response',
-      description: 'We respond to all inquiries within 24-48 hours'
+      title: language === 'en' ? 'Fast Response' : language === 'tr' ? 'Hızlı Yanıt' : language === 'fa' ? 'پاسخ سریع' : 'استجابة سريعة',
+      description: language === 'en' ? 'We respond to all inquiries within 24-48 hours' :
+                   language === 'tr' ? 'Tüm sorulara 24-48 saat içinde yanıt veriyoruz' :
+                   language === 'fa' ? 'به همه سوالات ظرف 24-48 ساعت پاسخ می‌دهیم' :
+                   'نرد على جميع الاستفسارات خلال 24-48 ساعة'
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: 'Dedicated Support',
-      description: 'Personal attention from our experienced team'
+      title: language === 'en' ? 'Dedicated Support' : language === 'tr' ? 'Özel Destek' : language === 'fa' ? 'پشتیبانی اختصاصی' : 'دعم مخصص',
+      description: language === 'en' ? 'Personal attention from our experienced team' :
+                   language === 'tr' ? 'Deneyimli ekibimizden kişisel ilgi' :
+                   language === 'fa' ? 'توجه شخصی از تیم باتجربه ما' :
+                   'اهتمام شخصي من فريقنا ذي الخبرة'
     },
     {
       icon: <Zap className="h-6 w-6" />,
-      title: 'Expert Solutions',
-      description: 'Tailored recommendations for your needs'
+      title: language === 'en' ? 'Expert Solutions' : language === 'tr' ? 'Uzman Çözümler' : language === 'fa' ? 'راه‌حل‌های تخصصی' : 'حلول خبيرة',
+      description: language === 'en' ? 'Tailored recommendations for your needs' :
+                   language === 'tr' ? 'İhtiyaçlarınıza göre özelleştirilmiş öneriler' :
+                   language === 'fa' ? 'توصیه‌های متناسب با نیازهای شما' :
+                   'توصيات مخصصة لاحتياجاتك'
     },
     {
       icon: <Globe className="h-6 w-6" />,
-      title: 'Global Reach',
-      description: 'Supporting clients across 4+ countries'
+      title: language === 'en' ? 'Global Reach' : language === 'tr' ? 'Küresel Erişim' : language === 'fa' ? 'دسترسی جهانی' : 'الوصول العالمي',
+      description: language === 'en' ? 'Supporting clients across 4+ countries' :
+                   language === 'tr' ? '4\'ten fazla ülkede müşterilere destek' :
+                   language === 'fa' ? 'پشتیبانی از مشتریان در بیش از 4 کشور' :
+                   'دعم العملاء عبر أكثر من 4 دول'
     }
   ];
 
   const faqs = [
     {
-      question: 'How quickly can I expect a response?',
-      answer: 'We aim to respond to all inquiries within 24-48 business hours. For urgent matters, please call us directly.'
+      question: language === 'en' ? 'How quickly can I expect a response?' :
+                language === 'tr' ? 'Ne kadar hızlı yanıt alabilirim?' :
+                language === 'fa' ? 'چقدر سریع می‌توانم انتظار پاسخ داشته باشم؟' :
+                'ما مدى سرعة الرد المتوقعة؟',
+      answer: language === 'en' ? 'We aim to respond to all inquiries within 24-48 business hours. For urgent matters, please call us directly.' :
+              language === 'tr' ? 'Tüm sorulara 24-48 iş saati içinde yanıt vermeyi hedefliyoruz. Acil durumlar için lütfen bizi doğrudan arayın.' :
+              language === 'fa' ? 'هدف ما پاسخگویی به تمام سوالات ظرف 24-48 ساعت کاری است. برای موارد فوری، لطفاً مستقیماً با ما تماس بگیرید.' :
+              'نهدف للرد على جميع الاستفسارات خلال 24-48 ساعة عمل. للأمور العاجلة، يرجى الاتصال بنا مباشرة.'
     },
     {
-      question: 'Do you offer partnerships or collaborations?',
-      answer: 'Yes! We are always open to strategic partnerships. Select "Partnership Opportunity" in the inquiry type and tell us about your proposal.'
+      question: language === 'en' ? 'Do you offer partnerships or collaborations?' :
+                language === 'tr' ? 'Ortaklık veya işbirliği sunuyor musunuz?' :
+                language === 'fa' ? 'آیا شراکت یا همکاری ارائه می‌دهید؟' :
+                'هل تقدمون شراكات أو تعاونات؟',
+      answer: language === 'en' ? 'Yes! We are always open to strategic partnerships. Select "Partnership Opportunity" in the inquiry type and tell us about your proposal.' :
+              language === 'tr' ? 'Evet! Stratejik ortaklıklara her zaman açığız. Soru türünde "Ortaklık Fırsatı"nı seçin ve teklifinizi anlatın.' :
+              language === 'fa' ? 'بله! ما همیشه برای شراکت‌های استراتژیک آماده‌ایم. "فرصت همکاری" را در نوع سوال انتخاب کنید و پیشنهاد خود را بیان کنید.' :
+              'نعم! نحن منفتحون دائمًا على الشراكات الاستراتيجية. اختر "فرصة شراكة" في نوع الاستفسار وأخبرنا عن اقتراحك.'
     },
     {
-      question: 'Can I schedule a demo of your products?',
-      answer: 'Absolutely. Reach out through the form or email us directly, and we will arrange a personalized demo session.'
+      question: language === 'en' ? 'Can I schedule a demo of your products?' :
+                language === 'tr' ? 'Ürünlerinizin bir demosunu planlayabilir miyim?' :
+                language === 'fa' ? 'آیا می‌توانم دموی محصولات شما را برنامه‌ریزی کنم؟' :
+                'هل يمكنني جدولة عرض توضيحي لمنتجاتكم؟',
+      answer: language === 'en' ? 'Absolutely. Reach out through the form or email us directly, and we will arrange a personalized demo session.' :
+              language === 'tr' ? 'Kesinlikle. Form aracılığıyla veya doğrudan e-posta ile bize ulaşın, kişiselleştirilmiş bir demo oturumu ayarlayacağız.' :
+              language === 'fa' ? 'قطعاً. از طریق فرم با ما تماس بگیرید یا مستقیماً ایمیل بزنید و ما یک جلسه دمو شخصی‌سازی شده ترتیب می‌دهیم.' :
+              'بالتأكيد. تواصل معنا من خلال النموذج أو راسلنا مباشرة، وسنرتب جلسة عرض مخصصة.'
     },
     {
-      question: 'What support options are available?',
-      answer: 'We offer email support, phone support during business hours, and comprehensive documentation for all our products.'
+      question: language === 'en' ? 'What support options are available?' :
+                language === 'tr' ? 'Hangi destek seçenekleri mevcut?' :
+                language === 'fa' ? 'چه گزینه‌های پشتیبانی در دسترس است؟' :
+                'ما هي خيارات الدعم المتاحة؟',
+      answer: language === 'en' ? 'We offer email support, phone support during business hours, and comprehensive documentation for all our products.' :
+              language === 'tr' ? 'E-posta desteği, çalışma saatlerinde telefon desteği ve tüm ürünlerimiz için kapsamlı dokümantasyon sunuyoruz.' :
+              language === 'fa' ? 'پشتیبانی ایمیلی، پشتیبانی تلفنی در ساعات کاری و مستندات جامع برای تمام محصولات خود ارائه می‌دهیم.' :
+              'نقدم دعم البريد الإلكتروني، ودعم الهاتف خلال ساعات العمل، ووثائق شاملة لجميع منتجاتنا.'
     }
   ];
 
@@ -193,19 +262,29 @@ const Contact = () => {
               transition={{ delay: 0.2 }}
             >
               <MessageCircle className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">We would love to hear from you</span>
+              <span className="text-sm font-medium text-primary">
+                {language === 'en' ? 'We would love to hear from you' :
+                 language === 'tr' ? 'Sizden haber almak isteriz' :
+                 language === 'fa' ? 'خوشحال می‌شویم از شما بشنویم' :
+                 'يسعدنا أن نسمع منك'}
+              </span>
             </motion.div>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight font-display">
-              <span className="text-foreground">Let's Build</span>
+            <h1 className={`text-5xl md:text-7xl font-bold mb-8 leading-tight ${isRtl ? 'font-vazir' : 'font-display'}`}>
+              <span className="text-foreground">
+                {language === 'en' ? "Let's Build" : language === 'tr' ? 'Birlikte İnşa Edelim' : language === 'fa' ? 'بیایید بسازیم' : 'لنبني معًا'}
+              </span>
               <br />
               <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-                Something Great Together
+                {language === 'en' ? 'Something Great Together' : language === 'tr' ? 'Harika Bir Şey' : language === 'fa' ? 'چیزی فوق‌العاده' : 'شيئًا رائعًا'}
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-              Whether you have a question, want to explore a partnership, or need support—we are here to help you succeed.
+            <p className={`text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed ${isRtl ? 'font-vazir' : ''}`}>
+              {language === 'en' ? 'Whether you have a question, want to explore a partnership, or need support—we are here to help you succeed.' :
+               language === 'tr' ? 'Bir sorunuz mu var, ortaklık mı keşfetmek istiyorsunuz yoksa desteğe mi ihtiyacınız var—başarmanıza yardımcı olmak için buradayız.' :
+               language === 'fa' ? 'چه سوالی دارید، چه می‌خواهید همکاری را بررسی کنید، یا نیاز به پشتیبانی دارید—ما اینجاییم تا به موفقیت شما کمک کنیم.' :
+               'سواء كان لديك سؤال، أو تريد استكشاف شراكة، أو تحتاج إلى دعم—نحن هنا لمساعدتك على النجاح.'}
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
