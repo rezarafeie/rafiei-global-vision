@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ArrowRight, Users, Globe, Star, Brain, TrendingUp, Zap, BookOpen, Network, Briefcase, CreditCard, Podcast, Wallet, Shield, Newspaper, Layers, GraduationCap, Forward } from 'lucide-react';
+import { ArrowRight, Users, Globe, Star, Brain, TrendingUp, Zap, BookOpen, Network, Briefcase, CreditCard, Podcast, Wallet, Shield, Newspaper, Layers, GraduationCap, Forward, Cloud, Hammer, PhoneCall, Flower2 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { BRAND } from '@/constants/brand';
 
@@ -11,6 +11,10 @@ const Index = () => {
   const isRtl = language === 'fa' || language === 'ar';
 
   const iconMap: Record<string, React.ReactNode> = {
+    Cloud: <Cloud className="h-6 w-6" />,
+    Hammer: <Hammer className="h-6 w-6" />,
+    PhoneCall: <PhoneCall className="h-6 w-6" />,
+    Lotus: <Flower2 className="h-6 w-6" />,
     Brain: <Brain className="h-6 w-6" />,
     GraduationCap: <GraduationCap className="h-6 w-6" />,
     Forward: <Forward className="h-6 w-6" />,

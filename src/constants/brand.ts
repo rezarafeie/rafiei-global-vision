@@ -36,6 +36,54 @@ export const BRAND = {
   // Products information that will be consistent across all Rafiei Group apps
   products: [
     {
+      id: 'rafiei-cloud',
+      name: 'Rafiei Cloud',
+      url: 'https://cloud.rafiei.co',
+      description: {
+        en: 'Entire backend infrastructure. Database, authentication, storage, and edge functions with zero configuration under 2 mins',
+        fa: 'زیرساخت کامل بک‌اند. دیتابیس، احراز هویت، ذخیره‌سازی و توابع اج بدون پیکربندی در کمتر از ۲ دقیقه',
+        ar: 'بنية تحتية خلفية كاملة. قاعدة البيانات والمصادقة والتخزين ووظائف الحافة بدون تكوين في أقل من دقيقتين',
+        tr: 'Tam backend altyapısı. Veritabanı, kimlik doğrulama, depolama ve edge fonksiyonları 2 dakikada sıfır yapılandırma ile',
+      },
+      icon: 'Cloud',
+    },
+    {
+      id: 'rafiei-builder',
+      name: 'Rafiei Builder',
+      url: 'https://builder.rafiei.co',
+      description: {
+        en: 'Vibe coding - create apps and websites by chatting with AI',
+        fa: 'کدنویسی هوشمند - ساخت اپلیکیشن و وبسایت با چت با هوش مصنوعی',
+        ar: 'برمجة ذكية - إنشاء التطبيقات والمواقع من خلال الدردشة مع الذكاء الاصطناعي',
+        tr: 'Akıllı kodlama - AI ile sohbet ederek uygulama ve web siteleri oluşturun',
+      },
+      icon: 'Hammer',
+    },
+    {
+      id: 'calls-analyzer',
+      name: 'Calls Analyzer',
+      url: 'https://calls.rafiei.co',
+      description: {
+        en: 'AI-powered call analyzer for insights and performance tracking',
+        fa: 'تحلیل‌گر تماس مبتنی بر هوش مصنوعی برای بینش و ردیابی عملکرد',
+        ar: 'محلل المكالمات المدعوم بالذكاء الاصطناعي للحصول على رؤى وتتبع الأداء',
+        tr: 'İçgörüler ve performans takibi için AI destekli arama analizörü',
+      },
+      icon: 'PhoneCall',
+    },
+    {
+      id: 'zenmind',
+      name: 'ZenMind',
+      url: 'https://zenmind.rafiei.co',
+      description: {
+        en: 'AI meditation generator for personalized mindfulness sessions',
+        fa: 'تولیدکننده مدیتیشن هوش مصنوعی برای جلسات ذهن‌آگاهی شخصی‌سازی‌شده',
+        ar: 'مولد التأمل بالذكاء الاصطناعي لجلسات اليقظة الذهنية المخصصة',
+        tr: 'Kişiselleştirilmiş farkındalık seansları için AI meditasyon oluşturucu',
+      },
+      icon: 'Lotus',
+    },
+    {
       id: 'ai-assistant',
       name: 'AI Assistant', 
       url: 'https://ai.rafiei.co',
@@ -202,54 +250,6 @@ export const BRAND = {
         tr: 'Metaverse ve web3 medya ve kursları',
       },
       icon: 'Layers',
-    },
-    {
-      id: 'rafiei-cloud',
-      name: 'Rafiei Cloud',
-      url: 'https://cloud.rafiei.co',
-      description: {
-        en: 'Entire backend infrastructure. Database, authentication, storage, and edge functions with zero configuration under 2 mins',
-        fa: 'زیرساخت کامل بک‌اند. دیتابیس، احراز هویت، ذخیره‌سازی و توابع اج بدون پیکربندی در کمتر از ۲ دقیقه',
-        ar: 'بنية تحتية خلفية كاملة. قاعدة البيانات والمصادقة والتخزين ووظائف الحافة بدون تكوين في أقل من دقيقتين',
-        tr: 'Tam backend altyapısı. Veritabanı, kimlik doğrulama, depolama ve edge fonksiyonları 2 dakikada sıfır yapılandırma ile',
-      },
-      icon: 'Cloud',
-    },
-    {
-      id: 'rafiei-builder',
-      name: 'Rafiei Builder',
-      url: 'https://builder.rafiei.co',
-      description: {
-        en: 'Vibe coding - create apps and websites by chatting with AI',
-        fa: 'کدنویسی هوشمند - ساخت اپلیکیشن و وبسایت با چت با هوش مصنوعی',
-        ar: 'برمجة ذكية - إنشاء التطبيقات والمواقع من خلال الدردشة مع الذكاء الاصطناعي',
-        tr: 'Akıllı kodlama - AI ile sohbet ederek uygulama ve web siteleri oluşturun',
-      },
-      icon: 'Hammer',
-    },
-    {
-      id: 'calls-analyzer',
-      name: 'Calls Analyzer',
-      url: 'https://calls.rafiei.co',
-      description: {
-        en: 'AI-powered call analyzer for insights and performance tracking',
-        fa: 'تحلیل‌گر تماس مبتنی بر هوش مصنوعی برای بینش و ردیابی عملکرد',
-        ar: 'محلل المكالمات المدعوم بالذكاء الاصطناعي للحصول على رؤى وتتبع الأداء',
-        tr: 'İçgörüler ve performans takibi için AI destekli arama analizörü',
-      },
-      icon: 'Phone',
-    },
-    {
-      id: 'zenmind',
-      name: 'ZenMind',
-      url: 'https://zenmind.rafiei.co',
-      description: {
-        en: 'AI meditation generator for personalized mindfulness sessions',
-        fa: 'تولیدکننده مدیتیشن هوش مصنوعی برای جلسات ذهن‌آگاهی شخصی‌سازی‌شده',
-        ar: 'مولد التأمل بالذكاء الاصطناعي لجلسات اليقظة الذهنية المخصصة',
-        tr: 'Kişiselleştirilmiş farkındalık seansları için AI meditasyon oluşturucu',
-      },
-      icon: 'Sparkles',
     }
   ],
   // Company information
