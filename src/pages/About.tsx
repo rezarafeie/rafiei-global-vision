@@ -12,6 +12,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Link } from 'react-router-dom';
+import rezaRafieiPhoto from '@/assets/reza-rafiei.jpeg';
 
 const About = () => {
   const [activeCategory, setActiveCategory] = useState('infrastructure');
@@ -257,7 +258,19 @@ const About = () => {
               viewport={{ once: true }}
               variants={staggerContainer}
             >
-              <motion.div variants={fadeInUp}>
+              {/* Founder Photo */}
+              <motion.div variants={fadeInUp} className="relative order-2 lg:order-1">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary/10 rounded-3xl blur-2xl" />
+                <div className="relative">
+                  <img 
+                    src={rezaRafieiPhoto} 
+                    alt="Reza Rafiei - Founder & CEO of Rafiei Group" 
+                    className="w-full max-w-md mx-auto rounded-2xl shadow-2xl border-4 border-card"
+                  />
+                </div>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="order-1 lg:order-2">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
                   <Users className="h-4 w-4 text-primary" />
                   <span className="text-sm font-medium text-primary">Founder & Architect</span>
@@ -287,27 +300,32 @@ const About = () => {
                   Rather than building isolated products, Reza builds connected ecosystems—where education, infrastructure, AI, and finance work together seamlessly. Every product connects to a bigger vision: <span className="text-primary font-medium">AI as infrastructure, not just a feature.</span>
                 </p>
               </motion.div>
-              
-              <motion.div variants={fadeInUp} className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-2xl" />
-                <Card className="relative p-8 border-border/50 bg-card/80 backdrop-blur">
-                  <div className="grid grid-cols-2 gap-6">
-                    {impactStats.map((stat, index) => (
-                      <div key={index} className="text-center p-6 rounded-xl bg-muted/50">
-                        <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
-                        <p className="text-sm text-muted-foreground">{stat.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="mt-8 p-6 rounded-xl bg-primary/5 border border-primary/20">
-                    <h4 className="font-semibold text-foreground mb-4">Philosophy</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      Build systems that empower humans, not replace them. The group operates on a fully integrated modern tech stack: AI, cloud, automation, and finance—all working as one.
-                    </p>
-                  </div>
-                </Card>
-              </motion.div>
+            </motion.div>
+            
+            {/* Stats Card - Below photo and text on larger screens */}
+            <motion.div 
+              className="mt-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-8 border-border/50 bg-card/80 backdrop-blur">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  {impactStats.map((stat, index) => (
+                    <div key={index} className="text-center p-6 rounded-xl bg-muted/50">
+                      <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
+                      <p className="text-sm text-muted-foreground">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-8 p-6 rounded-xl bg-primary/5 border border-primary/20">
+                  <h4 className="font-semibold text-foreground mb-4">Philosophy</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Build systems that empower humans, not replace them. The group operates on a fully integrated modern tech stack: AI, cloud, automation, and finance—all working as one.
+                  </p>
+                </div>
+              </Card>
             </motion.div>
           </div>
         </div>
