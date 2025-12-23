@@ -204,7 +204,10 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-muted/30 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-muted/30" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
         
         <div className="container mx-auto px-6 relative z-10">
@@ -300,8 +303,11 @@ const Index = () => {
       </section>
 
       {/* Products & Services Section */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-6">
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-muted/30" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             <motion.div 
               className="text-center mb-16"
@@ -446,8 +452,10 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-6">
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-muted/30" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
