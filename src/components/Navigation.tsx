@@ -41,7 +41,7 @@ const Navigation = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-elegant">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-2xl border-b border-white/10 dark:border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
       <nav className="container mx-auto px-6 py-5 flex items-center justify-between">
         <div className="flex items-center">
           <Link to="/" className="group flex items-center space-x-3">
@@ -167,7 +167,7 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute w-full bg-background/95 backdrop-blur-xl border-t border-border/50 shadow-elegant">
+        <div className="md:hidden absolute w-full bg-background/60 backdrop-blur-2xl border-t border-white/10 dark:border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
           <div className="container mx-auto px-6 py-6 space-y-1">
             {navItems.map((item) => (
               <Link
