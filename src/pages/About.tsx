@@ -564,7 +564,7 @@ const About = () => {
             </p>
 
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-              Every product inside the group connects to a bigger vision: <span className="text-primary font-semibold">AI as infrastructure, not just a feature.</span>
+              {t.heroSubDesc} <span className="text-primary font-semibold">{t.heroHighlight}</span>
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
@@ -596,11 +596,11 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display text-foreground">
-                Meet the Founder
+              <h2 className={`text-4xl md:text-5xl font-bold mb-4 text-foreground ${isRTL ? 'font-vazir' : 'font-display'}`}>
+                {t.founderTitle}
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                The vision and leadership behind the Rafiei ecosystem.
+                {t.founderSubtitle}
               </p>
             </motion.div>
 
@@ -621,8 +621,8 @@ const About = () => {
                     className="w-full max-w-md mx-auto rounded-2xl shadow-2xl border-4 border-card"
                   />
                   <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-card border border-border/50 rounded-xl px-6 py-3 shadow-lg">
-                    <p className="text-sm font-medium text-muted-foreground">Founder & CEO</p>
-                    <p className="text-lg font-bold text-foreground">Reza Rafiei</p>
+                    <p className="text-sm font-medium text-muted-foreground">{t.founderRole}</p>
+                    <p className={`text-lg font-bold text-foreground ${isRTL ? 'font-vazir' : ''}`}>{t.founderName}</p>
                   </div>
                 </div>
               </motion.div>
@@ -630,35 +630,35 @@ const About = () => {
               <motion.div variants={fadeInUp} className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
                   <Award className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-medium text-primary">Technology Entrepreneur & AI Ecosystem Architect</span>
+                  <span className="text-sm font-medium text-primary">{t.founderBadge}</span>
                 </div>
                 
-                <h3 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-                  Building Borderless Digital Infrastructure
+                <h3 className={`text-3xl md:text-4xl font-bold text-foreground ${isRTL ? 'font-vazir' : 'font-display'}`}>
+                  {t.founderHeadline}
                 </h3>
                 
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Reza Rafiei is a technology entrepreneur, AI ecosystem architect, and global education innovator focused on building borderless digital infrastructure for the next generation of entrepreneurs, creators, and businesses.
+                  {t.founderDesc1}
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  He is the founder of Rafiei Group, a multi-layered technology group that designs and operates AI-first platforms across education, finance, cloud infrastructure, automation, media, and global business services.
+                  {t.founderDesc2}
                 </p>
                 
                 <div className="p-6 rounded-xl bg-card border border-border/50">
-                  <div className="flex items-start gap-3">
+                  <div className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <Quote className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="text-lg font-medium text-foreground italic mb-2">
-                        To eliminate geographical, financial, and technical barriers using intelligent systems.
+                        {t.founderQuote}
                       </p>
-                      <p className="text-sm text-muted-foreground">— Core Mission</p>
+                      <p className="text-sm text-muted-foreground">{t.founderQuoteLabel}</p>
                     </div>
                   </div>
                 </div>
                 
                 <p className="text-muted-foreground leading-relaxed">
-                  Rather than building isolated products, Reza builds connected ecosystems—where education, infrastructure, AI, and finance work together seamlessly. Every product connects to a bigger vision: <span className="text-primary font-medium">AI as infrastructure, not just a feature.</span>
+                  {t.founderDesc3} <span className="text-primary font-medium">{t.heroHighlight}</span>
                 </p>
 
                 <div className="grid grid-cols-2 gap-4">
@@ -696,12 +696,12 @@ const About = () => {
                 </div>
                 
                 <div className="p-6 rounded-xl bg-primary/5 border border-primary/20">
-                  <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <h4 className={`font-semibold text-foreground mb-4 flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <Heart className="h-5 w-5 text-primary" />
-                    Philosophy
+                    {t.philosophyTitle}
                   </h4>
                   <p className="text-muted-foreground leading-relaxed">
-                    Build systems that empower humans, not replace them. The group operates on a fully integrated modern tech stack: AI, cloud, automation, and finance—all working as one. Across all platforms, Rafiei Group has achieved tens of thousands of educated users, multiple scalable AI-first systems, proven real-world adoption, and strong communities across regions.
+                    {t.philosophyDesc}
                   </p>
                 </div>
               </Card>
@@ -720,11 +720,11 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display text-foreground">
-                Core Values
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-foreground ${isRTL ? 'font-vazir' : 'font-display'}`}>
+                {t.coreValuesTitle}
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                The principles that guide every decision and product we build.
+                {t.coreValuesSubtitle}
               </p>
             </motion.div>
 
@@ -763,11 +763,11 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display text-foreground">
-                Our Journey
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-foreground ${isRTL ? 'font-vazir' : 'font-display'}`}>
+                {t.journeyTitle}
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                From a vision to a global ecosystem serving thousands.
+                {t.journeySubtitle}
               </p>
             </motion.div>
 
@@ -819,11 +819,11 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display text-foreground">
-                The Ecosystem
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-foreground ${isRTL ? 'font-vazir' : 'font-display'}`}>
+                {t.ecosystemTitle}
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                A multi-layered technology group designing and operating AI-first platforms across education, finance, cloud infrastructure, automation, media, and global business services.
+                {t.ecosystemSubtitle}
               </p>
             </motion.div>
 
@@ -906,11 +906,11 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display text-foreground">
-                Long-Term Vision
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-foreground ${isRTL ? 'font-vazir' : 'font-display'}`}>
+                {t.visionTitle}
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Reza Rafiei and Rafiei Group are building toward a future where technology serves humanity without barriers.
+                {t.visionSubtitle}
               </p>
             </motion.div>
 
@@ -942,13 +942,13 @@ const About = () => {
               viewport={{ once: true }}
             >
               <p className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                This is not just a group of products.
+                {t.visionStatement1}
               </p>
               <p className="text-xl text-primary font-medium mb-6">
-                It is a digital civilization layer for the future.
+                {t.visionStatement2}
               </p>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                A world where anyone, anywhere, can access the tools, knowledge, and infrastructure they need to build something meaningful—without barriers of location, capital, or technical expertise.
+                {t.visionStatement3}
               </p>
             </motion.div>
           </div>
@@ -964,25 +964,25 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display text-foreground">
-                Ready to Build Without Borders?
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-foreground ${isRTL ? 'font-vazir' : 'font-display'}`}>
+                {t.ctaTitle}
               </h2>
               <p className="text-xl text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Join thousands who are already leveraging the Rafiei ecosystem to learn, build, and scale globally.
+                {t.ctaDesc}
               </p>
               <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
-                Whether you are an entrepreneur launching your first product, a business scaling internationally, or a creator looking to monetize globally—we have the infrastructure you need.
+                {t.ctaSubDesc}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
                 <Button asChild size="lg" className="text-base px-8">
-                  <Link to="/contact" className="flex items-center gap-2">
-                    Get Started
-                    <ArrowRight className="h-5 w-5" />
+                  <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    {t.ctaButton1}
+                    <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="text-base px-8">
                   <Link to="/">
-                    Explore Products
+                    {t.ctaButton2}
                   </Link>
                 </Button>
               </div>
