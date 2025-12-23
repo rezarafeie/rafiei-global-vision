@@ -64,63 +64,116 @@ const Index = () => {
     {
       icon: <Users className="h-7 w-7" />,
       value: '300K+',
-      label: language === 'en' || language === 'tr' ? 'Monthly Followers' : 
+      label: language === 'en' ? 'Monthly Followers' : 
+             language === 'tr' ? 'Aylık Takipçi' :
              language === 'fa' ? 'دنبال‌کنندگان ماهانه' : 'متابعون شهريًا',
-      description: 'Across all platforms'
+      description: language === 'en' ? 'Across all platforms' :
+                   language === 'tr' ? 'Tüm platformlarda' :
+                   language === 'fa' ? 'در تمام پلتفرم‌ها' : 'عبر جميع المنصات'
     },
     {
       icon: <Globe className="h-7 w-7" />,
       value: '30K+',
-      label: language === 'en' || language === 'tr' ? 'Monthly Users' : 
+      label: language === 'en' ? 'Monthly Users' : 
+             language === 'tr' ? 'Aylık Kullanıcı' :
              language === 'fa' ? 'کاربران ماهانه' : 'مستخدمون شهريًا',
-      description: 'Active monthly users'
+      description: language === 'en' ? 'Active monthly users' :
+                   language === 'tr' ? 'Aktif aylık kullanıcılar' :
+                   language === 'fa' ? 'کاربران فعال ماهانه' : 'مستخدمون نشطون شهريًا'
     },
     {
       icon: <Star className="h-7 w-7" />,
       value: `${BRAND.products.length}+`,
-      label: language === 'en' || language === 'tr' ? 'Digital Products' : 
+      label: language === 'en' ? 'Digital Products' : 
+             language === 'tr' ? 'Dijital Ürünler' :
              language === 'fa' ? 'محصولات دیجیتال' : 'منتجات رقمية',
-      description: 'Innovative solutions'
+      description: language === 'en' ? 'Innovative solutions' :
+                   language === 'tr' ? 'Yenilikçi çözümler' :
+                   language === 'fa' ? 'راه‌حل‌های نوآورانه' : 'حلول مبتكرة'
     },
     {
       icon: <Award className="h-7 w-7" />,
       value: '4+',
-      label: language === 'en' || language === 'tr' ? 'Countries' : 
+      label: language === 'en' ? 'Countries' : 
+             language === 'tr' ? 'Ülkeler' :
              language === 'fa' ? 'کشورها' : 'البلدان',
-      description: 'Global presence'
+      description: language === 'en' ? 'Global presence' :
+                   language === 'tr' ? 'Küresel varlık' :
+                   language === 'fa' ? 'حضور جهانی' : 'حضور عالمي'
     }
   ];
 
   const features = [
     {
       icon: <Lightbulb className="h-6 w-6" />,
-      title: 'Innovation First',
-      description: 'Cutting-edge solutions that push the boundaries of what\'s possible in digital technology.'
+      title: language === 'en' ? 'Innovation First' :
+             language === 'tr' ? 'Önce Yenilik' :
+             language === 'fa' ? 'نوآوری در اولویت' : 'الابتكار أولاً',
+      description: language === 'en' ? 'Cutting-edge solutions that push the boundaries of what\'s possible in digital technology.' :
+                   language === 'tr' ? 'Dijital teknolojide mümkün olanın sınırlarını zorlayan son teknoloji çözümler.' :
+                   language === 'fa' ? 'راه‌حل‌های پیشرفته که مرزهای ممکن در فناوری دیجیتال را جابجا می‌کنند.' :
+                   'حلول متطورة تتخطى حدود الممكن في التكنولوجيا الرقمية.'
     },
     {
       icon: <Target className="h-6 w-6" />,
-      title: 'Results Driven',
-      description: 'Every product and service is designed with measurable outcomes and real-world impact in mind.'
+      title: language === 'en' ? 'Results Driven' :
+             language === 'tr' ? 'Sonuç Odaklı' :
+             language === 'fa' ? 'نتیجه‌محور' : 'موجه نحو النتائج',
+      description: language === 'en' ? 'Every product and service is designed with measurable outcomes and real-world impact in mind.' :
+                   language === 'tr' ? 'Her ürün ve hizmet, ölçülebilir sonuçlar ve gerçek dünya etkisi göz önünde bulundurularak tasarlanmıştır.' :
+                   language === 'fa' ? 'هر محصول و خدمت با در نظر گرفتن نتایج قابل اندازه‌گیری و تأثیر واقعی طراحی شده است.' :
+                   'كل منتج وخدمة مصممة مع مراعاة النتائج القابلة للقياس والتأثير الفعلي.'
     },
     {
       icon: <Heart className="h-6 w-6" />,
-      title: 'User Focused',
-      description: 'We prioritize user experience, creating intuitive interfaces that delight and empower.'
+      title: language === 'en' ? 'User Focused' :
+             language === 'tr' ? 'Kullanıcı Odaklı' :
+             language === 'fa' ? 'کاربر محور' : 'التركيز على المستخدم',
+      description: language === 'en' ? 'We prioritize user experience, creating intuitive interfaces that delight and empower.' :
+                   language === 'tr' ? 'Kullanıcı deneyimine öncelik veriyor, memnun eden ve güçlendiren sezgisel arayüzler oluşturuyoruz.' :
+                   language === 'fa' ? 'ما تجربه کاربری را در اولویت قرار می‌دهیم و رابط‌های کاربری شهودی ایجاد می‌کنیم.' :
+                   'نعطي الأولوية لتجربة المستخدم، وننشئ واجهات بديهية تُسعد وتُمكّن.'
     },
     {
       icon: <Rocket className="h-6 w-6" />,
-      title: 'Rapid Growth',
-      description: 'Scalable solutions that grow with your business and adapt to changing market needs.'
+      title: language === 'en' ? 'Rapid Growth' :
+             language === 'tr' ? 'Hızlı Büyüme' :
+             language === 'fa' ? 'رشد سریع' : 'نمو سريع',
+      description: language === 'en' ? 'Scalable solutions that grow with your business and adapt to changing market needs.' :
+                   language === 'tr' ? 'İşinizle birlikte büyüyen ve değişen pazar ihtiyaçlarına uyum sağlayan ölçeklenebilir çözümler.' :
+                   language === 'fa' ? 'راه‌حل‌های مقیاس‌پذیر که با کسب‌وکار شما رشد می‌کنند و با نیازهای بازار سازگار می‌شوند.' :
+                   'حلول قابلة للتوسع تنمو مع عملك وتتكيف مع احتياجات السوق المتغيرة.'
     }
   ];
 
-  const highlights = [
+  const highlights = language === 'en' ? [
     'Technology & SaaS Platforms',
     'Educational Resources',
     'Media & Content Creation',
     'Business Consulting',
     'Digital Marketing',
     'Financial Technology'
+  ] : language === 'tr' ? [
+    'Teknoloji ve SaaS Platformları',
+    'Eğitim Kaynakları',
+    'Medya ve İçerik Üretimi',
+    'İş Danışmanlığı',
+    'Dijital Pazarlama',
+    'Finansal Teknoloji'
+  ] : language === 'fa' ? [
+    'فناوری و پلتفرم‌های SaaS',
+    'منابع آموزشی',
+    'رسانه و تولید محتوا',
+    'مشاوره کسب‌وکار',
+    'بازاریابی دیجیتال',
+    'فناوری مالی'
+  ] : [
+    'التكنولوجيا ومنصات SaaS',
+    'الموارد التعليمية',
+    'الإعلام وإنشاء المحتوى',
+    'استشارات الأعمال',
+    'التسويق الرقمي',
+    'التكنولوجيا المالية'
   ];
 
   return (
@@ -148,7 +201,10 @@ const Index = () => {
             >
               <Sparkles className="h-4 w-4 text-primary" />
               <span className="text-sm font-medium text-primary">
-                Building the Future of Digital Innovation
+                {language === 'en' ? 'Building the Future of Digital Innovation' :
+                 language === 'tr' ? 'Dijital İnovasyonun Geleceğini İnşa Ediyoruz' :
+                 language === 'fa' ? 'ساختن آینده نوآوری دیجیتال' :
+                 'بناء مستقبل الابتكار الرقمي'}
               </span>
             </motion.div>
             
@@ -265,13 +321,24 @@ const Index = () => {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
                 <Target className="h-4 w-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Why Choose Us</span>
+                <span className="text-sm font-medium text-primary">
+                  {language === 'en' ? 'Why Choose Us' :
+                   language === 'tr' ? 'Neden Bizi Seçmelisiniz' :
+                   language === 'fa' ? 'چرا ما را انتخاب کنید' :
+                   'لماذا تختارنا'}
+                </span>
               </div>
               <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-foreground ${isRtl ? 'font-vazir' : 'font-display'}`}>
-                Built Different, Built Better
+                {language === 'en' ? 'Built Different, Built Better' :
+                 language === 'tr' ? 'Farklı İnşa Edildi, Daha İyi İnşa Edildi' :
+                 language === 'fa' ? 'متفاوت ساخته شده، بهتر ساخته شده' :
+                 'بُني بشكل مختلف، بُني بشكل أفضل'}
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                We combine innovation, expertise, and passion to deliver solutions that make a real difference.
+                {language === 'en' ? 'We combine innovation, expertise, and passion to deliver solutions that make a real difference.' :
+                 language === 'tr' ? 'Gerçek bir fark yaratan çözümler sunmak için yenilik, uzmanlık ve tutkuyu birleştiriyoruz.' :
+                 language === 'fa' ? 'ما نوآوری، تخصص و اشتیاق را ترکیب می‌کنیم تا راه‌حل‌هایی ارائه دهیم که تفاوت واقعی ایجاد کنند.' :
+                 'نجمع بين الابتكار والخبرة والشغف لتقديم حلول تحدث فرقًا حقيقيًا.'}
               </p>
             </motion.div>
             
@@ -317,7 +384,12 @@ const Index = () => {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
                 <Layers className="h-4 w-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Our Ecosystem</span>
+                <span className="text-sm font-medium text-primary">
+                  {language === 'en' ? 'Our Ecosystem' :
+                   language === 'tr' ? 'Ekosistemimiz' :
+                   language === 'fa' ? 'اکوسیستم ما' :
+                   'نظامنا البيئي'}
+                </span>
               </div>
               <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-foreground ${isRtl ? 'font-vazir' : 'font-display'}`}>
                 {t('home.products.quick_access')}
@@ -355,7 +427,8 @@ const Index = () => {
                       className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm font-medium"
                     >
                       <span>
-                        {language === 'en' || language === 'tr' ? 'Learn More' : 
+                        {language === 'en' ? 'Learn More' :
+                         language === 'tr' ? 'Daha Fazla' :
                          language === 'fa' ? 'بیشتر بدانید' : 'اعرف المزيد'}
                       </span>
                       <ArrowRight className="h-4 w-4" />
@@ -373,7 +446,12 @@ const Index = () => {
             >
               <Button asChild size="lg" variant="outline" className="text-base px-8">
                 <Link to="/about" className="flex items-center gap-2">
-                  <span>View All Products</span>
+                  <span>
+                    {language === 'en' ? 'View All Products' :
+                     language === 'tr' ? 'Tüm Ürünleri Görüntüle' :
+                     language === 'fa' ? 'مشاهده همه محصولات' :
+                     'عرض جميع المنتجات'}
+                  </span>
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>
@@ -398,21 +476,44 @@ const Index = () => {
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
                   <Rocket className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-medium text-primary">Our Vision</span>
+                  <span className="text-sm font-medium text-primary">
+                    {language === 'en' ? 'Our Vision' :
+                     language === 'tr' ? 'Vizyonumuz' :
+                     language === 'fa' ? 'چشم‌انداز ما' :
+                     'رؤيتنا'}
+                  </span>
                 </div>
                 <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-foreground ${isRtl ? 'font-vazir' : 'font-display'}`}>
-                  Empowering Global Innovation
+                  {language === 'en' ? 'Empowering Global Innovation' :
+                   language === 'tr' ? 'Küresel İnovasyonu Güçlendiriyoruz' :
+                   language === 'fa' ? 'توانمندسازی نوآوری جهانی' :
+                   'تمكين الابتكار العالمي'}
                 </h2>
                 <p className={`text-lg text-muted-foreground mb-8 leading-relaxed ${isRtl ? 'font-vazir' : ''}`}>
                   {t('about.vision.text')}
                 </p>
                 <div className="space-y-4">
-                  {[
+                  {(language === 'en' ? [
                     'Democratizing access to technology',
                     'Building sustainable digital solutions',
                     'Fostering global entrepreneurship',
                     'Creating meaningful impact worldwide'
-                  ].map((item, index) => (
+                  ] : language === 'tr' ? [
+                    'Teknolojiye erişimi demokratikleştirme',
+                    'Sürdürülebilir dijital çözümler oluşturma',
+                    'Küresel girişimciliği teşvik etme',
+                    'Dünya çapında anlamlı etki yaratma'
+                  ] : language === 'fa' ? [
+                    'دموکراتیک کردن دسترسی به فناوری',
+                    'ساختن راه‌حل‌های دیجیتال پایدار',
+                    'پرورش کارآفرینی جهانی',
+                    'ایجاد تأثیر معنادار در سراسر جهان'
+                  ] : [
+                    'إضفاء الديمقراطية على الوصول إلى التكنولوجيا',
+                    'بناء حلول رقمية مستدامة',
+                    'تعزيز ريادة الأعمال العالمية',
+                    'إحداث تأثير هادف في جميع أنحاء العالم'
+                  ]).map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                         <CheckCircle className="h-4 w-4 text-primary" />
@@ -431,19 +532,39 @@ const Index = () => {
               >
                 <Card className="p-6 border-border/50 bg-card hover:border-primary/30 transition-all text-center">
                   <div className="text-4xl font-bold text-primary mb-2">5+</div>
-                  <p className="text-muted-foreground text-sm">Years of Innovation</p>
+                  <p className="text-muted-foreground text-sm">
+                    {language === 'en' ? 'Years of Innovation' :
+                     language === 'tr' ? 'Yıllık İnovasyon' :
+                     language === 'fa' ? 'سال نوآوری' :
+                     'سنوات من الابتكار'}
+                  </p>
                 </Card>
                 <Card className="p-6 border-border/50 bg-card hover:border-primary/30 transition-all text-center">
                   <div className="text-4xl font-bold text-primary mb-2">24/7</div>
-                  <p className="text-muted-foreground text-sm">Global Support</p>
+                  <p className="text-muted-foreground text-sm">
+                    {language === 'en' ? 'Global Support' :
+                     language === 'tr' ? 'Küresel Destek' :
+                     language === 'fa' ? 'پشتیبانی جهانی' :
+                     'دعم عالمي'}
+                  </p>
                 </Card>
                 <Card className="p-6 border-border/50 bg-card hover:border-primary/30 transition-all text-center">
                   <div className="text-4xl font-bold text-primary mb-2">100%</div>
-                  <p className="text-muted-foreground text-sm">Commitment</p>
+                  <p className="text-muted-foreground text-sm">
+                    {language === 'en' ? 'Commitment' :
+                     language === 'tr' ? 'Bağlılık' :
+                     language === 'fa' ? 'تعهد' :
+                     'الالتزام'}
+                  </p>
                 </Card>
                 <Card className="p-6 border-border/50 bg-card hover:border-primary/30 transition-all text-center">
                   <div className="text-4xl font-bold text-primary mb-2">∞</div>
-                  <p className="text-muted-foreground text-sm">Possibilities</p>
+                  <p className="text-muted-foreground text-sm">
+                    {language === 'en' ? 'Possibilities' :
+                     language === 'tr' ? 'Olanaklar' :
+                     language === 'fa' ? 'امکانات' :
+                     'الإمكانيات'}
+                  </p>
                 </Card>
               </motion.div>
             </div>
@@ -464,30 +585,44 @@ const Index = () => {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
                 <Sparkles className="h-4 w-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Start Your Journey</span>
+                <span className="text-sm font-medium text-primary">
+                  {language === 'en' ? 'Start Your Journey' :
+                   language === 'tr' ? 'Yolculuğunuza Başlayın' :
+                   language === 'fa' ? 'سفر خود را شروع کنید' :
+                   'ابدأ رحلتك'}
+                </span>
               </div>
               
               <h2 className={`text-4xl md:text-6xl font-bold mb-6 text-foreground ${isRtl ? 'font-vazir' : 'font-display'}`}>
-                {language === 'en' || language === 'tr' ? 'Ready to Build Your Future?' : 
-                 language === 'fa' ? 'آماده ساخت آینده‌تان هستید؟' : 'هل أنت مستعد لبناء مستقبلك؟'}
+                {language === 'en' ? 'Ready to Build Your Future?' : 
+                 language === 'tr' ? 'Geleceğinizi İnşa Etmeye Hazır mısınız?' :
+                 language === 'fa' ? 'آماده ساخت آینده‌تان هستید؟' : 
+                 'هل أنت مستعد لبناء مستقبلك؟'}
               </h2>
               <p className={`text-xl text-muted-foreground mb-10 max-w-2xl mx-auto ${isRtl ? 'font-vazir' : ''}`}>
-                Join thousands of entrepreneurs, creators, and innovators who are already transforming their ideas into reality with Rafiei Group.
+                {language === 'en' ? 'Join thousands of entrepreneurs, creators, and innovators who are already transforming their ideas into reality with Rafiei Group.' :
+                 language === 'tr' ? 'Rafiei Group ile fikirlerini gerçeğe dönüştüren binlerce girişimci, yaratıcı ve yenilikçiye katılın.' :
+                 language === 'fa' ? 'به هزاران کارآفرین، خالق و نوآور بپیوندید که در حال تبدیل ایده‌های خود به واقعیت با گروه رفیعی هستند.' :
+                 'انضم إلى آلاف رواد الأعمال والمبدعين والمبتكرين الذين يحولون أفكارهم إلى واقع مع مجموعة رفيعي.'}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="text-base px-8 h-14">
                   <Link to="/about" className="flex items-center gap-2">
                     <span>
-                      {language === 'en' || language === 'tr' ? 'Learn About Our Mission' : 
-                       language === 'fa' ? 'درباره ماموریت ما' : 'تعرف على مهمتنا'}
+                      {language === 'en' ? 'Learn About Our Mission' : 
+                       language === 'tr' ? 'Misyonumuzu Öğrenin' :
+                       language === 'fa' ? 'درباره ماموریت ما' : 
+                       'تعرف على مهمتنا'}
                     </span>
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="text-base px-8 h-14">
                   <Link to="/contact">
-                    {language === 'en' || language === 'tr' ? 'Contact Us Today' : 
-                     language === 'fa' ? 'همین امروز تماس بگیرید' : 'اتصل بنا اليوم'}
+                    {language === 'en' ? 'Contact Us Today' : 
+                     language === 'tr' ? 'Bugün Bize Ulaşın' :
+                     language === 'fa' ? 'همین امروز تماس بگیرید' : 
+                     'اتصل بنا اليوم'}
                   </Link>
                 </Button>
               </div>
