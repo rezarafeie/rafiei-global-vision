@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
-import { Mail, MapPin, Building, Activity, Zap, Book, Network, Briefcase, CreditCard, Podcast, Sun, Moon } from 'lucide-react';
+import { Mail, MapPin, Building, Activity, Zap, Book, Network, Briefcase, CreditCard, Podcast, Sun, Moon, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
@@ -126,26 +126,18 @@ const Footer = () => {
               
               <div>
                 <h4 className="text-sm font-semibold text-foreground mb-3">Language</h4>
-                <div className="grid grid-cols-2 gap-2">
-                  {[
-                    { code: 'en', flag: '🇬🇧', name: 'EN' },
-                    { code: 'fa', flag: '🇮🇷', name: 'FA' },
-                    { code: 'ar', flag: '🇸🇦', name: 'AR' },
-                    { code: 'tr', flag: '🇹🇷', name: 'TR' }
-                  ].map(({ code, flag, name }) => (
-                    <button
-                      key={code}
-                      onClick={() => setLanguage(code as 'en' | 'fa' | 'ar' | 'tr')}
-                      className={`flex items-center space-x-2 p-2 rounded-lg border transition-all duration-200 ${
-                        language === code 
-                          ? 'border-primary bg-primary/10 text-primary' 
-                          : 'border-border/50 bg-muted/30 hover:bg-accent'
-                      }`}
-                    >
-                      <span>{flag}</span>
-                      <span className="text-xs font-medium">{name}</span>
-                    </button>
-                  ))}
+                <div className="relative">
+                  <select
+                    value={language}
+                    onChange={(e) => setLanguage(e.target.value as 'en' | 'fa' | 'ar' | 'tr')}
+                    className="w-full appearance-none bg-muted/30 border border-border/50 rounded-lg px-4 py-2 pl-10 text-sm text-foreground hover:bg-accent focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer"
+                  >
+                    <option value="en">English</option>
+                    <option value="fa">فارسی</option>
+                    <option value="ar">العربية</option>
+                    <option value="tr">Türkçe</option>
+                  </select>
+                  <Globe className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
                 </div>
               </div>
             </div>
