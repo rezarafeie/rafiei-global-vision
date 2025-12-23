@@ -151,33 +151,6 @@ const Contact = () => {
     }
   ];
 
-  const globalOffices = [
-    {
-      country: 'United Kingdom',
-      city: 'Birmingham',
-      type: 'Headquarters',
-      description: 'European Operations & Main Office'
-    },
-    {
-      country: 'United Arab Emirates',
-      city: 'Dubai',
-      type: 'Regional Office',
-      description: 'Middle East Operations'
-    },
-    {
-      country: 'Australia',
-      city: 'Sydney',
-      type: 'Regional Office',
-      description: 'Asia-Pacific Operations'
-    },
-    {
-      country: 'Turkey',
-      city: 'Istanbul',
-      type: 'Partner Office',
-      description: 'Turkish Market Operations'
-    }
-  ];
-
   const faqs = [
     {
       question: 'How quickly can I expect a response?',
@@ -553,50 +526,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Global Presence */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div 
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display text-foreground">
-                Global Presence
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Serving entrepreneurs, businesses, and learners across multiple continents.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-            >
-              {globalOffices.map((office, index) => (
-                <motion.div key={index} variants={fadeInUp}>
-                  <Card className="p-6 text-center border-border/50 bg-card hover:border-primary/30 transition-all group h-full">
-                    <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
-                      <Globe className="h-6 w-6" />
-                    </div>
-                    <div className="inline-flex px-3 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground mb-3">
-                      {office.type}
-                    </div>
-                    <h3 className="text-xl font-bold mb-1 text-foreground">{office.country}</h3>
-                    <p className="text-primary font-medium mb-2">{office.city}</p>
-                    <p className="text-muted-foreground text-sm">{office.description}</p>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-24 bg-muted/30">
