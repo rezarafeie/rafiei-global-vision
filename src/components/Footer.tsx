@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import enamadAsset from '@/assets/enamad.png.asset.json';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Mail, MapPin, Building, Sun, Moon, Globe } from 'lucide-react';
@@ -233,6 +234,26 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
+            </div>
+
+            {/* Enamad Trust Seal */}
+            <div className={`mt-8 flex ${isRTL ? 'justify-end' : 'justify-start'}`}>
+              <a
+                referrerPolicy="origin"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://trustseal.enamad.ir/?id=657703&code=null"
+                className="inline-block rounded-md bg-white p-2 border border-border/30 hover:border-primary/30 transition-all duration-200"
+                aria-label="Enamad Trust Seal"
+              >
+                <img
+                  src={enamadAsset.url}
+                  alt="Enamad Trust Seal"
+                  width={80}
+                  height={80}
+                  className="h-20 w-auto"
+                />
+              </a>
             </div>
           </div>
         </div>
