@@ -285,9 +285,10 @@ export const BRAND = {
   },
   // Stats to display across all Rafiei Group products
   stats: {
-    monthlyFollowers: '300,000+',
+    monthlyFollowers: '282,000+',
     monthlyUsers: '30,000+',
-    products: '7'
+    aiSchool: '11,000+',
+    products: '18+'
   }
 };
 
