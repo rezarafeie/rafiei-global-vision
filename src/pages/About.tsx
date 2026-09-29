@@ -386,7 +386,7 @@ const About = () => {
       { year: '2021', title: 'Finansal Hizmetler', description: 'Sınırsız iş operasyonlarını mümkün kılmak için ödeme ve finansal altyapı tanıtıldı.' },
       { year: '2022', title: 'Yapay Zeka İnovasyonu', description: 'Yapay zeka destekli eğitim araçları, Synapse ve akıllı iş asistanları başlatıldı.' },
       { year: '2023', title: 'Bulut Altyapısı', description: 'Hızlı uygulama geliştirmeyi sağlayan Rafiei Cloud ve Builder yayınlandı.' },
-      { year: '2024', title: 'Ekosistem Olgunluğu', description: 'Küresel kullanıcılara hizmet veren 15\'ten fazla birbirine bağlı platformla tam ekosistem entegrasyonu sağlandı.' }
+      { year: '2024', title: 'Ekosistem Olgunluğu', description: 'Küresel kullanıcılara hizmet veren 18\'den fazla birbirine bağlı platformla tam ekosistem entegrasyonu sağlandı.' }
     ]
   };
 
