@@ -15,6 +15,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Link } from 'react-router-dom';
 import rezaRafieiPhoto from '@/assets/reza-rafiei.jpeg';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { BRAND } from '@/constants/brand';
+import * as LucideIcons from 'lucide-react';
 
 const About = () => {
   const { language } = useLanguage();
