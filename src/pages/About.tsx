@@ -406,119 +406,86 @@ const About = () => {
     }
   };
 
-  const platformCategories = {
+  // Build the ecosystem showcase directly from the central product list (BRAND.products)
+  // so it always stays in sync with the full portfolio.
+  const productCategoryMap: Record<string, string> = {
+    'rafiei-cloud': 'infrastructure',
+    'rafiei-builder': 'infrastructure',
+    'rafiei-studio': 'infrastructure',
+    'bettermx': 'infrastructure',
+    'synapse': 'ai',
+    'aura': 'ai',
+    'weavelearn': 'ai',
+    'calls-analyzer': 'ai',
+    'zenmind': 'ai',
+    'telegram-automation': 'ai',
+    'academy': 'education',
+    'rafiei-mag': 'education',
+    'rafiei-payment': 'finance',
+    'rafiei-exchange': 'finance',
+    'boundless-network': 'finance',
+    'agency': 'business',
+    'rafiei-store': 'business',
+    'rafiei-dropship': 'business',
+    'eatfit': 'business',
+  };
+
+  const categoryMeta: Record<string, { title: string; icon: JSX.Element; description: string }> = {
     all: {
       title: language === 'fa' ? 'همه محصولات' : language === 'ar' ? 'جميع المنتجات' : language === 'tr' ? 'Tüm Ürünler' : 'All Products',
       icon: <LayoutGrid className="h-5 w-5" />,
       description: language === 'fa' ? 'مرور همه پلتفرم‌ها و محصولات در اکوسیستم رفیعی.' : language === 'ar' ? 'تصفح جميع المنصات والمنتجات في نظام رفيعي البيئي.' : language === 'tr' ? 'Rafiei ekosistemindeki tüm platformları ve ürünleri görüntüleyin.' : 'Browse all platforms and products in the Rafiei ecosystem.',
-      platforms: [] as any[]
     },
     infrastructure: {
       title: language === 'fa' ? 'زیرساخت اصلی' : language === 'ar' ? 'البنية التحتية الأساسية' : language === 'tr' ? 'Temel Altyapı' : 'Core Infrastructure',
       icon: <Server className="h-5 w-5" />,
       description: language === 'fa' ? 'پایه‌ای که همه چیز دیگر در اکوسیستم را تقویت می‌کند.' : language === 'ar' ? 'الأساس الذي يدعم كل شيء آخر في النظام البيئي.' : language === 'tr' ? 'Ekosistemdeki diğer her şeyi destekleyen temel.' : 'The foundation that powers everything else in the ecosystem.',
-      platforms: [
-        {
-          name: language === 'fa' ? 'رفیعی کلاود' : language === 'ar' ? 'رفيعي كلاود' : language === 'tr' ? 'Rafiei Cloud' : 'Rafiei Cloud',
-          icon: <Cloud className="h-6 w-6" />,
-          description: language === 'fa' ? 'پلتفرم کامل Backend-as-a-Service شامل پایگاه داده، احراز هویت، ذخیره‌سازی فایل، توابع edge و APIهای serverless.' : language === 'ar' ? 'منصة خلفية كاملة كخدمة توفر قاعدة بيانات، مصادقة، تخزين ملفات، وظائف حافة، وواجهات برمجة تطبيقات بدون خادم.' : language === 'tr' ? 'Veritabanı, kimlik doğrulama, dosya depolama, edge fonksiyonları ve sunucusuz API\'ler sağlayan eksiksiz Backend-as-a-Service platformu.' : 'Complete backend-as-a-service platform providing database, authentication, file storage, edge functions, and serverless APIs.',
-          features: language === 'fa' ? ['پایگاه داده', 'احراز هویت', 'ذخیره‌سازی فایل', 'توابع Edge', 'APIهای Serverless'] : language === 'ar' ? ['قاعدة البيانات', 'المصادقة', 'تخزين الملفات', 'وظائف Edge', 'واجهات برمجة بدون خادم'] : language === 'tr' ? ['Veritabanı', 'Kimlik Doğrulama', 'Dosya Depolama', 'Edge Fonksiyonları', 'Sunucusuz API\'ler'] : ['Database', 'Authentication', 'File Storage', 'Edge Functions', 'Serverless APIs'],
-          highlight: language === 'fa' ? 'بدون پیکربندی، قابل استقرار در کمتر از ۲ دقیقه' : language === 'ar' ? 'بدون تكوين، قابل للنشر في أقل من دقيقتين' : language === 'tr' ? 'Sıfır yapılandırma, 2 dakikadan kısa sürede dağıtılabilir' : 'Zero configuration, deployable in under 2 minutes',
-          details: language === 'fa' ? 'برای بنیان‌گذاران، استارتاپ‌ها و سازندگانی طراحی شده که سرعت بدون پیچیدگی می‌خواهند.' : language === 'ar' ? 'مصمم للمؤسسين والشركات الناشئة والبناة الذين يريدون السرعة بدون تعقيد.' : language === 'tr' ? 'Hız isteyen ancak karmaşıklık istemeyen kurucular, start-up\'lar ve inşaatçılar için tasarlandı.' : 'Designed for founders, startups, and builders who want speed without complexity. Rafiei Cloud abstracts away infrastructure concerns so you can focus on building your product.'
-        },
-        {
-          name: language === 'fa' ? 'رفیعی بیلدر' : language === 'ar' ? 'رفيعي بيلدر' : language === 'tr' ? 'Rafiei Builder' : 'Rafiei Builder',
-          icon: <Hammer className="h-6 w-6" />,
-          description: language === 'fa' ? 'پلتفرم vibe-coding که به کاربران امکان می‌دهد وب‌سایت‌ها، اپلیکیشن‌های وب، داشبوردها و ابزارهای مبتنی بر AI را فقط با چت کردن با AI بسازند.' : language === 'ar' ? 'منصة vibe-coding تسمح للمستخدمين بإنشاء مواقع ويب، تطبيقات ويب، لوحات معلومات، وأدوات مدعومة بالذكاء الاصطناعي ببساطة عن طريق الدردشة مع الذكاء الاصطناعي.' : language === 'tr' ? 'Kullanıcıların yapay zeka ile sohbet ederek web siteleri, web uygulamaları, panolar ve yapay zeka destekli araçlar oluşturmasına olanak tanıyan bir vibe-coding platformu.' : 'A vibe-coding platform that allows users to create websites, web apps, dashboards, and AI-powered tools simply by chatting with AI.',
-          features: language === 'fa' ? ['وب‌سایت‌ها', 'اپلیکیشن‌های وب', 'داشبوردها', 'ابزارهای مبتنی بر AI'] : language === 'ar' ? ['مواقع الويب', 'تطبيقات الويب', 'لوحات المعلومات', 'أدوات مدعومة بالذكاء الاصطناعي'] : language === 'tr' ? ['Web Siteleri', 'Web Uygulamaları', 'Panolar', 'Yapay Zeka Destekli Araçlar'] : ['Websites', 'Web Apps', 'Dashboards', 'AI-powered Tools'],
-          highlight: language === 'fa' ? 'تبدیل ایده‌ها مستقیماً به محصولات زنده با چت کردن با AI' : language === 'ar' ? 'تحويل الأفكار مباشرة إلى منتجات حية عن طريق الدردشة مع الذكاء الاصطناعي' : language === 'tr' ? 'Yapay zeka ile sohbet ederek fikirleri doğrudan canlı ürünlere dönüştürün' : 'Turn ideas directly into live products by chatting with AI',
-          details: language === 'fa' ? 'Frontend، backend و deployment را انتزاع می‌کند—ایده‌ها را بدون نوشتن یک خط کد مستقیماً به محصولات زنده تبدیل می‌کند.' : language === 'ar' ? 'يجرد الواجهة الأمامية والخلفية والنشر—يحول الأفكار مباشرة إلى منتجات حية دون كتابة سطر واحد من التعليمات البرمجية.' : language === 'tr' ? 'Frontend, backend ve dağıtımı soyutlar—tek bir satır kod yazmadan fikirleri doğrudan canlı ürünlere dönüştürür.' : 'It abstracts away frontend, backend, and deployment—turning ideas directly into live products without writing a single line of code.'
-        }
-      ]
     },
     ai: {
       title: language === 'fa' ? 'هوش مصنوعی' : language === 'ar' ? 'الذكاء الاصطناعي' : language === 'tr' ? 'Yapay Zeka' : 'Artificial Intelligence',
       icon: <Brain className="h-5 w-5" />,
       description: language === 'fa' ? 'ابزارها و پلتفرم‌های مبتنی بر AI که توانایی‌های انسانی را تقویت می‌کنند.' : language === 'ar' ? 'أدوات ومنصات مدعومة بالذكاء الاصطناعي تعزز القدرات البشرية.' : language === 'tr' ? 'İnsan yeteneklerini artıran yapay zeka destekli araçlar ve platformlar.' : 'AI-powered tools and platforms that augment human capabilities.',
-      platforms: [
-        {
-          name: language === 'fa' ? 'سیناپس' : language === 'ar' ? 'سينابس' : language === 'tr' ? 'Synapse' : 'Synapse',
-          icon: <Zap className="h-6 w-6" />,
-          description: language === 'fa' ? 'فریم‌ورک قدرتمند عامل AI که به کاربران امکان می‌دهد دستیاران AI سفارشی در چند دقیقه بسازند و آن‌ها را به ابزارها و جریان‌های کاری واقعی متصل کنند.' : language === 'ar' ? 'إطار عمل قوي لوكيل الذكاء الاصطناعي يتيح للمستخدمين إنشاء مساعدين ذكاء اصطناعي مخصصين في دقائق، وربطهم بأدوات وسير عمل حقيقية.' : language === 'tr' ? 'Kullanıcıların dakikalar içinde özel yapay zeka asistanları oluşturmasına ve bunları gerçek araçlara ve iş akışlarına bağlamasına olanak tanıyan güçlü bir yapay zeka ajanı çerçevesi.' : 'A powerful AI agent framework that lets users create custom AI assistants in minutes, connect them to real tools and workflows.',
-          features: language === 'fa' ? ['دستیاران AI سفارشی', 'یکپارچه‌سازی ابزار', 'اتوماسیون جریان کار', 'سیستم‌های چند-عامله'] : language === 'ar' ? ['مساعدين ذكاء اصطناعي مخصصين', 'تكامل الأدوات', 'أتمتة سير العمل', 'أنظمة متعددة الوكلاء'] : language === 'tr' ? ['Özel Yapay Zeka Asistanları', 'Araç Entegrasyonu', 'İş Akışı Otomasyonu', 'Çoklu Ajan Sistemleri'] : ['Custom AI Assistants', 'Tool Integration', 'Workflow Automation', 'Multi-agent Systems'],
-          highlight: language === 'fa' ? 'لایه هوشمندی در سراسر اکوسیستم رفیعی' : language === 'ar' ? 'طبقة الذكاء عبر نظام رفيعي البيئي' : language === 'tr' ? 'Rafiei ekosistemi genelinde zeka katmanı' : 'The intelligence layer across the Rafiei ecosystem',
-          details: language === 'fa' ? 'از سیناپس برای کوچینگ، فروش، تحلیل، آموزش و اتوماسیون استفاده کنید.' : language === 'ar' ? 'استخدم سينابس للتدريب والمبيعات والتحليل والتعليم والأتمتة.' : language === 'tr' ? 'Synapse\'i koçluk, satış, analiz, eğitim ve otomasyon için kullanın.' : 'Use Synapse for coaching, sales, analysis, education, and automation. It is the core AI infrastructure that powers intelligent features across all Rafiei products.'
-        },
-        {
-          name: language === 'fa' ? 'دستیار هوش مصنوعی' : language === 'ar' ? 'مساعد الذكاء الاصطناعي' : language === 'tr' ? 'Yapay Zeka Asistanı' : 'AI Assistant',
-          icon: <MessageSquare className="h-6 w-6" />,
-          description: language === 'fa' ? 'دستیار هوشمند AI مبتنی بر تلگرام برای کوچینگ روزانه، راهنمایی کسب‌وکار، پشتیبانی یادگیری و بهره‌وری شخصی.' : language === 'ar' ? 'مساعد ذكاء اصطناعي ذكي قائم على تيليجرام مصمم للتدريب اليومي، وإرشاد الأعمال، ودعم التعلم، والإنتاجية الشخصية.' : language === 'tr' ? 'Günlük koçluk, iş rehberliği, öğrenme desteği ve kişisel verimlilik için tasarlanmış akıllı Telegram tabanlı yapay zeka asistanı.' : 'A smart Telegram-based AI assistant designed for daily coaching, business guidance, learning support, and personal productivity.',
-          features: language === 'fa' ? ['کوچینگ روزانه', 'راهنمایی کسب‌وکار', 'پشتیبانی یادگیری', 'بهره‌وری شخصی'] : language === 'ar' ? ['التدريب اليومي', 'إرشاد الأعمال', 'دعم التعلم', 'الإنتاجية الشخصية'] : language === 'tr' ? ['Günlük Koçluk', 'İş Rehberliği', 'Öğrenme Desteği', 'Kişisel Verimlilik'] : ['Daily Coaching', 'Business Guidance', 'Learning Support', 'Personal Productivity'],
-          highlight: language === 'fa' ? 'AI مستقیماً در محیط ارتباطی روزمره شما' : language === 'ar' ? 'الذكاء الاصطناعي مباشرة في بيئة التواصل اليومية' : language === 'tr' ? 'Günlük iletişim ortamınızda doğrudan yapay zeka' : 'AI directly in your everyday communication environment',
-          details: language === 'fa' ? 'AI را مستقیماً به ارتباطات روزمره کاربران می‌آورد.' : language === 'ar' ? 'يجلب الذكاء الاصطناعي مباشرة إلى تواصل المستخدمين اليومي.' : language === 'tr' ? 'Yapay zekayı doğrudan kullanıcıların günlük iletişimine getiriyor.' : 'It brings AI directly into users everyday communication, making intelligent assistance accessible without switching apps or learning new interfaces.'
-        }
-      ]
     },
     education: {
       title: language === 'fa' ? 'آموزش و دانش' : language === 'ar' ? 'التعليم والمعرفة' : language === 'tr' ? 'Eğitim ve Bilgi' : 'Education & Knowledge',
       icon: <BookOpen className="h-5 w-5" />,
       description: language === 'fa' ? 'پلتفرم‌هایی که دسترسی به دانش و مهارت‌ها را دموکراتیزه می‌کنند.' : language === 'ar' ? 'منصات تعمل على إضفاء الطابع الديمقراطي على الوصول إلى المعرفة والمهارات.' : language === 'tr' ? 'Bilgi ve becerilere erişimi demokratikleştiren platformlar.' : 'Platforms that democratize access to knowledge and skills.',
-      platforms: [
-        {
-          name: language === 'fa' ? 'آکادمی رفیعی' : language === 'ar' ? 'أكاديمية رفيعي' : language === 'tr' ? 'Rafiei Akademi' : 'Rafiei Academy',
-          icon: <GraduationCap className="h-6 w-6" />,
-          description: language === 'fa' ? 'یکی از تأثیرگذارترین پلتفرم‌های آموزش آنلاین در منطقه، با بیش از ۴۰,۰۰۰ یادگیرنده فعال و دوره‌هایی در زمینه درآمد بدون مرز، AI، کسب‌وکار دیجیتال و ذهنیت.' : language === 'ar' ? 'واحدة من أكثر منصات التعليم عبر الإنترنت تأثيراً في المنطقة، مع أكثر من 40,000 متعلم نشط ودورات حول الدخل بلا حدود، والذكاء الاصطناعي، والأعمال الرقمية، والعقلية.' : language === 'tr' ? 'Bölgede en etkili çevrimiçi eğitim platformlarından biri, 40.000\'den fazla aktif öğrenci ve sınırsız gelir, yapay zeka, dijital iş ve zihniyet konularında kurslar.' : 'One of the most impactful online education platforms in the region, with 40,000+ active learners and courses on borderless income, AI, digital business, and mindset.',
-          features: language === 'fa' ? ['+۴۰,۰۰۰ یادگیرنده فعال', 'دوره‌های AI و کسب‌وکار دیجیتال', 'آموزش متمرکز بر اجرا', 'پشتیبانی جامعه'] : language === 'ar' ? ['+40,000 متعلم نشط', 'دورات الذكاء الاصطناعي والأعمال الرقمية', 'تدريب يركز على التنفيذ', 'دعم المجتمع'] : language === 'tr' ? ['40.000+ Aktif Öğrenci', 'Yapay Zeka ve Dijital İş Kursları', 'Uygulama Odaklı Eğitim', 'Topluluk Desteği'] : ['40,000+ Active Learners', 'AI & Digital Business Courses', 'Execution-focused Training', 'Community Support'],
-          highlight: language === 'fa' ? 'معروف به سادگی، وضوح و نتایج' : language === 'ar' ? 'معروفة بالبساطة والوضوح والنتائج' : language === 'tr' ? 'Basitlik, netlik ve sonuçlarıyla tanınır' : 'Known for simplicity, clarity, and results',
-          details: language === 'fa' ? 'آکادمی رفیعی به سادگی، وضوح و نتایج معروف است.' : language === 'ar' ? 'أكاديمية رفيعي معروفة بالبساطة والوضوح والنتائج.' : language === 'tr' ? 'Rafiei Akademi basitliği, netliği ve sonuçlarıyla bilinir.' : 'Rafiei Academy is known for simplicity, clarity, and results. Every course is designed to be actionable and focused on real-world execution, not just theory.'
-        }
-      ]
     },
     finance: {
       title: language === 'fa' ? 'زیرساخت مالی' : language === 'ar' ? 'البنية التحتية المالية' : language === 'tr' ? 'Finansal Altyapı' : 'Financial Infrastructure',
       icon: <Wallet className="h-5 w-5" />,
       description: language === 'fa' ? 'ابزارها و پلتفرم‌هایی که عملیات مالی جهانی را امکان‌پذیر می‌کنند.' : language === 'ar' ? 'أدوات ومنصات تمكّن العمليات المالية العالمية.' : language === 'tr' ? 'Küresel finansal operasyonları mümkün kılan araçlar ve platformlar.' : 'Tools and platforms that enable global financial operations.',
-      platforms: [
-        {
-          name: language === 'fa' ? 'رفیعی اکسچنج' : language === 'ar' ? 'رفيعي للتداول' : language === 'tr' ? 'Rafiei Exchange' : 'Rafiei Exchange',
-          icon: <TrendingUp className="h-6 w-6" />,
-          description: language === 'fa' ? 'پلتفرم پیشرفته معاملات ارز دیجیتال با ابزارهای حرفه‌ای، زیرساخت امن و ویژگی‌های جامع تحلیل بازار.' : language === 'ar' ? 'منصة تداول عملات رقمية متقدمة تقدم أدوات تداول احترافية، بنية تحتية آمنة، وميزات تحليل سوق شاملة.' : language === 'tr' ? 'Profesyonel ticaret araçları, güvenli altyapı ve kapsamlı piyasa analizi özellikleri sunan gelişmiş kripto para ticaret platformu.' : 'An advanced cryptocurrency trading platform offering professional trading tools, secure infrastructure, and comprehensive market analysis features.',
-          features: language === 'fa' ? ['ابزارهای معاملاتی حرفه‌ای', 'زیرساخت امن', 'تحلیل بازار', 'مدیریت پورتفولیو'] : language === 'ar' ? ['أدوات تداول احترافية', 'بنية تحتية آمنة', 'تحليل السوق', 'إدارة المحفظة'] : language === 'tr' ? ['Profesyonel Ticaret Araçları', 'Güvenli Altyapı', 'Piyasa Analizi', 'Portföy Yönetimi'] : ['Professional Trading Tools', 'Secure Infrastructure', 'Market Analysis', 'Portfolio Management'],
-          highlight: language === 'fa' ? 'برای کاربران جدی که به قابلیت اطمینان و عملکرد نیاز دارند' : language === 'ar' ? 'مصمم للمستخدمين الجادين الذين يحتاجون إلى الموثوقية والأداء' : language === 'tr' ? 'Güvenilirlik ve performans gerektiren ciddi kullanıcılar için' : 'Built for serious users who require reliability and performance',
-          details: language === 'fa' ? 'برای کاربران جدی که به قابلیت اطمینان و عملکرد نیاز دارند ساخته شده است.' : language === 'ar' ? 'مصمم للمستخدمين الجادين الذين يحتاجون إلى الموثوقية والأداء.' : language === 'tr' ? 'Güvenilirlik ve performans gerektiren ciddi kullanıcılar için tasarlandı.' : 'Built for serious users who require reliability and performance. Security is paramount, with enterprise-grade protection for all assets and transactions.'
-        },
-        {
-          name: language === 'fa' ? 'رفیعی پیمنت' : language === 'ar' ? 'رفيعي للمدفوعات' : language === 'tr' ? 'Rafiei Payment' : 'Rafiei Payment',
-          icon: <CreditCard className="h-6 w-6" />,
-          description: language === 'fa' ? 'راه‌حل‌های پرداخت بین‌المللی که تراکنش‌های جهانی، تسویه‌های فرامرزی و جریان‌های پرداخت کسب‌وکار-محور را امکان‌پذیر می‌کنند.' : language === 'ar' ? 'حلول الدفع الدولية التي تمكّن المعاملات العالمية، والتسويات عبر الحدود، وتدفقات الدفع الصديقة للأعمال.' : language === 'tr' ? 'Küresel işlemleri, sınır ötesi ödemeleri ve iş dostu ödeme akışlarını mümkün kılan uluslararası ödeme çözümleri.' : 'International payment solutions enabling global transactions, cross-border settlements, and business-friendly payment flows.',
-          features: language === 'fa' ? ['تراکنش‌های جهانی', 'تسویه‌های فرامرزی', 'جریان‌های کسب‌وکار-محور', 'پشتیبانی چند-ارزی'] : language === 'ar' ? ['المعاملات العالمية', 'التسويات عبر الحدود', 'تدفقات صديقة للأعمال', 'دعم متعدد العملات'] : language === 'tr' ? ['Küresel İşlemler', 'Sınır Ötesi Ödemeler', 'İş Dostu Akışlar', 'Çoklu Para Birimi Desteği'] : ['Global Transactions', 'Cross-border Settlements', 'Business-friendly Flows', 'Multi-currency Support'],
-          highlight: language === 'fa' ? 'برای فریلنسرها، استارتاپ‌ها و کسب‌وکارهای دیجیتال' : language === 'ar' ? 'للمستقلين والشركات الناشئة والأعمال الرقمية' : language === 'tr' ? 'Serbest çalışanlar, start-up\'lar ve dijital işletmeler için' : 'For freelancers, startups, and digital businesses',
-          details: language === 'fa' ? 'طراحی شده برای پشتیبانی از فریلنسرها، استارتاپ‌ها و کسب‌وکارهای دیجیتال.' : language === 'ar' ? 'مصمم لدعم المستقلين والشركات الناشئة والأعمال الرقمية.' : language === 'tr' ? 'Serbest çalışanları, start-up\'ları ve dijital işletmeleri desteklemek için tasarlandı.' : 'Designed to support freelancers, startups, and digital businesses who need to send and receive money across borders without friction.'
-        }
-      ]
     },
     business: {
       title: language === 'fa' ? 'خدمات کسب‌وکار' : language === 'ar' ? 'خدمات الأعمال' : language === 'tr' ? 'İş Hizmetleri' : 'Business Services',
       icon: <Briefcase className="h-5 w-5" />,
       description: language === 'fa' ? 'خدمات استراتژیک که به کسب‌وکارها کمک می‌کنند در سطح جهانی رشد کنند.' : language === 'ar' ? 'خدمات استراتيجية تساعد الشركات على التوسع عالمياً.' : language === 'tr' ? 'İşletmelerin küresel ölçeklenmesine yardımcı olan stratejik hizmetler.' : 'Strategic services that help businesses scale globally.',
-      platforms: [
-        {
-          name: language === 'fa' ? 'آژانس رفیعی' : language === 'ar' ? 'وكالة رفيعي' : language === 'tr' ? 'Rafiei Ajans' : 'Rafiei Agency',
-          icon: <Briefcase className="h-6 w-6" />,
-          description: language === 'fa' ? 'آژانس استراتژیک که به کسب‌وکارها کمک می‌کند محصولات دیجیتال بسازند، سیستم‌های AI پیاده‌سازی کنند، عملیات را بهینه کنند و در سطح بین‌المللی رشد کنند.' : language === 'ar' ? 'وكالة استراتيجية تساعد الشركات على بناء المنتجات الرقمية، وتنفيذ أنظمة الذكاء الاصطناعي، وتحسين العمليات، والتوسع دولياً.' : language === 'tr' ? 'İşletmelerin dijital ürünler oluşturmasına, yapay zeka sistemleri uygulamasına, operasyonları optimize etmesine ve uluslararası ölçeklenmesine yardımcı olan stratejik ajans.' : 'A strategic agency helping businesses build digital products, implement AI systems, optimize operations, and scale internationally.',
-          features: language === 'fa' ? ['محصولات دیجیتال', 'پیاده‌سازی AI', 'بهینه‌سازی عملیات', 'رشد بین‌المللی'] : language === 'ar' ? ['المنتجات الرقمية', 'تنفيذ الذكاء الاصطناعي', 'تحسين العمليات', 'التوسع الدولي'] : language === 'tr' ? ['Dijital Ürünler', 'Yapay Zeka Uygulaması', 'Operasyon Optimizasyonu', 'Uluslararası Ölçekleme'] : ['Digital Products', 'AI Implementation', 'Operations Optimization', 'International Scaling'],
-          highlight: language === 'fa' ? 'بازوی اجرایی برای تحول‌های دیجیتال پیچیده' : language === 'ar' ? 'ذراع التنفيذ للتحولات الرقمية المعقدة' : language === 'tr' ? 'Karmaşık dijital dönüşümler için uygulama kolu' : 'Execution arm for complex digital transformations',
-          details: language === 'fa' ? 'آژانس به عنوان بازوی اجرایی برای تحول‌های دیجیتال پیچیده عمل می‌کند.' : language === 'ar' ? 'تعمل الوكالة كذراع تنفيذ للتحولات الرقمية المعقدة.' : language === 'tr' ? 'Ajans, karmaşık dijital dönüşümler için bir uygulama kolu olarak hareket eder.' : 'The agency acts as an execution arm for complex digital transformations. From strategy to implementation, we partner with businesses to bring their vision to life.'
-        }
-      ]
-    }
+    },
   };
 
-  // Populate "all" category with all platforms
-  const allPlatforms = Object.entries(platformCategories)
-    .filter(([key]) => key !== 'all')
-    .flatMap(([_, category]) => category.platforms);
-  platformCategories.all.platforms = allPlatforms;
+  const toPlatformCard = (product: (typeof BRAND.products)[number]) => {
+    const IconComponent = (LucideIcons as Record<string, any>)[product.icon] || LucideIcons.Globe;
+    const desc = product.description[language as keyof typeof product.description] || product.description.en;
+    let host = product.url;
+    try { host = new URL(product.url).hostname; } catch { /* keep raw url */ }
+    return {
+      name: product.name,
+      icon: <IconComponent className="h-6 w-6" />,
+      description: desc,
+      features: [] as string[],
+      highlight: host,
+      url: product.url,
+    };
+  };
+
+  const platformCategories: Record<string, { title: string; icon: JSX.Element; description: string; platforms: ReturnType<typeof toPlatformCard>[] }> = {
+    all: { ...categoryMeta.all, platforms: BRAND.products.map(toPlatformCard) },
+    infrastructure: { ...categoryMeta.infrastructure, platforms: BRAND.products.filter(p => productCategoryMap[p.id] === 'infrastructure').map(toPlatformCard) },
+    ai: { ...categoryMeta.ai, platforms: BRAND.products.filter(p => productCategoryMap[p.id] === 'ai').map(toPlatformCard) },
+    education: { ...categoryMeta.education, platforms: BRAND.products.filter(p => productCategoryMap[p.id] === 'education').map(toPlatformCard) },
+    finance: { ...categoryMeta.finance, platforms: BRAND.products.filter(p => productCategoryMap[p.id] === 'finance').map(toPlatformCard) },
+    business: { ...categoryMeta.business, platforms: BRAND.products.filter(p => productCategoryMap[p.id] === 'business').map(toPlatformCard) },
+  };
 
   const missionPillarsIcons = [
     <Globe className="h-6 w-6" />,
