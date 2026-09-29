@@ -7,7 +7,8 @@ import {
   ArrowRight, Users, Globe, Star, Brain, TrendingUp, Zap, BookOpen, 
   Network, Briefcase, CreditCard, Podcast, Wallet, Shield, Newspaper, 
   Layers, GraduationCap, Forward, Cloud, Hammer, PhoneCall, Flower2,
-  Sparkles, Target, Lightbulb, Rocket, CheckCircle, Award, Heart
+  Sparkles, Target, Lightbulb, Rocket, CheckCircle, Award, Heart,
+  Clapperboard, Package, ShoppingCart, Salad, Bot
 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { BRAND } from '@/constants/brand';
@@ -49,6 +50,11 @@ const Index = () => {
     Shield: <Shield className="h-6 w-6" />,
     Newspaper: <Newspaper className="h-6 w-6" />,
     Layers: <Layers className="h-6 w-6" />,
+    Clapperboard: <Clapperboard className="h-6 w-6" />,
+    Package: <Package className="h-6 w-6" />,
+    ShoppingCart: <ShoppingCart className="h-6 w-6" />,
+    Salad: <Salad className="h-6 w-6" />,
+    Bot: <Bot className="h-6 w-6" />,
   };
 
   const services = BRAND.products
@@ -63,43 +69,43 @@ const Index = () => {
   const stats = [
     {
       icon: <Users className="h-7 w-7" />,
-      value: '300K+',
-      label: language === 'en' ? 'Monthly Followers' : 
-             language === 'tr' ? 'Aylık Takipçi' :
-             language === 'fa' ? 'دنبال‌کنندگان ماهانه' : 'متابعون شهريًا',
-      description: language === 'en' ? 'Across all platforms' :
-                   language === 'tr' ? 'Tüm platformlarda' :
-                   language === 'fa' ? 'در تمام پلتفرم‌ها' : 'عبر جميع المنصات'
+      value: '282K+',
+      label: language === 'en' ? 'Personal Audience' : 
+             language === 'tr' ? 'Kişisel Kitle' :
+             language === 'fa' ? 'مخاطب شخصی' : 'الجمهور الشخصي',
+      description: language === 'en' ? '@rezarafeie community' :
+                   language === 'tr' ? '@rezarafeie topluluğu' :
+                   language === 'fa' ? 'جامعه @rezarafeie' : 'مجتمع @rezarafeie'
     },
     {
-      icon: <Globe className="h-7 w-7" />,
+      icon: <GraduationCap className="h-7 w-7" />,
       value: '30K+',
-      label: language === 'en' ? 'Monthly Users' : 
-             language === 'tr' ? 'Aylık Kullanıcı' :
-             language === 'fa' ? 'کاربران ماهانه' : 'مستخدمون شهريًا',
-      description: language === 'en' ? 'Active monthly users' :
-                   language === 'tr' ? 'Aktif aylık kullanıcılar' :
-                   language === 'fa' ? 'کاربران فعال ماهانه' : 'مستخدمون نشطون شهريًا'
+      label: language === 'en' ? 'Academy Students' : 
+             language === 'tr' ? 'Akademi Öğrencisi' :
+             language === 'fa' ? 'دانشجوی آکادمی' : 'طلاب الأكاديمية',
+      description: language === 'en' ? 'Rafiei Academy learners' :
+                   language === 'tr' ? 'Rafiei Akademi öğrencileri' :
+                   language === 'fa' ? 'یادگیرندگان آکادمی رفیعی' : 'متعلمو أكاديمية رفيعي'
+    },
+    {
+      icon: <Brain className="h-7 w-7" />,
+      value: '11K+',
+      label: language === 'en' ? 'AI School' : 
+             language === 'tr' ? 'Yapay Zeka Okulu' :
+             language === 'fa' ? 'مدرسه هوش مصنوعی' : 'مدرسة الذكاء الاصطناعي',
+      description: language === 'en' ? 'Practical AI education' :
+                   language === 'tr' ? 'Pratik yapay zeka eğitimi' :
+                   language === 'fa' ? 'آموزش کاربردی هوش مصنوعی' : 'تعليم الذكاء الاصطناعي العملي'
     },
     {
       icon: <Star className="h-7 w-7" />,
-      value: `${BRAND.products.length}+`,
+      value: '18+',
       label: language === 'en' ? 'Digital Products' : 
              language === 'tr' ? 'Dijital Ürünler' :
              language === 'fa' ? 'محصولات دیجیتال' : 'منتجات رقمية',
-      description: language === 'en' ? 'Innovative solutions' :
-                   language === 'tr' ? 'Yenilikçi çözümler' :
-                   language === 'fa' ? 'راه‌حل‌های نوآورانه' : 'حلول مبتكرة'
-    },
-    {
-      icon: <Award className="h-7 w-7" />,
-      value: '4+',
-      label: language === 'en' ? 'Countries' : 
-             language === 'tr' ? 'Ülkeler' :
-             language === 'fa' ? 'کشورها' : 'البلدان',
-      description: language === 'en' ? 'Global presence' :
-                   language === 'tr' ? 'Küresel varlık' :
-                   language === 'fa' ? 'حضور جهانی' : 'حضور عالمي'
+      description: language === 'en' ? 'Across AI, commerce and education' :
+                   language === 'tr' ? 'Yapay zeka, ticaret ve eğitim alanlarında' :
+                   language === 'fa' ? 'در حوزه هوش مصنوعی، تجارت و آموزش' : 'عبر الذكاء الاصطناعي والتجارة والتعليم'
     }
   ];
 

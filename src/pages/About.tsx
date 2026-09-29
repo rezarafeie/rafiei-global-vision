@@ -209,30 +209,78 @@ const About = () => {
   // Impact stats translations
   const impactStatsData = {
     en: [
-      { value: '40K+', label: 'Educated Users' },
-      { value: '15+', label: 'AI-First Platforms' },
-      { value: '300K+', label: 'Community Members' },
-      { value: '4+', label: 'Countries Served' }
+      { value: '282K+', label: 'Personal Audience' },
+      { value: '30K+', label: 'Academy Students' },
+      { value: '11K+', label: 'AI School Learners' },
+      { value: '18+', label: 'Digital Products' }
     ],
     fa: [
-      { value: '+۴۰ هزار', label: 'کاربر آموزش‌دیده' },
-      { value: '+۱۵', label: 'پلتفرم مبتنی بر هوش مصنوعی' },
-      { value: '+۳۰۰ هزار', label: 'عضو جامعه' },
-      { value: '+۴', label: 'کشور تحت پوشش' }
+      { value: '+۲۸۲ هزار', label: 'مخاطب شخصی' },
+      { value: '+۳۰ هزار', label: 'دانشجوی آکادمی' },
+      { value: '+۱۱ هزار', label: 'یادگیرنده مدرسه هوش مصنوعی' },
+      { value: '+۱۸', label: 'محصول دیجیتال' }
     ],
     ar: [
-      { value: '+40 ألف', label: 'مستخدم متعلم' },
-      { value: '+15', label: 'منصة ذكاء اصطناعي' },
-      { value: '+300 ألف', label: 'عضو مجتمع' },
-      { value: '+4', label: 'دول مخدومة' }
+      { value: '+282 ألف', label: 'الجمهور الشخصي' },
+      { value: '+30 ألف', label: 'طلاب الأكاديمية' },
+      { value: '+11 ألف', label: 'متعلمو مدرسة الذكاء الاصطناعي' },
+      { value: '+18', label: 'منتج رقمي' }
     ],
     tr: [
-      { value: '40B+', label: 'Eğitimli Kullanıcı' },
-      { value: '15+', label: 'Yapay Zeka Öncelikli Platform' },
-      { value: '300B+', label: 'Topluluk Üyesi' },
-      { value: '4+', label: 'Hizmet Verilen Ülke' }
+      { value: '282B+', label: 'Kişisel Kitle' },
+      { value: '30B+', label: 'Akademi Öğrencisi' },
+      { value: '11B+', label: 'Yapay Zeka Okulu Öğrencisi' },
+      { value: '18+', label: 'Dijital Ürün' }
     ]
   };
+
+  // Career history from the official investor profile
+  const careerData = [
+    { company: 'Rafiei Group / Rafiei Academy', role: { en: 'Founder & CEO', fa: 'بنیان‌گذار و مدیرعامل', ar: 'المؤسس والرئيس التنفيذي', tr: 'Kurucu ve CEO' }, period: 'Present' },
+    { company: 'Ashkan Horiyat Academy', role: { en: 'Business Coach · CTO · CMO', fa: 'کوچ کسب‌وکار · CTO · CMO', ar: 'مدرب أعمال · CTO · CMO', tr: 'İş Koçu · CTO · CMO' }, period: 'Present' },
+    { company: 'Amir Bayat Finance Academy', role: { en: 'Business Coach', fa: 'کوچ کسب‌وکار', ar: 'مدرب أعمال', tr: 'İş Koçu' }, period: '2023–2024' },
+    { company: 'Alkhail Real Estate Broker', role: { en: 'Digital Marketing Manager', fa: 'مدیر دیجیتال مارکتینگ', ar: 'مدير التسويق الرقمي', tr: 'Dijital Pazarlama Müdürü' }, period: '2023–2024' },
+    { company: 'Masir Sefid Academy', role: { en: 'Business Coach', fa: 'کوچ کسب‌وکار', ar: 'مدرب أعمال', tr: 'İş Koçu' }, period: '2023–2024' },
+    { company: 'OE Real Estate Academy', role: { en: 'Digital Marketing Mentor', fa: 'منتور دیجیتال مارکتینگ', ar: 'موجه التسويق الرقمي', tr: 'Dijital Pazarlama Mentoru' }, period: '2019–2024' },
+    { company: 'Magnet Digital Marketing Agency', role: { en: 'Founder & Marketing Manager', fa: 'بنیان‌گذار و مدیر مارکتینگ', ar: 'المؤسس ومدير التسويق', tr: 'Kurucu ve Pazarlama Müdürü' }, period: '2021–2023' },
+    { company: 'Bishtar Az Yek Academy', role: { en: 'Digital Marketing Manager', fa: 'مدیر دیجیتال مارکتینگ', ar: 'مدير التسويق الرقمي', tr: 'Dijital Pazarlama Müdürü' }, period: '2021–2022' },
+    { company: 'Dr Nekouei Holding', role: { en: 'Business Coach', fa: 'کوچ کسب‌وکار', ar: 'مدرب أعمال', tr: 'İş Koçu' }, period: '2021–2022' },
+    { company: 'Reza Shirazi Finance Academy', role: { en: 'Digital Marketing Manager', fa: 'مدیر دیجیتال مارکتینگ', ar: 'مدير التسويق الرقمي', tr: 'Dijital Pazarlama Müdürü' }, period: '2021–2022' },
+    { company: 'Libertas Finance', role: { en: 'CTO', fa: 'مدیر ارشد فناوری', ar: 'المدير التقني', tr: 'CTO' }, period: 'Until 2022' },
+    { company: 'Ladyboss Holding', role: { en: 'Marketing Consultant', fa: 'مشاور مارکتینگ', ar: 'مستشار تسويق', tr: 'Pazarlama Danışmanı' }, period: '2019–Present' },
+    { company: 'AmoozeshForex Academy', role: { en: 'Marketing Consultant', fa: 'مشاور مارکتینگ', ar: 'مستشار تسويق', tr: 'Pazarlama Danışmanı' }, period: '2019–Present' },
+    { company: 'Iran Business Coaching', role: { en: 'Digital Marketing Manager', fa: 'مدیر دیجیتال مارکتینگ', ar: 'مدير التسويق الرقمي', tr: 'Dijital Pazarlama Müdürü' }, period: '2019–2021' },
+    { company: 'Behtam Construction', role: { en: 'Digital Marketing Manager', fa: 'مدیر دیجیتال مارکتینگ', ar: 'مدير التسويق الرقمي', tr: 'Dijital Pazarlama Müdürü' }, period: '2017–2019' }
+  ];
+
+  const awardsData = [
+    { en: 'Best Speaker Award — Pendar Holding, 2021', fa: 'جایزه بهترین سخنران — هلدینگ پندار، ۲۰۲۱', ar: 'جائزة أفضل متحدث — بندار هولدينغ، 2021', tr: 'En İyi Konuşmacı Ödülü — Pendar Holding, 2021' },
+    { en: 'Best Webmaster Award — Hamyar Academy, 2018', fa: 'جایزه بهترین وبمستر — آکادمی همیار، ۲۰۱۸', ar: 'جائزة أفضل مشرف موقع — أكاديمية همیار، 2018', tr: 'En İyi Webmaster Ödülü — Hamyar Academy, 2018' },
+    { en: 'Best Website Award — Iran Web & Mobile Festival, 2018', fa: 'جایزه بهترین وب‌سایت — جشنواره وب و موبایل ایران، ۲۰۱۸', ar: 'جائزة أفضل موقع — مهرجان إيران للويب والموبايل، 2018', tr: 'En İyi Web Sitesi Ödülü — İran Web ve Mobil Festivali, 2018' }
+  ];
+
+  const corporateData = [
+    {
+      name: 'RAFIEI LTD — United Kingdom',
+      tag: 'UK ENTITY',
+      desc: {
+        en: 'UK private limited company incorporated in London in July 2023, providing a formal international base for commerce, online business and education activities.',
+        fa: 'شرکت بریتانیایی ثبت‌شده در لندن در جولای ۲۰۲۳ که بستر رسمی بین‌المللی برای تجارت، سرویس‌های آنلاین و فعالیت‌های آموزشی گروه فراهم می‌کند.',
+        ar: 'شركة بريطانية محدودة مسجلة في لندن في يوليو 2023، توفر قاعدة دولية رسمية للتجارة والأعمال عبر الإنترنت والأنشطة التعليمية.',
+        tr: 'Temmuz 2023\'te Londra\'da kurulan, ticaret, çevrimiçi iş ve eğitim faaliyetleri için resmi uluslararası bir temel sağlayan İngiliz limited şirketi.'
+      }
+    },
+    {
+      name: 'Rafih Rafih Project — UAE',
+      tag: 'UAE PRESENCE',
+      desc: {
+        en: 'UAE company/project supporting the group\'s regional presence, partnerships and operating activities across the Emirates and wider GCC market.',
+        fa: 'پروژه/ساختار شرکتی در امارات برای توسعه حضور منطقه‌ای، همکاری‌ها و فعالیت‌های عملیاتی گروه در امارات و بازارهای بین‌المللی.',
+        ar: 'شركة/مشروع في الإمارات يدعم الحضور الإقليمي للمجموعة والشراكات والأنشطة التشغيلية عبر الإمارات وسوق الخليج.',
+        tr: 'Grubun Emirlikler ve daha geniş Körfez pazarındaki bölgesel varlığını, ortaklıklarını ve operasyonel faaliyetlerini destekleyen BAE şirketi/projesi.'
+      }
+    }
+  ];
 
   // Vision points translations
   const visionPointsData = {
@@ -311,7 +359,7 @@ const About = () => {
       { year: '2021', title: 'Financial Services', description: 'Introduced payment and financial infrastructure to enable borderless business operations.' },
       { year: '2022', title: 'AI Innovation', description: 'Launched AI-powered educational tools, Synapse, and intelligent business assistants.' },
       { year: '2023', title: 'Cloud Infrastructure', description: 'Released Rafiei Cloud and Builder, enabling rapid application development.' },
-      { year: '2024', title: 'Ecosystem Maturity', description: 'Full ecosystem integration achieved with 15+ interconnected platforms serving global users.' }
+      { year: '2024', title: 'Ecosystem Maturity', description: 'Full ecosystem integration achieved with 18+ interconnected platforms serving global users.' }
     ],
     fa: [
       { year: '۲۰۱۸', title: 'تأسیس', description: 'گروه رفیعی با چشم‌انداز توانمندسازی افراد از طریق آموزش و فناوری تأسیس شد.' },
@@ -320,7 +368,7 @@ const About = () => {
       { year: '۲۰۲۱', title: 'خدمات مالی', description: 'زیرساخت پرداخت و مالی برای امکان فعالیت‌های تجاری بدون مرز معرفی شد.' },
       { year: '۲۰۲۲', title: 'نوآوری هوش مصنوعی', description: 'ابزارهای آموزشی مبتنی بر هوش مصنوعی، سیناپس و دستیاران تجاری هوشمند راه‌اندازی شدند.' },
       { year: '۲۰۲۳', title: 'زیرساخت ابری', description: 'رفیعی کلاود و بیلدر منتشر شدند و توسعه سریع برنامه‌ها را امکان‌پذیر کردند.' },
-      { year: '۲۰۲۴', title: 'بلوغ اکوسیستم', description: 'یکپارچگی کامل اکوسیستم با بیش از ۱۵ پلتفرم متصل که به کاربران جهانی خدمت می‌دهند، محقق شد.' }
+      { year: '۲۰۲۴', title: 'بلوغ اکوسیستم', description: 'یکپارچگی کامل اکوسیستم با بیش از ۱۸ پلتفرم متصل که به کاربران جهانی خدمت می‌دهند، محقق شد.' }
     ],
     ar: [
       { year: '2018', title: 'التأسيس', description: 'تأسست مجموعة رفيعي برؤية لتمكين الأفراد من خلال التعليم والتكنولوجيا.' },
@@ -329,7 +377,7 @@ const About = () => {
       { year: '2021', title: 'الخدمات المالية', description: 'قُدمت البنية التحتية للدفع والمالية لتمكين العمليات التجارية بلا حدود.' },
       { year: '2022', title: 'ابتكار الذكاء الاصطناعي', description: 'أُطلقت أدوات تعليمية مدعومة بالذكاء الاصطناعي، وسينابس، ومساعدين أعمال أذكياء.' },
       { year: '2023', title: 'البنية التحتية السحابية', description: 'أُصدر رفيعي كلاود وبيلدر، مما يتيح التطوير السريع للتطبيقات.' },
-      { year: '2024', title: 'نضج النظام البيئي', description: 'تم تحقيق التكامل الكامل للنظام البيئي مع أكثر من 15 منصة مترابطة تخدم المستخدمين العالميين.' }
+      { year: '2024', title: 'نضج النظام البيئي', description: 'تم تحقيق التكامل الكامل للنظام البيئي مع أكثر من 18 منصة مترابطة تخدم المستخدمين العالميين.' }
     ],
     tr: [
       { year: '2018', title: 'Kuruluş', description: 'Rafiei Group, eğitim ve teknoloji aracılığıyla bireyleri güçlendirme vizyonuyla kuruldu.' },
@@ -338,7 +386,7 @@ const About = () => {
       { year: '2021', title: 'Finansal Hizmetler', description: 'Sınırsız iş operasyonlarını mümkün kılmak için ödeme ve finansal altyapı tanıtıldı.' },
       { year: '2022', title: 'Yapay Zeka İnovasyonu', description: 'Yapay zeka destekli eğitim araçları, Synapse ve akıllı iş asistanları başlatıldı.' },
       { year: '2023', title: 'Bulut Altyapısı', description: 'Hızlı uygulama geliştirmeyi sağlayan Rafiei Cloud ve Builder yayınlandı.' },
-      { year: '2024', title: 'Ekosistem Olgunluğu', description: 'Küresel kullanıcılara hizmet veren 15\'ten fazla birbirine bağlı platformla tam ekosistem entegrasyonu sağlandı.' }
+      { year: '2024', title: 'Ekosistem Olgunluğu', description: 'Küresel kullanıcılara hizmet veren 18\'den fazla birbirine bağlı platformla tam ekosistem entegrasyonu sağlandı.' }
     ]
   };
 
@@ -808,6 +856,93 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Corporate Presence, Career & Recognition */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-foreground ${isRTL ? 'font-vazir' : 'font-display'}`}>
+                {language === 'fa' ? 'حضور شرکتی و سوابق حرفه‌ای' : language === 'ar' ? 'الحضور المؤسسي والسيرة المهنية' : language === 'tr' ? 'Kurumsal Varlık ve Kariyer' : 'Corporate Presence & Career'}
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                {language === 'fa' ? 'ساختار رسمی بین‌المللی گروه و نقش‌های اجرایی رضا رفیعی.' : language === 'ar' ? 'الهيكل الدولي الرسمي للمجموعة والأدوار التنفيذية لرضا رفيعي.' : language === 'tr' ? 'Grubun resmi uluslararası yapısı ve Reza Rafiei\'nin yönetici rolleri.' : 'The group\'s formal international structure and Reza Rafiei\'s operating roles.'}
+              </p>
+            </motion.div>
+
+            {/* Corporate entities */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+              {corporateData.map((entity, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Card className={`p-6 h-full border-border/50 bg-card ${isRTL ? 'text-right font-vazir' : ''}`}>
+                    <div className={`flex items-center gap-3 mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                        <Globe className="h-6 w-6" />
+                      </div>
+                      <span className="text-xs font-bold tracking-wider text-primary">{entity.tag}</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">{entity.name}</h3>
+                    <p className="text-muted-foreground">{entity.desc[language] || entity.desc.en}</p>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Career history */}
+            <h3 className={`text-2xl font-bold text-foreground mb-6 ${isRTL ? 'text-right font-vazir' : ''}`}>
+              {language === 'fa' ? 'سوابق حرفه‌ای و نقش‌های اجرایی' : language === 'ar' ? 'الخبرات المهنية والأدوار التنفيذية' : language === 'tr' ? 'Profesyonel Deneyim ve Yönetici Roller' : 'Professional Experience & Operating Roles'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
+              {careerData.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: Math.min(index * 0.04, 0.4) }}
+                  className={`p-5 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all ${isRTL ? 'text-right font-vazir' : ''}`}
+                >
+                  <div className={`flex items-start justify-between gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <div>
+                      <h4 className="font-bold text-foreground">{item.company}</h4>
+                      <p className="text-sm text-primary mt-1">{item.role[language] || item.role.en}</p>
+                    </div>
+                    <span className="text-xs text-muted-foreground whitespace-nowrap mt-1">{item.period}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Recognition */}
+            <h3 className={`text-2xl font-bold text-foreground mb-6 ${isRTL ? 'text-right font-vazir' : ''}`}>
+              {language === 'fa' ? 'افتخارات' : language === 'ar' ? 'التكريمات' : language === 'tr' ? 'Ödüller' : 'Recognition'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {awardsData.map((award, index) => (
+                <div
+                  key={index}
+                  className={`p-5 rounded-xl bg-card border border-border/50 flex items-start gap-3 ${isRTL ? 'flex-row-reverse text-right font-vazir' : ''}`}
+                >
+                  <Award className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">{award[language] || award.en}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* Ecosystem Platforms - Interactive Tabs */}
       <section className="py-24">
