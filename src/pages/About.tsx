@@ -209,30 +209,78 @@ const About = () => {
   // Impact stats translations
   const impactStatsData = {
     en: [
-      { value: '40K+', label: 'Educated Users' },
-      { value: '15+', label: 'AI-First Platforms' },
-      { value: '300K+', label: 'Community Members' },
-      { value: '4+', label: 'Countries Served' }
+      { value: '282K+', label: 'Personal Audience' },
+      { value: '30K+', label: 'Academy Students' },
+      { value: '11K+', label: 'AI School Learners' },
+      { value: '18+', label: 'Digital Products' }
     ],
     fa: [
-      { value: '+۴۰ هزار', label: 'کاربر آموزش‌دیده' },
-      { value: '+۱۵', label: 'پلتفرم مبتنی بر هوش مصنوعی' },
-      { value: '+۳۰۰ هزار', label: 'عضو جامعه' },
-      { value: '+۴', label: 'کشور تحت پوشش' }
+      { value: '+۲۸۲ هزار', label: 'مخاطب شخصی' },
+      { value: '+۳۰ هزار', label: 'دانشجوی آکادمی' },
+      { value: '+۱۱ هزار', label: 'یادگیرنده مدرسه هوش مصنوعی' },
+      { value: '+۱۸', label: 'محصول دیجیتال' }
     ],
     ar: [
-      { value: '+40 ألف', label: 'مستخدم متعلم' },
-      { value: '+15', label: 'منصة ذكاء اصطناعي' },
-      { value: '+300 ألف', label: 'عضو مجتمع' },
-      { value: '+4', label: 'دول مخدومة' }
+      { value: '+282 ألف', label: 'الجمهور الشخصي' },
+      { value: '+30 ألف', label: 'طلاب الأكاديمية' },
+      { value: '+11 ألف', label: 'متعلمو مدرسة الذكاء الاصطناعي' },
+      { value: '+18', label: 'منتج رقمي' }
     ],
     tr: [
-      { value: '40B+', label: 'Eğitimli Kullanıcı' },
-      { value: '15+', label: 'Yapay Zeka Öncelikli Platform' },
-      { value: '300B+', label: 'Topluluk Üyesi' },
-      { value: '4+', label: 'Hizmet Verilen Ülke' }
+      { value: '282B+', label: 'Kişisel Kitle' },
+      { value: '30B+', label: 'Akademi Öğrencisi' },
+      { value: '11B+', label: 'Yapay Zeka Okulu Öğrencisi' },
+      { value: '18+', label: 'Dijital Ürün' }
     ]
   };
+
+  // Career history from the official investor profile
+  const careerData = [
+    { company: 'Rafiei Group / Rafiei Academy', role: { en: 'Founder & CEO', fa: 'بنیان‌گذار و مدیرعامل', ar: 'المؤسس والرئيس التنفيذي', tr: 'Kurucu ve CEO' }, period: 'Present' },
+    { company: 'Ashkan Horiyat Academy', role: { en: 'Business Coach · CTO · CMO', fa: 'کوچ کسب‌وکار · CTO · CMO', ar: 'مدرب أعمال · CTO · CMO', tr: 'İş Koçu · CTO · CMO' }, period: 'Present' },
+    { company: 'Amir Bayat Finance Academy', role: { en: 'Business Coach', fa: 'کوچ کسب‌وکار', ar: 'مدرب أعمال', tr: 'İş Koçu' }, period: '2023–2024' },
+    { company: 'Alkhail Real Estate Broker', role: { en: 'Digital Marketing Manager', fa: 'مدیر دیجیتال مارکتینگ', ar: 'مدير التسويق الرقمي', tr: 'Dijital Pazarlama Müdürü' }, period: '2023–2024' },
+    { company: 'Masir Sefid Academy', role: { en: 'Business Coach', fa: 'کوچ کسب‌وکار', ar: 'مدرب أعمال', tr: 'İş Koçu' }, period: '2023–2024' },
+    { company: 'OE Real Estate Academy', role: { en: 'Digital Marketing Mentor', fa: 'منتور دیجیتال مارکتینگ', ar: 'موجه التسويق الرقمي', tr: 'Dijital Pazarlama Mentoru' }, period: '2019–2024' },
+    { company: 'Magnet Digital Marketing Agency', role: { en: 'Founder & Marketing Manager', fa: 'بنیان‌گذار و مدیر مارکتینگ', ar: 'المؤسس ومدير التسويق', tr: 'Kurucu ve Pazarlama Müdürü' }, period: '2021–2023' },
+    { company: 'Bishtar Az Yek Academy', role: { en: 'Digital Marketing Manager', fa: 'مدیر دیجیتال مارکتینگ', ar: 'مدير التسويق الرقمي', tr: 'Dijital Pazarlama Müdürü' }, period: '2021–2022' },
+    { company: 'Dr Nekouei Holding', role: { en: 'Business Coach', fa: 'کوچ کسب‌وکار', ar: 'مدرب أعمال', tr: 'İş Koçu' }, period: '2021–2022' },
+    { company: 'Reza Shirazi Finance Academy', role: { en: 'Digital Marketing Manager', fa: 'مدیر دیجیتال مارکتینگ', ar: 'مدير التسويق الرقمي', tr: 'Dijital Pazarlama Müdürü' }, period: '2021–2022' },
+    { company: 'Libertas Finance', role: { en: 'CTO', fa: 'مدیر ارشد فناوری', ar: 'المدير التقني', tr: 'CTO' }, period: 'Until 2022' },
+    { company: 'Ladyboss Holding', role: { en: 'Marketing Consultant', fa: 'مشاور مارکتینگ', ar: 'مستشار تسويق', tr: 'Pazarlama Danışmanı' }, period: '2019–Present' },
+    { company: 'AmoozeshForex Academy', role: { en: 'Marketing Consultant', fa: 'مشاور مارکتینگ', ar: 'مستشار تسويق', tr: 'Pazarlama Danışmanı' }, period: '2019–Present' },
+    { company: 'Iran Business Coaching', role: { en: 'Digital Marketing Manager', fa: 'مدیر دیجیتال مارکتینگ', ar: 'مدير التسويق الرقمي', tr: 'Dijital Pazarlama Müdürü' }, period: '2019–2021' },
+    { company: 'Behtam Construction', role: { en: 'Digital Marketing Manager', fa: 'مدیر دیجیتال مارکتینگ', ar: 'مدير التسويق الرقمي', tr: 'Dijital Pazarlama Müdürü' }, period: '2017–2019' }
+  ];
+
+  const awardsData = [
+    { en: 'Best Speaker Award — Pendar Holding, 2021', fa: 'جایزه بهترین سخنران — هلدینگ پندار، ۲۰۲۱', ar: 'جائزة أفضل متحدث — بندار هولدينغ، 2021', tr: 'En İyi Konuşmacı Ödülü — Pendar Holding, 2021' },
+    { en: 'Best Webmaster Award — Hamyar Academy, 2018', fa: 'جایزه بهترین وبمستر — آکادمی همیار، ۲۰۱۸', ar: 'جائزة أفضل مشرف موقع — أكاديمية همیار، 2018', tr: 'En İyi Webmaster Ödülü — Hamyar Academy, 2018' },
+    { en: 'Best Website Award — Iran Web & Mobile Festival, 2018', fa: 'جایزه بهترین وب‌سایت — جشنواره وب و موبایل ایران، ۲۰۱۸', ar: 'جائزة أفضل موقع — مهرجان إيران للويب والموبايل، 2018', tr: 'En İyi Web Sitesi Ödülü — İran Web ve Mobil Festivali, 2018' }
+  ];
+
+  const corporateData = [
+    {
+      name: 'RAFIEI LTD — United Kingdom',
+      tag: 'UK ENTITY',
+      desc: {
+        en: 'UK private limited company incorporated in London in July 2023, providing a formal international base for commerce, online business and education activities.',
+        fa: 'شرکت بریتانیایی ثبت‌شده در لندن در جولای ۲۰۲۳ که بستر رسمی بین‌المللی برای تجارت، سرویس‌های آنلاین و فعالیت‌های آموزشی گروه فراهم می‌کند.',
+        ar: 'شركة بريطانية محدودة مسجلة في لندن في يوليو 2023، توفر قاعدة دولية رسمية للتجارة والأعمال عبر الإنترنت والأنشطة التعليمية.',
+        tr: 'Temmuz 2023\'te Londra\'da kurulan, ticaret, çevrimiçi iş ve eğitim faaliyetleri için resmi uluslararası bir temel sağlayan İngiliz limited şirketi.'
+      }
+    },
+    {
+      name: 'Rafih Rafih Project — UAE',
+      tag: 'UAE PRESENCE',
+      desc: {
+        en: 'UAE company/project supporting the group\'s regional presence, partnerships and operating activities across the Emirates and wider GCC market.',
+        fa: 'پروژه/ساختار شرکتی در امارات برای توسعه حضور منطقه‌ای، همکاری‌ها و فعالیت‌های عملیاتی گروه در امارات و بازارهای بین‌المللی.',
+        ar: 'شركة/مشروع في الإمارات يدعم الحضور الإقليمي للمجموعة والشراكات والأنشطة التشغيلية عبر الإمارات وسوق الخليج.',
+        tr: 'Grubun Emirlikler ve daha geniş Körfez pazarındaki bölgesel varlığını, ortaklıklarını ve operasyonel faaliyetlerini destekleyen BAE şirketi/projesi.'
+      }
+    }
+  ];
 
   // Vision points translations
   const visionPointsData = {
