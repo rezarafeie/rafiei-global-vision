@@ -359,7 +359,7 @@ const About = () => {
       { year: '2021', title: 'Financial Services', description: 'Introduced payment and financial infrastructure to enable borderless business operations.' },
       { year: '2022', title: 'AI Innovation', description: 'Launched AI-powered educational tools, Synapse, and intelligent business assistants.' },
       { year: '2023', title: 'Cloud Infrastructure', description: 'Released Rafiei Cloud and Builder, enabling rapid application development.' },
-      { year: '2024', title: 'Ecosystem Maturity', description: 'Full ecosystem integration achieved with 15+ interconnected platforms serving global users.' }
+      { year: '2024', title: 'Ecosystem Maturity', description: 'Full ecosystem integration achieved with 18+ interconnected platforms serving global users.' }
     ],
     fa: [
       { year: '۲۰۱۸', title: 'تأسیس', description: 'گروه رفیعی با چشم‌انداز توانمندسازی افراد از طریق آموزش و فناوری تأسیس شد.' },
@@ -368,7 +368,7 @@ const About = () => {
       { year: '۲۰۲۱', title: 'خدمات مالی', description: 'زیرساخت پرداخت و مالی برای امکان فعالیت‌های تجاری بدون مرز معرفی شد.' },
       { year: '۲۰۲۲', title: 'نوآوری هوش مصنوعی', description: 'ابزارهای آموزشی مبتنی بر هوش مصنوعی، سیناپس و دستیاران تجاری هوشمند راه‌اندازی شدند.' },
       { year: '۲۰۲۳', title: 'زیرساخت ابری', description: 'رفیعی کلاود و بیلدر منتشر شدند و توسعه سریع برنامه‌ها را امکان‌پذیر کردند.' },
-      { year: '۲۰۲۴', title: 'بلوغ اکوسیستم', description: 'یکپارچگی کامل اکوسیستم با بیش از ۱۵ پلتفرم متصل که به کاربران جهانی خدمت می‌دهند، محقق شد.' }
+      { year: '۲۰۲۴', title: 'بلوغ اکوسیستم', description: 'یکپارچگی کامل اکوسیستم با بیش از ۱۸ پلتفرم متصل که به کاربران جهانی خدمت می‌دهند، محقق شد.' }
     ],
     ar: [
       { year: '2018', title: 'التأسيس', description: 'تأسست مجموعة رفيعي برؤية لتمكين الأفراد من خلال التعليم والتكنولوجيا.' },
@@ -377,7 +377,7 @@ const About = () => {
       { year: '2021', title: 'الخدمات المالية', description: 'قُدمت البنية التحتية للدفع والمالية لتمكين العمليات التجارية بلا حدود.' },
       { year: '2022', title: 'ابتكار الذكاء الاصطناعي', description: 'أُطلقت أدوات تعليمية مدعومة بالذكاء الاصطناعي، وسينابس، ومساعدين أعمال أذكياء.' },
       { year: '2023', title: 'البنية التحتية السحابية', description: 'أُصدر رفيعي كلاود وبيلدر، مما يتيح التطوير السريع للتطبيقات.' },
-      { year: '2024', title: 'نضج النظام البيئي', description: 'تم تحقيق التكامل الكامل للنظام البيئي مع أكثر من 15 منصة مترابطة تخدم المستخدمين العالميين.' }
+      { year: '2024', title: 'نضج النظام البيئي', description: 'تم تحقيق التكامل الكامل للنظام البيئي مع أكثر من 18 منصة مترابطة تخدم المستخدمين العالميين.' }
     ],
     tr: [
       { year: '2018', title: 'Kuruluş', description: 'Rafiei Group, eğitim ve teknoloji aracılığıyla bireyleri güçlendirme vizyonuyla kuruldu.' },
