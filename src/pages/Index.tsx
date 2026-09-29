@@ -7,7 +7,8 @@ import {
   ArrowRight, Users, Globe, Star, Brain, TrendingUp, Zap, BookOpen, 
   Network, Briefcase, CreditCard, Podcast, Wallet, Shield, Newspaper, 
   Layers, GraduationCap, Forward, Cloud, Hammer, PhoneCall, Flower2,
-  Sparkles, Target, Lightbulb, Rocket, CheckCircle, Award, Heart
+  Sparkles, Target, Lightbulb, Rocket, CheckCircle, Award, Heart,
+  Clapperboard, Package, ShoppingCart, Salad, Bot
 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { BRAND } from '@/constants/brand';
@@ -49,6 +50,11 @@ const Index = () => {
     Shield: <Shield className="h-6 w-6" />,
     Newspaper: <Newspaper className="h-6 w-6" />,
     Layers: <Layers className="h-6 w-6" />,
+    Clapperboard: <Clapperboard className="h-6 w-6" />,
+    Package: <Package className="h-6 w-6" />,
+    ShoppingCart: <ShoppingCart className="h-6 w-6" />,
+    Salad: <Salad className="h-6 w-6" />,
+    Bot: <Bot className="h-6 w-6" />,
   };
 
   const services = BRAND.products
