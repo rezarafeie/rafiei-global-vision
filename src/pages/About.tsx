@@ -959,36 +959,45 @@ const About = () => {
                     transition={{ duration: 0.3 }}
                   >
                     {category.platforms.map((platform, index) => (
-                      <Card 
+                      <a
                         key={index}
-                        className="p-6 border-border/50 bg-card hover:border-primary/30 transition-all group hover:shadow-lg"
+                        href={platform.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
                       >
-                        <div className="flex items-start gap-4 mb-4">
-                          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 group-hover:scale-110 transition-all">
-                            {platform.icon}
+                        <Card 
+                          className="p-6 h-full border-border/50 bg-card hover:border-primary/30 transition-all group hover:shadow-lg"
+                        >
+                          <div className="flex items-start gap-4 mb-4">
+                            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 group-hover:scale-110 transition-all">
+                              {platform.icon}
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="text-xl font-bold text-foreground mb-1">{platform.name}</h3>
+                              <p className="text-sm text-muted-foreground line-clamp-2">{platform.description}</p>
+                            </div>
                           </div>
-                          <div className="flex-1">
-                            <h3 className="text-xl font-bold text-foreground mb-1">{platform.name}</h3>
-                            <p className="text-sm text-muted-foreground line-clamp-2">{platform.description}</p>
+                          
+                          {platform.features.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mb-4">
+                              {platform.features.slice(0, 4).map((feature, idx) => (
+                                <span 
+                                  key={idx}
+                                  className="px-3 py-1 rounded-full text-xs bg-muted text-muted-foreground"
+                                >
+                                  {feature}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                          
+                          <div className="flex items-center gap-2 text-sm text-primary">
+                            <ChevronRight className={`h-4 w-4 ${isRTL ? 'rotate-180' : ''}`} />
+                            <span className="line-clamp-1">{platform.highlight}</span>
                           </div>
-                        </div>
-                        
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {platform.features.slice(0, 4).map((feature, idx) => (
-                            <span 
-                              key={idx}
-                              className="px-3 py-1 rounded-full text-xs bg-muted text-muted-foreground"
-                            >
-                              {feature}
-                            </span>
-                          ))}
-                        </div>
-                        
-                        <div className="flex items-center gap-2 text-sm text-primary">
-                          <ChevronRight className="h-4 w-4" />
-                          <span className="line-clamp-1">{platform.highlight}</span>
-                        </div>
-                      </Card>
+                        </Card>
+                      </a>
                     ))}
                   </motion.div>
                 </TabsContent>
