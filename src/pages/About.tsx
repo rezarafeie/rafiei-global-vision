@@ -857,6 +857,93 @@ const About = () => {
         </div>
       </section>
 
+      {/* Corporate Presence, Career & Recognition */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-foreground ${isRTL ? 'font-vazir' : 'font-display'}`}>
+                {language === 'fa' ? 'حضور شرکتی و سوابق حرفه‌ای' : language === 'ar' ? 'الحضور المؤسسي والسيرة المهنية' : language === 'tr' ? 'Kurumsal Varlık ve Kariyer' : 'Corporate Presence & Career'}
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                {language === 'fa' ? 'ساختار رسمی بین‌المللی گروه و نقش‌های اجرایی رضا رفیعی.' : language === 'ar' ? 'الهيكل الدولي الرسمي للمجموعة والأدوار التنفيذية لرضا رفيعي.' : language === 'tr' ? 'Grubun resmi uluslararası yapısı ve Reza Rafiei\'nin yönetici rolleri.' : 'The group\'s formal international structure and Reza Rafiei\'s operating roles.'}
+              </p>
+            </motion.div>
+
+            {/* Corporate entities */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+              {corporateData.map((entity, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Card className={`p-6 h-full border-border/50 bg-card ${isRTL ? 'text-right font-vazir' : ''}`}>
+                    <div className={`flex items-center gap-3 mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                        <Globe className="h-6 w-6" />
+                      </div>
+                      <span className="text-xs font-bold tracking-wider text-primary">{entity.tag}</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">{entity.name}</h3>
+                    <p className="text-muted-foreground">{entity.desc[language] || entity.desc.en}</p>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Career history */}
+            <h3 className={`text-2xl font-bold text-foreground mb-6 ${isRTL ? 'text-right font-vazir' : ''}`}>
+              {language === 'fa' ? 'سوابق حرفه‌ای و نقش‌های اجرایی' : language === 'ar' ? 'الخبرات المهنية والأدوار التنفيذية' : language === 'tr' ? 'Profesyonel Deneyim ve Yönetici Roller' : 'Professional Experience & Operating Roles'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
+              {careerData.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: Math.min(index * 0.04, 0.4) }}
+                  className={`p-5 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all ${isRTL ? 'text-right font-vazir' : ''}`}
+                >
+                  <div className={`flex items-start justify-between gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <div>
+                      <h4 className="font-bold text-foreground">{item.company}</h4>
+                      <p className="text-sm text-primary mt-1">{item.role[language] || item.role.en}</p>
+                    </div>
+                    <span className="text-xs text-muted-foreground whitespace-nowrap mt-1">{item.period}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Recognition */}
+            <h3 className={`text-2xl font-bold text-foreground mb-6 ${isRTL ? 'text-right font-vazir' : ''}`}>
+              {language === 'fa' ? 'افتخارات' : language === 'ar' ? 'التكريمات' : language === 'tr' ? 'Ödüller' : 'Recognition'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {awardsData.map((award, index) => (
+                <div
+                  key={index}
+                  className={`p-5 rounded-xl bg-card border border-border/50 flex items-start gap-3 ${isRTL ? 'flex-row-reverse text-right font-vazir' : ''}`}
+                >
+                  <Award className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">{award[language] || award.en}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* Ecosystem Platforms - Interactive Tabs */}
       <section className="py-24">
         <div className="container mx-auto px-6">
